@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>br.ufba</groupId>
+  <artifactId>chaves.parent</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>Chaves Project</name>
+  <description>Key Control Project, academic work of subject MATA63 - Software Engineering II, Department of Computer Science, Federal University of Bahia.</description>
+  <modules>
+    <module>chaves.domain</module>
+    <module>chaves.application</module>
+  </modules>
+</project>
