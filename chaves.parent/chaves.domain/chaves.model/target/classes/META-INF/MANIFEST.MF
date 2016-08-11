@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Implementation-Title: chaves.domain
+Implementation-Title: chaves.model
 Implementation-Version: 0.0.1-SNAPSHOT
 Built-By: icaro.barreiro
 Implementation-Vendor-Id: br.ufba

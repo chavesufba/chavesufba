@@ -4,12 +4,11 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>br.ufba</groupId>
-    <artifactId>chaves.parent</artifactId>
+    <artifactId>chaves.domain</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>chaves.domain</artifactId>
-  <packaging>pom</packaging>
-  <name>chaves.domain</name>
+  <artifactId>chaves.model</artifactId>
+  <name>chaves.model</name>
   <url>http://maven.apache.org</url>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -21,7 +20,4 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
-  <modules>
-  	<module>chaves.model</module>
-  </modules>
 </project>
