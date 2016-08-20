@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Chaves IME</string>
+    <string name="matricula">Matrícula</string>
+    <string name="senha">Senha</string>
+    <string name="login">Login</string>
+    <string name="preenchaCorretamente">Por favor, preencha os campos Matrícula e Senha corretamente.</string>
+    <string name="usuarioNaoCadastrado">Usuário não cadastrado.</string>
 </resources>
