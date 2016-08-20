@@ -21,6 +21,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Theme style -->
   <link rel="stylesheet" href="../dist/css/AdminLTE.min.css">
   <link rel="stylesheet" href="../dist/css/skins/skin-blue.min.css">
+  <!-- Bootstrap time Picker -->
+  <link rel="stylesheet" href="../plugins/timepicker/bootstrap-timepicker.min.css">
+
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
@@ -109,6 +112,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </section>
 
     <!-- Main content -->
+
+
     <section class="content">
         <div class="row">
             <div class="col-md-12">
@@ -136,30 +141,35 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <th>Local</th>
                         <th>Tipo</th>
                         <th>Status</th>
+                        <th>Reserva</th>
                       </tr>
                       <tr>
                         <td>133</td>
                         <td>IM</td>
                         <td>Laboratório</td>
                         <td><span class="label label-success">Disponível</span></td>
+                        <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Solicitar</button></td>
                       </tr>
                       <tr>
                         <td>28</td>
                         <td>PAF III</td>
                         <td>Sala de aula</td>
                         <td><span class="label label-danger">Reservada</span></td>
+                        <td><button type="button" class="btn btn-danger">Sala Reservada</button></td>
                       </tr>
                       <tr>
                         <td>133</td>
                         <td>IM</td>
                         <td>Laboratório</td>
                         <td><span class="label label-success">Disponível</span></td>
+                        <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Solicitar</button></td>
                       </tr>
                       <tr>
                         <td>259</td>
                         <td>PAF 1</td>
                         <td>Sala de aula</td>
                         <td><span class="label label-success">Disponível</span></td>
+                        <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Solicitar</button></td>
                       </tr>
                     </table>
                   </div>
@@ -168,6 +178,72 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </div>
           </div>
         </div>
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="exampleModalLabel">Cadastro</h4>
+      </div>
+      <div class="modal-body" style="padding: 0px;">
+        <form>
+          <div class="form-group">
+                                    
+                  <div class="col-md-12">
+                    <label>Equipamentos</label>
+                    <select class="form-control">
+                      <option>Equipamento 1</option>
+                      <option>Equipamento 2</option>
+                      <option>Equipamento 3</option>
+                      <option>Equipamento 4</option>
+                      <option>Equipamento 5</option>
+                    </select>
+                  </div>
+                  
+                  <div class="bootstrap-timepicker col-md-12">
+                    <label>Horário de Entrada:</label>
+
+                    <div class="input-group">
+                      <input type="text" class="form-control timepicker">
+
+                      <div class="input-group-addon">
+                        <i class="fa fa-clock-o"></i>
+                      </div>
+                    </div>
+                    <!-- /.input group -->
+                  </div>
+
+                  <div class="alert alert-dismissible alert-danger col-md-12">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <strong>Horário Já Reservado.</strong>
+                  </div>
+                  
+                  <div class="bootstrap-timepicker col-md-12">
+                    <label>Horário de Saída:</label>
+
+                    <div class="input-group">
+                      <input type="text" class="form-control timepicker">
+
+                      <div class="input-group-addon">
+                        <i class="fa fa-clock-o"></i>
+                      </div>
+                    </div>
+                    <!-- /.input group -->
+                  </div>
+                  
+
+
+                </div>
+        </form>
+      </div>
+      <div class="col-md-12" style="height: 10px;"></div>
+      <div class="modal-footer" style="border-top: 0px">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Confirmar</button>
+      </div>
+    </div>
+  </div>
+</div>
     </section>
     <!-- /.content -->
   </div>
@@ -264,15 +340,113 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 <!-- REQUIRED JS SCRIPTS -->
 
+
+<!-- bootstrap datepicker -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js"></script>
+<script src="//cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/src/js/bootstrap-datetimepicker.js"></script>
+
+
+<!-- REQUIRED JS SCRIPTS -->
+
 <!-- jQuery 2.2.3 -->
 <script src="../plugins/jQuery/jquery-2.2.3.min.js"></script>
 <!-- Bootstrap 3.3.6 -->
 <script src="../bootstrap/js/bootstrap.min.js"></script>
+<!-- Select2 -->
+<script src="../plugins/select2/select2.full.min.js"></script>
+<!-- InputMask -->
+<script src="../plugins/input-mask/jquery.inputmask.js"></script>
+<script src="../plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
+<script src="../plugins/input-mask/jquery.inputmask.extensions.js"></script>
+<!-- date-range-picker -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+<script src="../plugins/daterangepicker/daterangepicker.js"></script>
 <!-- bootstrap datepicker -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js"></script>
-<script src="//cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/src/js/bootstrap-datetimepicker.js"></script>
+<script src="../plugins/datepicker/bootstrap-datepicker.js"></script>
+<!-- bootstrap color picker -->
+<script src="../plugins/colorpicker/bootstrap-colorpicker.min.js"></script>
+<!-- bootstrap time picker -->
+<script src="../plugins/timepicker/bootstrap-timepicker.min.js"></script>
+<!-- SlimScroll 1.3.0 -->
+<script src="../plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<!-- iCheck 1.0.1 -->
+<script src="../plugins/iCheck/icheck.min.js"></script>
+<!-- FastClick -->
+<script src="../plugins/fastclick/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="../dist/js/app.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="../dist/js/demo.js"></script>
+<!-- Page script -->
+<script>
+  $(function () {
+    //Initialize Select2 Elements
+    $(".select2").select2();
+
+    //Datemask dd/mm/yyyy
+    $("#datemask").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
+    //Datemask2 mm/dd/yyyy
+    $("#datemask2").inputmask("mm/dd/yyyy", {"placeholder": "mm/dd/yyyy"});
+    //Money Euro
+    $("[data-mask]").inputmask();
+
+    //Date range picker
+    $('#reservation').daterangepicker();
+    //Date range picker with time picker
+    $('#reservationtime').daterangepicker({timePicker: true, timePickerIncrement: 30, format: 'MM/DD/YYYY h:mm A'});
+    //Date range as a button
+    $('#daterange-btn').daterangepicker(
+    {
+      ranges: {
+        'Today': [moment(), moment()],
+        'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+        'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+        'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+        'This Month': [moment().startOf('month'), moment().endOf('month')],
+        'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+      },
+      startDate: moment().subtract(29, 'days'),
+      endDate: moment()
+    },
+    function (start, end) {
+      $('#daterange-btn span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+    }
+    );
+
+    //Date picker
+    $('#datepicker').datepicker({
+      autoclose: true
+    });
+
+    //iCheck for checkbox and radio inputs
+    $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
+      checkboxClass: 'icheckbox_minimal-blue',
+      radioClass: 'iradio_minimal-blue'
+    });
+    //Red color scheme for iCheck
+    $('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
+      checkboxClass: 'icheckbox_minimal-red',
+      radioClass: 'iradio_minimal-red'
+    });
+    //Flat red color scheme for iCheck
+    $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
+      checkboxClass: 'icheckbox_flat-green',
+      radioClass: 'iradio_flat-green'
+    });
+
+    //Colorpicker
+    $(".my-colorpicker1").colorpicker();
+    //color picker with addon
+    $(".my-colorpicker2").colorpicker();
+
+    //Timepicker
+    $(".timepicker").timepicker({
+      showInputs: false
+    });
+  });
+</script>
+
+
 
 <script>
     //Date picker
