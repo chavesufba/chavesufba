@@ -95,32 +95,32 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
         <!-- Sidebar Menu -->
         <ul class="sidebar-menu">
-        <li class="header">HEADER</li>
-        <!-- Optionally, you can add icons to the links -->
-        <li><a href="./index.html"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
-        <li class="treeview active">
-          <a href="#">
-            <i class="fa fa-mortar-board"></i> <span>Salas</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li class="active"><a href="pages/lista_salas.html"><i class="fa fa-circle-o"></i> Buscar salas</a></li>
-          </ul>
-        </li>
-        <li class="treeview active">
-          <a href="#">
-            <i class="fa fa-user"></i> <span>Usuário</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li class="active"><a href="../index2.html"><i class="fa fa-pencil-square-o"></i> Cadastro</a></li>
-          </ul>
-        </li>
-      </ul>
+          <li class="header">HEADER</li>
+          <!-- Optionally, you can add icons to the links -->
+          <li><a href="./index.html"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+          <li class="treeview active">
+            <a href="/pages/lista_salas.html">
+              <i class="fa fa-mortar-board"></i> <span>Salas</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li class="active"><a href="pages/lista_salas.html"><i class="fa fa-circle-o"></i> Buscar salas</a></li>
+            </ul>
+          </li>
+          <li class="treeview active">
+            <a href="#">
+              <i class="fa fa-user"></i> <span>Usuário</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li class="active"><a href="../index2.html"><i class="fa fa-pencil-square-o"></i> Cadastro</a></li>
+            </ul>
+          </li>
+        </ul>
         <!-- /.sidebar-menu -->
       </section>
       <!-- /.sidebar -->
@@ -142,186 +142,182 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <!-- Main content -->
     <section class="content">
-
-      <!-- Your Page Content Here -->
-
-
-
-        <!-- Horizontal Form -->
-       <div class="col-md-12">
-        <div class="box">
-          <div class="panel-primary">
-            <div class="panel-heading">
-              <h4>Cadastro de Usuário</h4>
-            </div></div>
+     <div class="row">
+       <!-- left column -->
+       <div class="col-md-8">
+        <!-- general form elements -->
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h4>Cadastro</h4>
+          </div>
           <!-- /.box-header -->
-          <!-- form Usuário -->
-          <form class="form-horizontal">
+          <!-- form start -->
+          <form role="form">
             <div class="box-body">
-
               <div class="form-group">
-                <label for="inputEmail3" class="col-sm-2 control-label">Usuário</label>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" id="inputEmail3" placeholder="Nome do Usuário">
-                </div>
+                <i class="fa fa-user" aria-hidden="true"></i>
+                <label for=""> Nome do Usuario </label>
+                <input type="text" class="form-control" id="" placeholder="Nome do Usuario">
               </div>
 
               <div class="form-group">
-                <label for="inputPassword3" class="col-sm-2 control-label">Senha</label>
-                <div class="col-sm-10">
-                  <input type="password" class="form-control" id="inputPassword3" placeholder="Senha">
-                </div>
+                <i class="fa fa-expeditedssl" aria-hidden="true"></i>
+                <label for="exampleInputPassword1"> Password </label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
               </div>
 
               <div class="form-group">
-                <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
-                <div class="col-sm-10">
-                  <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
-                </div>
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+                <label for="exampleInputEmail1"> Email </label>
+                <input type="text" class="form-control" placeholder="Email">
               </div>
 
               <div class="form-group">
-                <label for="inputEmail3" class="col-sm-2 control-label">CPF</label>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" id="inputEmail3" placeholder="CPF">
-                </div>
+                <i class="fa fa-list-alt" aria-hidden="true"></i>
+                <label for=""> CPF </label>
+                <input type="text" class="form-control" id="" placeholder="CPF">
               </div>
 
               <div class="form-group">
-                  <label for="inputEmail3" class="col-sm-2 control-label">Departamento</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputEmail3" placeholder="Departamento">
-                  </div>
-                </div>
+                <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                <label for=""> Departamento </label>
+                <input type="text" class="form-control" id="" placeholder="Departamento">
+              </div>
 
               <div class="form-group">
-                  <label for="inputEmail3" class="col-sm-2 control-label">Endereço</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputEmail3" placeholder="Endereço">
-                  </div>
-                </div>
+                <i class="fa fa-home" aria-hidden="true"></i>
+                <label for=""> Endereço </label>
+                <input type="text" class="form-control" id="" placeholder="Endereço">
+              </div>
 
               <!-- Select radio -->
               <div class="form-group">
-                <label for="inputEmail3" class="col-sm-2 control-label">Perfil de Usuário</label>
-                <div class="col-md-10">
-                  <div class="radio">
-                    <label>
-                      <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-                      Aluno
-                    </label>
-                  </div>
-                  <div class="radio">
-                    <label>
-                      <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-                      Professor
-                    </label>
-                  </div>
-                  <div class="radio">
-                    <label>
-                      <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
-                      Servidor
-                    </label>
-                  </div>
+                <i class="fa fa-users" aria-hidden="true"></i>
+                <label for="inputEmail3" class="">Perfil de Usuário</label>
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                    Aluno
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                    Professor
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
+                    Servidor
+                    <p></p>
+                  </label>
+                </div>
+
+                <div class="form-group">
+                  <i class="fa fa-file-image-o" aria-hidden="true"></i>
+                  <label for="exampleInputFile">Imagem</label>
+                  <input type="file" id="exampleInputFile">
+                  <p class="help-block">Example block-level help text here.</p>
                 </div>
               </div>
             </div>
+
             <!-- /.box-body -->
             <div class="box-footer">
-
               <button type="submit" class="btn btn-primary pull-right">Confirmar</button>
             </div>
           </form>
         </div>
       </div>
-      </section>
-      <!-- /.content -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <!-- Main Footer -->
+  <footer class="main-footer">
+    <!-- To the right -->
+    <div class="pull-right hidden-xs">
+      Anything you want
     </div>
-    <!-- /.content-wrapper -->
+    <!-- Default to the left -->
+    <strong>Copyright &copy; 2016 <a href="#">Company</a>.</strong> All rights reserved.
+  </footer>
 
-    <!-- Main Footer -->
-    <footer class="main-footer">
-      <!-- To the right -->
-      <div class="pull-right hidden-xs">
-        Anything you want
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Create the tabs -->
+    <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+      <li class="active"><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
+      <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
+    </ul>
+    <!-- Tab panes -->
+    <div class="tab-content">
+      <!-- Home tab content -->
+      <div class="tab-pane active" id="control-sidebar-home-tab">
+        <h3 class="control-sidebar-heading">Recent Activity</h3>
+        <ul class="control-sidebar-menu">
+          <li>
+            <a href="javascript::;">
+              <i class="menu-icon fa fa-birthday-cake bg-red"></i>
+
+              <div class="menu-info">
+                <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
+
+                <p>Will be 23 on April 24th</p>
+              </div>
+            </a>
+          </li>
+        </ul>
+        <!-- /.control-sidebar-menu -->
+
+        <h3 class="control-sidebar-heading">Tasks Progress</h3>
+        <ul class="control-sidebar-menu">
+          <li>
+            <a href="javascript::;">
+              <h4 class="control-sidebar-subheading">
+                Custom Template Design
+                <span class="pull-right-container">
+                  <span class="label label-danger pull-right">70%</span>
+                </span>
+              </h4>
+
+              <div class="progress progress-xxs">
+                <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
+              </div>
+            </a>
+          </li>
+        </ul>
+        <!-- /.control-sidebar-menu -->
+
       </div>
-      <!-- Default to the left -->
-      <strong>Copyright &copy; 2016 <a href="#">Company</a>.</strong> All rights reserved.
-    </footer>
+      <!-- /.tab-pane -->
+      <!-- Stats tab content -->
+      <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
+      <!-- /.tab-pane -->
+      <!-- Settings tab content -->
+      <div class="tab-pane" id="control-sidebar-settings-tab">
+        <form method="post">
+          <h3 class="control-sidebar-heading">General Settings</h3>
 
-    <!-- Control Sidebar -->
-    <aside class="control-sidebar control-sidebar-dark">
-      <!-- Create the tabs -->
-      <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
-        <li class="active"><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
-        <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
-      </ul>
-      <!-- Tab panes -->
-      <div class="tab-content">
-        <!-- Home tab content -->
-        <div class="tab-pane active" id="control-sidebar-home-tab">
-          <h3 class="control-sidebar-heading">Recent Activity</h3>
-          <ul class="control-sidebar-menu">
-            <li>
-              <a href="javascript::;">
-                <i class="menu-icon fa fa-birthday-cake bg-red"></i>
+          <div class="form-group">
+            <label class="control-sidebar-subheading">
+              Report panel usage
+              <input type="checkbox" class="pull-right" checked>
+            </label>
 
-                <div class="menu-info">
-                  <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
-
-                  <p>Will be 23 on April 24th</p>
-                </div>
-              </a>
-            </li>
-          </ul>
-          <!-- /.control-sidebar-menu -->
-
-          <h3 class="control-sidebar-heading">Tasks Progress</h3>
-          <ul class="control-sidebar-menu">
-            <li>
-              <a href="javascript::;">
-                <h4 class="control-sidebar-subheading">
-                  Custom Template Design
-                  <span class="pull-right-container">
-                    <span class="label label-danger pull-right">70%</span>
-                  </span>
-                </h4>
-
-                <div class="progress progress-xxs">
-                  <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
-                </div>
-              </a>
-            </li>
-          </ul>
-          <!-- /.control-sidebar-menu -->
-
-        </div>
-        <!-- /.tab-pane -->
-        <!-- Stats tab content -->
-        <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
-        <!-- /.tab-pane -->
-        <!-- Settings tab content -->
-        <div class="tab-pane" id="control-sidebar-settings-tab">
-          <form method="post">
-            <h3 class="control-sidebar-heading">General Settings</h3>
-
-            <div class="form-group">
-              <label class="control-sidebar-subheading">
-                Report panel usage
-                <input type="checkbox" class="pull-right" checked>
-              </label>
-
-              <p>
-                Some information about this general settings option
-              </p>
-            </div>
-            <!-- /.form-group -->
-          </form>
-        </div>
-        <!-- /.tab-pane -->
+            <p>
+              Some information about this general settings option
+            </p>
+          </div>
+          <!-- /.form-group -->
+        </form>
       </div>
-    </aside>
-    <!-- /.control-sidebar -->
+      <!-- /.tab-pane -->
+    </div>
+  </aside>
+  <!-- /.control-sidebar -->
   <!-- Add the sidebar's background. This div must be placed
   immediately after the control sidebar -->
   <div class="control-sidebar-bg"></div>
