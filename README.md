@@ -14,7 +14,7 @@ Key Control Project, academic work of subject MATA63 - Software Engineering II, 
 		- resources
 			- templates
 
-# Import Project
+## Import Project with git and maven command line
 
 * git clone https://github.com/mmsdivino/chavesufba.git
 * cd chavesufba
@@ -31,6 +31,18 @@ mvn spring-boot:run
 ```
 mvn clean package
 ```
+
+## Import Project in Eclipse IDE
+
+* File -> Import -> Maven -> Existing maven Projects
+* Let's coding! ∂
+
+### Run Project 
+
+* Right Click on chavesufba project to open context menu.
+* Select Run as option -> 3 Maven Build
+* Right Click on Application.java -> Run as java Application
+
 
 ### View Project
 ```
