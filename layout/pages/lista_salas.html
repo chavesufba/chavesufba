@@ -47,7 +47,32 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <span class="sr-only">Toggle navigation</span>
       </a>
       <!-- Navbar Right Menu -->
+      <div class="navbar-custom-menu">
+          <ul class="nav navbar-nav">
+                       <li class="dropdown user user-menu">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <img src="../dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                <span class="hidden-xs">Alexander Pierce</span>
+              </a>
+              <ul class="dropdown-menu">
+                <!-- User image -->
+                <li class="user-header">
+                  <img src="../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
+                  <p>
+                    Usuário
+                  </p>
+                </li>
+                <!-- Menu Footer-->
+                <li class="user-footer">
+                  <div class="pull-right">
+                    <a href="login.html" class="btn btn-default btn-flat">Logout</a>
+                  </div>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
     </nav>
   </header>
   <!-- Left side column. contains the logo and sidebar -->
@@ -96,7 +121,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <li class="active"><a href="lista_salas.html"><i class="fa fa-circle-o"></i> Buscar salas</a></li>
           </ul>
         </li>
-        <li class="treeview active">
+        <li class="treeview">
           <a href="#">
             <i class="fa fa-user"></i> <span>Usuário</span>
             <span class="pull-right-container">
@@ -104,7 +129,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="../index2.html"><i class="fa fa-pencil-square-o"></i> Cadastro</a></li>
+            <li><a href="cadastrar_usuario.html"><i class="fa fa-pencil-square-o"></i> Cadastro</a></li>
           </ul>
         </li>
       </ul>
@@ -187,7 +212,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <td><span class="label label-success">Disponível</span></td>
                         <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Solicitar</button></td>
                       </tr>
-                    </table>                  
+                    </table>
 		  </div>
                 </div>
               <!-- /.box-body -->
