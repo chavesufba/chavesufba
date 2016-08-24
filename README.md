@@ -41,6 +41,7 @@ mvn clean package
 
 * Right Click on chavesufba project to open context menu.
 * Select Run as option -> 3 Maven Build
+* Write on input Goals: clean install
 * Right Click on Application.java -> Run as java Application
 
 
