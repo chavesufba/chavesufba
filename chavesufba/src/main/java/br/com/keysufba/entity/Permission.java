@@ -1,0 +1,26 @@
+package br.com.keys.model;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity(name="permissao")
+public class Permission {
+	@Id
+	private Integer id;
+	@Column(name="tipo_usuario_id")
+	private UserType userType;
+	
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	public UserType getUserType() {
+		return userType;
+	}
+	public void setUserType(UserType userType) {
+		this.userType = userType;
+	}
+}
