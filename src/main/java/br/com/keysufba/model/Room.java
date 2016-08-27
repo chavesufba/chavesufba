@@ -1,23 +1,25 @@
 package br.com.keysufba.model;
 
-public class Room {
+import org.springframework.hateoas.ResourceSupport;
 
-  private final Integer id;
+public class Room extends ResourceSupport {
+
+  private final Integer identification;
   private final String number;
   private final Integer capacity;
   private final Integer pavilionId;
   private final Integer roomType;
 
-  public Room(final Integer id, final String number, final Integer capacity, final Integer pavilionId, final Integer roomType) {
-    this.id = id;
+  public Room(final Integer identification, final String number, final Integer capacity, final Integer pavilionId, final Integer roomType) {
+    this.identification = identification;
     this.number = number;
     this.capacity = capacity;
     this.pavilionId = pavilionId;
     this.roomType = roomType;
   }
 
-  public Integer getId() {
-    return id;
+  public Integer getIdentification() {
+    return identification;
   }
 
   public String getNumber() {
