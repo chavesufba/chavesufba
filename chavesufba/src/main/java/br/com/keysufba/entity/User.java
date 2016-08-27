@@ -1,4 +1,4 @@
-package br.com.keys.model;
+package br.com.keysufba.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
