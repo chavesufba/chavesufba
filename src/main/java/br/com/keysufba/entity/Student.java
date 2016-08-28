@@ -6,12 +6,19 @@ import javax.persistence.Id;
 
 @Entity(name="aluno")
 public class Student extends Person {
+	
+	
 	@Id
 	private Integer id;
-	@Column(name="matricula")
+	
+	
+	@Column(name="matricula", nullable=false)
 	private String registrationNum;
-	@Column(name="curso_id")
+	
+	
+	@Column(name="curso_id", nullable=false)
 	private Integer courseId;
+	
 	
 	public Integer getId() {
 		return id;

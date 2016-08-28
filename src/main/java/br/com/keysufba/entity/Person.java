@@ -1,22 +1,34 @@
 package br.com.keysufba.entity;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
 
-@Entity(name="dessoa")
+@MappedSuperclass
 public class Person {
 	
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
-	@Column(name="nome")
+	
+	
+	@Column(name="nome", nullable=false)
 	private String name;
-	@Column(name="email")
+	
+	
+	@Column(name="email", nullable=false)
 	private String email;
+	
+	
 	@Column(name="telefone")
 	private String phone;
+	
+	
 	@Column(name="foto")
 	private String picture;
+	
 	
 	public Integer getId() {
 		return id;

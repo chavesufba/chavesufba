@@ -6,12 +6,19 @@ import javax.persistence.Id;
 
 @Entity(name="professor")
 public class Teacher extends Person {
+	
+	
 	@Id
 	private Integer id;
-	@Column(name="num_siap")
+	
+	
+	@Column(name="num_siap", nullable=false)
 	private String siapNumber;
-	@Column(name="departamento_id")
+	
+	
+	@Column(name="departamento_id", nullable=false)
 	private Integer departmentId;
+	
 	
 	public Integer getId() {
 		return id;

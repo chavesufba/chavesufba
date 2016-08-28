@@ -2,17 +2,27 @@ package br.com.keysufba.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity(name="curso")
 public class Course {
 	
 	@Id
+	@Column(name="id", nullable=false)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private Integer id;
-	@Column(name="nome")
+	
+	
+	@Column(name="nome", nullable=false)
 	private String name;
-	@Column(name="nivel")
+	
+	
+	@Column(name="nivel", nullable=false)
 	private String level;
+	
+	
 	
 	public Integer getId() {
 		return id;

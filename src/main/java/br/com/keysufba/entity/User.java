@@ -3,17 +3,27 @@ package br.com.keysufba.entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity(name="usuario")
 public class User {
+	
+	
 	@Id
 	private Integer id;
-	@Column(name="nome")
+	
+	
+	@Column(name="nome", nullable=false)
 	private String name;
-	@Column(name="senha")
+	
+	
+	@Column(name="senha", nullable=false)
 	private String password;
-	@Column(name="pessoa_id")
+	
+	@ManyToOne
+	@Column(name="pessoa_id", nullable=false)
 	private Person personId;
+	
 	
 	public User (Integer id, String name) {
         this.id = id;

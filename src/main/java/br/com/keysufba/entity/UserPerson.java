@@ -5,10 +5,14 @@ import javax.persistence.Entity;
 
 @Entity(name="Pessoa_Usuario")
 public class UserPerson {
-	@Column(name="pessoa_id")
+	
+	@Column(name="pessoa_id", nullable=false)
 	private Person personId;
-	@Column(name="tipo_usuario")
+	
+	
+	@Column(name="tipo_usuario", nullable=false)
 	private UserType userTypeId;
+	
 	
 	public Person getPersonId() {
 		return personId;

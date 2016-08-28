@@ -6,10 +6,15 @@ import javax.persistence.Id;
 
 @Entity(name="tipo_usuario")
 public class UserType {
+	
+	
 	@Id
 	private Integer id;
-	@Column(name="descricao")
+	
+	
+	@Column(name="descricao", nullable=false)
 	private String description;
+	
 	
 	public Integer getId() {
 		return id;
