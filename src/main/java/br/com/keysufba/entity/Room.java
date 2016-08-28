@@ -8,24 +8,25 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Table(name = "schemaA.sala")
+@Table(name = "SALA", schema = "SCHEMAA")
 @Entity
 public class Room {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
+  @Column(name = "ID")
   private Integer id;
 
-  @Column(name = "numero")
+  @Column(name = "NUMERO")
   private String number;
 
-  @Column(name = "capacidade")
+  @Column(name = "CAPACIDADE")
   private Integer capacity;
 
-  @Column(name = "pavilhao_id")
+  @Column(name = "PAVILHAO_ID")
   private Integer pavilionId;
 
-  @Column(name = "tipo_sala_id")
+  @Column(name = "TIPO_SALA_ID")
   private Integer roomType;
 
   Room() { // jpa only
