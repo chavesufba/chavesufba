@@ -2,14 +2,20 @@ package br.com.keysufba.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
-@Entity(name="usuario")
+@Entity
+@Table(name="usuario")
 public class User {
 	
 	
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id;
 	
 	
@@ -20,8 +26,8 @@ public class User {
 	@Column(name="senha", nullable=false)
 	private String password;
 	
-	@ManyToOne
-	@Column(name="pessoa_id", nullable=false)
+	@OneToOne
+	@JoinColumn(name="pessoa")
 	private Person personId;
 	
 	

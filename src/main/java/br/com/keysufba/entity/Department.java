@@ -11,7 +11,7 @@ public class Department {
 
 	@Id
 	@Column(name="id", nullable = false)
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	private String name;
 	

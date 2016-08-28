@@ -3,8 +3,10 @@ package br.com.keysufba.entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.PrimaryKeyJoinColumn;
 
 @Entity(name="aluno")
+@PrimaryKeyJoinColumn(name="id")
 public class Student extends Person {
 	
 	
