@@ -1,45 +1,49 @@
 package br.com.keysufba.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
-@Entity(name="curso")
+/**
+ * Created by ian on 28/08/16.
+ */
+
+@Table(name = "Curso", schema = "SCHEMAA")
+@Entity
 public class Course {
-	
-	@Id
-	@Column(name="id", nullable=false)
-	@GeneratedValue(strategy=GenerationType.SEQUENCE)
-	private Integer id;
-	
-	
-	@Column(name="nome", nullable=false)
-	private String name;
-	
-	
-	@Column(name="nivel", nullable=false)
-	private String level;
-	
-	
-	
-	public Integer getId() {
-		return id;
-	}
-	public void setId(Integer id) {
-		this.id = id;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getNivel() {
-		return level;
-	}
-	public void setNivel(String level) {
-		this.level = level;
-	}
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "Id", nullable = false)
+    private int id;
+
+    @Column(name = "Nome", nullable = false)
+    private String name;
+
+    @Column(name = "Nivel", nullable = false)
+    private String level;
+
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getLevel() {
+        return level;
+    }
+
+    public void setLevel(String level) {
+        this.level = level;
+    }
+
 }
