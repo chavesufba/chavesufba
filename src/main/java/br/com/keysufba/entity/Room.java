@@ -29,18 +29,6 @@ public class Room {
   @Column(name = "TIPO_SALA_ID")
   private Integer roomType;
 
-  Room() { // jpa only
-
-  }
-
-  public Room(final Integer id, final String number, final Integer capacity, final Integer pavilionId, final Integer roomType) {
-    this.id = id;
-    this.number = number;
-    this.capacity = capacity;
-    this.pavilionId = pavilionId;
-    this.roomType = roomType;
-  }
-
   public Integer getId() {
     return id;
   }
