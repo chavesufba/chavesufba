@@ -2,7 +2,6 @@
 .DS_Store
 *.iml
 target/
-.gitignore
 .project
 *.class
 
