@@ -3,42 +3,50 @@ package br.com.keysufba.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
-@Table(name = "SALA", schema = "SCHEMAA")
-@Entity
+@Entity(name="sala")
 public class Room {
 
+	
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
-  @Column(name = "ID")
   private Integer id;
 
-  @Column(name = "NUMERO")
+  
+  @Column(name = "numero", nullable=false)
   private String number;
 
-  @Column(name = "CAPACIDADE")
+  
+  @Column(name = "capacidade")
   private Integer capacity;
 
-  @Column(name = "PAVILHAO_ID")
-  private Integer pavilionId;
+  
+  @OneToOne
+  @JoinColumn(name = "pavilhao_id", foreignKey=@ForeignKey(name="id"))
+  private Pavilion pavilionId;
 
-  @Column(name = "TIPO_SALA_ID")
-  private Integer roomType;
+  
+  @OneToOne
+  @JoinColumn(name = "tipo_sala_id")
+  private RoomType roomTypeId;
 
+  
   Room() { // jpa only
 
   }
 
-  public Room(final Integer id, final String number, final Integer capacity, final Integer pavilionId, final Integer roomType) {
+  public Room(final Integer id, final String number, final Integer capacity, final Pavilion pavilionId, final RoomType roomType) {
     this.id = id;
     this.number = number;
     this.capacity = capacity;
     this.pavilionId = pavilionId;
-    this.roomType = roomType;
+    this.roomTypeId = roomType;
   }
 
   public Integer getId() {
@@ -53,11 +61,11 @@ public class Room {
     return capacity;
   }
 
-  public Integer getPavilionId() {
+  public Pavilion getPavilionId() {
     return pavilionId;
   }
 
-  public Integer getRoomType() {
-    return roomType;
+  public RoomType getRoomType() {
+    return roomTypeId;
   }
 }

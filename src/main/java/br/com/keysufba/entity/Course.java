@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity(name="curso")
 public class Course {
@@ -22,7 +23,8 @@ public class Course {
 	@Column(name="nivel", nullable=false)
 	private String level;
 	
-	
+	@ManyToOne
+	private Course courseId;
 	
 	public Integer getId() {
 		return id;

@@ -13,6 +13,8 @@ public class Department {
 	@Column(name="id", nullable = false)
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
+	
+	@Column(name="nome")
 	private String name;
 	
 	public Integer getId() {

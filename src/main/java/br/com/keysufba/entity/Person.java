@@ -7,8 +7,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 
 @Inheritance(strategy = InheritanceType.JOINED)
 @Entity(name="pessoa")
@@ -33,11 +31,6 @@ public class Person {
 	
 	@Column(name="foto")
 	private String picture;
-	
-	
-	@OneToOne
-	@JoinColumn(name="usuario", nullable=false)
-	private User userId;
 	
 	
 	public Integer getId() {
@@ -69,11 +62,5 @@ public class Person {
 	}
 	public void setPicture(String picture) {
 		this.picture = picture;
-	}
-	public User getUserId() {
-		return userId;
-	}
-	public void setUserId(User userId) {
-		this.userId = userId;
 	}
 }
