@@ -11,7 +11,7 @@ public class Course {
 	
 	@Id
 	@Column(name="id", nullable=false)
-	@GeneratedValue(strategy=GenerationType.SEQUENCE)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id;
 	
 	
