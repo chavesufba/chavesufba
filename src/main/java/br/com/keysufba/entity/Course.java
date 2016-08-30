@@ -5,41 +5,59 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
-@Entity(name="curso")
+@Table(name = "CURSO", schema = "SCHEMAA")
+@Entity
 public class Course {
-	
-	@Id
-	@Column(name="id", nullable=false)
-	@GeneratedValue(strategy=GenerationType.SEQUENCE)
-	private Integer id;
-	
-	
-	@Column(name="nome", nullable=false)
-	private String name;
-	
-	
-	@Column(name="nivel", nullable=false)
-	private String level;
-	
-	
-	
-	public Integer getId() {
-		return id;
-	}
-	public void setId(Integer id) {
-		this.id = id;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getNivel() {
-		return level;
-	}
-	public void setNivel(String level) {
-		this.level = level;
-	}
+
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  @Column(name = "ID")
+  private Integer id;
+
+  @NotNull
+  @Column(name = "NOME")
+  private String name;
+
+  @NotNull
+  @Column(name = "NIVEL")
+  private String level;
+
+  @ManyToOne
+  private Department department;
+
+  public Integer getId() {
+    return id;
+  }
+
+  public void setId(final Integer id) {
+    this.id = id;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public void setName(final String name) {
+    this.name = name;
+  }
+
+  public String getLevel() {
+    return level;
+  }
+
+  public void setLevel(final String level) {
+    this.level = level;
+  }
+
+  public Department getDepartment() {
+    return department;
+  }
+
+  public void setDepartment(final Department department) {
+    this.department = department;
+  }
 }
