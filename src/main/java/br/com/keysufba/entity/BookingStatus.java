@@ -11,8 +11,8 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
 
 @Entity
-@Table(name = "EQUIPAMENTO", schema = "SCHEMAA")
-public class Equipment {
+@Table(name = "STATUS_RESERVA", schema = "SCHEMAA")
+public class BookingStatus {
 
 	private Integer id;
 	private String description;
