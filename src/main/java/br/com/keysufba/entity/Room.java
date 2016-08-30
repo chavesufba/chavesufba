@@ -6,7 +6,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Table(name = "SALA", schema = "SCHEMAA")
 @Entity
@@ -17,35 +19,57 @@ public class Room {
   @Column(name = "ID")
   private Integer id;
 
+  @NotNull
   @Column(name = "NUMERO")
   private String number;
 
+  @NotNull
   @Column(name = "CAPACIDADE")
   private Integer capacity;
 
-  @Column(name = "PAVILHAO_ID")
-  private Integer pavilionId;
+  @ManyToOne
+  private Pavilion pavilion;
 
-  @Column(name = "TIPO_SALA_ID")
-  private Integer roomType;
+  @ManyToOne
+  private RoomType roomType;
 
   public Integer getId() {
     return id;
+  }
+
+  public void setId(final Integer id) {
+    this.id = id;
   }
 
   public String getNumber() {
     return number;
   }
 
+  public void setNumber(final String number) {
+    this.number = number;
+  }
+
   public Integer getCapacity() {
     return capacity;
   }
 
-  public Integer getPavilionId() {
-    return pavilionId;
+  public void setCapacity(final Integer capacity) {
+    this.capacity = capacity;
   }
 
-  public Integer getRoomType() {
+  public Pavilion getPavilion() {
+    return pavilion;
+  }
+
+  public void setPavilion(final Pavilion pavilion) {
+    this.pavilion = pavilion;
+  }
+
+  public RoomType getRoomType() {
     return roomType;
+  }
+
+  public void setRoomType(final RoomType roomType) {
+    this.roomType = roomType;
   }
 }
