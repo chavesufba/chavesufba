@@ -6,57 +6,70 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
-@Table(name = "schemaA.sala")
+@Table(name = "SALA", schema = "SCHEMAA")
 @Entity
 public class Room {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
+  @Column(name = "ID")
   private Integer id;
 
-  @Column(name = "numero")
+  @NotNull
+  @Column(name = "NUMERO")
   private String number;
 
-  @Column(name = "capacidade")
+  @NotNull
+  @Column(name = "CAPACIDADE")
   private Integer capacity;
 
-  @Column(name = "pavilhao_id")
-  private Integer pavilionId;
+  @ManyToOne
+  private Pavilion pavilion;
 
-  @Column(name = "tipo_sala_id")
-  private Integer roomType;
-
-  Room() { // jpa only
-
-  }
-
-  public Room(final Integer id, final String number, final Integer capacity, final Integer pavilionId, final Integer roomType) {
-    this.id = id;
-    this.number = number;
-    this.capacity = capacity;
-    this.pavilionId = pavilionId;
-    this.roomType = roomType;
-  }
+  @ManyToOne
+  private RoomType roomType;
 
   public Integer getId() {
     return id;
+  }
+
+  public void setId(final Integer id) {
+    this.id = id;
   }
 
   public String getNumber() {
     return number;
   }
 
+  public void setNumber(final String number) {
+    this.number = number;
+  }
+
   public Integer getCapacity() {
     return capacity;
   }
 
-  public Integer getPavilionId() {
-    return pavilionId;
+  public void setCapacity(final Integer capacity) {
+    this.capacity = capacity;
   }
 
-  public Integer getRoomType() {
+  public Pavilion getPavilion() {
+    return pavilion;
+  }
+
+  public void setPavilion(final Pavilion pavilion) {
+    this.pavilion = pavilion;
+  }
+
+  public RoomType getRoomType() {
     return roomType;
+  }
+
+  public void setRoomType(final RoomType roomType) {
+    this.roomType = roomType;
   }
 }

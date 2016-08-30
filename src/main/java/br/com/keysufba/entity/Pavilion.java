@@ -1,17 +1,19 @@
 package br.com.keysufba.entity;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
-@Table(name = "DEPARTAMENTO", schema = "SCHEMAA")
+@Table(name = "PAVILHAO", schema = "SCHEMAA")
 @Entity
-public class Department {
+public class Pavilion {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
@@ -22,8 +24,8 @@ public class Department {
   @Column(name = "NOME")
   private String name;
 
-  @ManyToOne
-  private Institute institute;
+  @OneToMany(mappedBy = "pavilion")
+  private List<Room> roomList;
 
   public Integer getId() {
     return id;
@@ -41,11 +43,11 @@ public class Department {
     this.name = name;
   }
 
-  public Institute getInstitute() {
-    return institute;
+  public List<Room> getRoomList() {
+    return roomList;
   }
 
-  public void setInstitute(final Institute institute) {
-    this.institute = institute;
+  public void setRoomList(final List<Room> roomList) {
+    this.roomList = roomList;
   }
 }
