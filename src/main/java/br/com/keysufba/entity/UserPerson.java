@@ -1,12 +1,10 @@
 package br.com.keysufba.entity;
 
-import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
-import javax.persistence.Table;
 
-@Entity
-@Table(name = "PESSOA_USUARIO", schema = "SCHEMAA")
+//@Entity // TODO: Check with DB team
+//@Table(name = "PESSOA_USUARIO", schema = "SCHEMAA")
 public class UserPerson {
 
   private Person person; // FIXME: Check the real necessity of this class
