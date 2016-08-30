@@ -11,11 +11,11 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
 
 @Entity
-@Table(name = "TIPO_USUARIO", schema = "SCHEMAA")
-public class UserType {
+@Table(name = "INSTITUTO", schema = "SCHEMAA")
+public class Institute {
 
   private Integer id;
-  private String description;
+  private String name;
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
@@ -29,13 +29,13 @@ public class UserType {
   }
 
   @NotNull
-  @Length(max = 50)
-  @Column(name = "DESCRICAO", length = 50, nullable = false)
-  public String getDescription() {
-    return description;
+  @Length(max = 100)
+  @Column(name = "NOME", length = 100, nullable = false)
+  public String getName() {
+    return name;
   }
 
-  public void setDescription(final String description) {
-    this.description = description;
+  public void setName(final String name) {
+    this.name = name;
   }
 }

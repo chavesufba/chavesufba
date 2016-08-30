@@ -11,8 +11,8 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
 
 @Entity
-@Table(name = "TIPO_USUARIO", schema = "SCHEMAA")
-public class UserType {
+@Table(name = "EQUIPAMENTO", schema = "SCHEMAA")
+public class Equipment {
 
   private Integer id;
   private String description;
@@ -29,8 +29,8 @@ public class UserType {
   }
 
   @NotNull
-  @Length(max = 50)
-  @Column(name = "DESCRICAO", length = 50, nullable = false)
+  @Length(max = 512)
+  @Column(name = "DESCRICAO", length = 512, nullable = false)
   public String getDescription() {
     return description;
   }
