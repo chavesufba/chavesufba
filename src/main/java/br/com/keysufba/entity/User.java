@@ -2,6 +2,7 @@ package br.com.keysufba.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -18,6 +19,8 @@ public class User {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id;
 	
+	@Column(name="login", nullable=false)
+	private String login;
 	
 	@Column(name="nome", nullable=false)
 	private String name;
@@ -27,7 +30,7 @@ public class User {
 	private String password;
 	
 	@OneToOne
-	@JoinColumn(name="pessoa")
+	@JoinColumn(name="pessoa_id", foreignKey=@ForeignKey(name="id"))
 	private Person personId;
 	
 	
@@ -58,5 +61,11 @@ public class User {
 	}
 	public void setPersonId(Person personId) {
 		this.personId = personId;
+	}
+	public String getLogin() {
+		return login;
+	}
+	public void setLogin(String login) {
+		this.login = login;
 	}
 }

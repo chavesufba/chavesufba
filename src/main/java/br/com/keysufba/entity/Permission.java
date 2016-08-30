@@ -1,9 +1,11 @@
 package br.com.keysufba.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -18,6 +20,7 @@ public class Permission {
 	
 	
 	@ManyToOne
+	@JoinColumn(name="tipo_usuario_id", foreignKey=@ForeignKey(name="id"))
 	private UserType userType;
 	
 	

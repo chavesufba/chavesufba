@@ -1,8 +1,10 @@
 package br.com.keysufba.entity;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 
 @Entity(name="tecnico")
@@ -14,8 +16,9 @@ public class Technician extends Person {
 	private Integer id;
 	
 	
-	@Column(name="department_id", nullable=false)
-	private Integer departmentId;
+	@ManyToOne
+	@JoinColumn(name="departamento_id", foreignKey=@ForeignKey(name="id"))
+	private Department departmentId;
 	
 	
 	public Integer getId() {
@@ -24,10 +27,10 @@ public class Technician extends Person {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public Integer getDepartmentId() {
+	public Department getDepartmentId() {
 		return departmentId;
 	}
-	public void setDepartmentId(Integer departmentId) {
+	public void setDepartmentId(Department departmentId) {
 		this.departmentId = departmentId;
 	}
 	

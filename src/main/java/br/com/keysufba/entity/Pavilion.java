@@ -6,28 +6,31 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity(name="departamento")
-public class Department {
+@Entity(name="pavilhao")
+public class Pavilion {
 
+	
 	@Id
-	@Column(name="id", nullable = false)
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id;
 	
-	@Column(name="nome")
+	@Column(name="pavilhao", nullable=false)
 	private String name;
+
 	
 	public Integer getId() {
 		return id;
 	}
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
-	
 }

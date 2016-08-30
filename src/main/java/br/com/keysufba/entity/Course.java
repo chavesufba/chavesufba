@@ -2,9 +2,12 @@ package br.com.keysufba.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 @Entity(name="curso")
 public class Course {
@@ -22,7 +25,9 @@ public class Course {
 	@Column(name="nivel", nullable=false)
 	private String level;
 	
-	
+	@OneToOne
+	@JoinColumn(name="dapartamento_id", foreignKey=@ForeignKey(name="id"))
+	private Department departamentoId;
 	
 	public Integer getId() {
 		return id;
@@ -41,5 +46,17 @@ public class Course {
 	}
 	public void setNivel(String level) {
 		this.level = level;
+	}
+	public String getLevel() {
+		return level;
+	}
+	public void setLevel(String level) {
+		this.level = level;
+	}
+	public Department getDepartamentoId() {
+		return departamentoId;
+	}
+	public void setDepartamentoId(Department departamentoId) {
+		this.departamentoId = departamentoId;
 	}
 }

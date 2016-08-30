@@ -2,7 +2,10 @@ package br.com.keysufba.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 
 @Entity(name="professor")
@@ -17,9 +20,9 @@ public class Teacher extends Person {
 	@Column(name="num_siap", nullable=false)
 	private String siapNumber;
 	
-	
-	@Column(name="departamento_id", nullable=false)
-	private Integer departmentId;
+	@ManyToOne
+	@JoinColumn(name="departamento_id", foreignKey=@ForeignKey(name="id"))
+	private Department departmentId;
 	
 	
 	public Integer getId() {
@@ -34,10 +37,10 @@ public class Teacher extends Person {
 	public void setSiapNumber(String siapNumber) {
 		this.siapNumber = siapNumber;
 	}
-	public Integer getDepartmentId() {
+	public Department getDepartmentId() {
 		return departmentId;
 	}
-	public void setDepartmentId(Integer departmentId) {
+	public void setDepartmentId(Department departmentId) {
 		this.departmentId = departmentId;
 	}
 	
