@@ -18,50 +18,50 @@ import org.hibernate.validator.constraints.Length;
 @Table(name = "PROFESSOR", schema = "SCHEMAA")
 public class Teacher {
 
-	private Integer id;
-	private String siap;
-	private Department department;
-	private Person person;
+  private Integer id;
+  private String siap;
+  private Department department;
+  private Person person;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "ID", unique = true, nullable = false)
-	public Integer getId() {
-		return id;
-	}
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  @Column(name = "ID", unique = true, nullable = false)
+  public Integer getId() {
+    return id;
+  }
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+  public void setId(Integer id) {
+    this.id = id;
+  }
 
-	@NotNull
-	@Length(max = 20)
-	@Column(name = "NUM_SIAP", length = 20, nullable = false)
-	public String getSiap() {
-		return siap;
-	}
+  @NotNull
+  @Length(max = 20)
+  @Column(name = "NUM_SIAP", length = 20, nullable = false)
+  public String getSiap() {
+    return siap;
+  }
 
-	public void setSiap(String siap) {
-		this.siap = siap;
-	}
+  public void setSiap(String siap) {
+    this.siap = siap;
+  }
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "DEPARTAMENTO_ID", referencedColumnName = "ID", nullable = false)
-	public Department getDepartment() {
-		return department;
-	}
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "DEPARTAMENTO_ID", referencedColumnName = "ID", nullable = false)
+  public Department getDepartment() {
+    return department;
+  }
 
-	public void setDepartment(Department department) {
-		this.department = department;
-	}
+  public void setDepartment(Department department) {
+    this.department = department;
+  }
 
-	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "PESSOA_ID", referencedColumnName = "ID", nullable = false)
-	public Person getPerson() {
-		return person;
-	}
+  @OneToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "PESSOA_ID", referencedColumnName = "ID", nullable = false)
+  public Person getPerson() {
+    return person;
+  }
 
-	public void setPerson(Person person) {
-		this.person = person;
-	}
+  public void setPerson(Person person) {
+    this.person = person;
+  }
 }

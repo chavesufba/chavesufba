@@ -14,27 +14,27 @@ import javax.persistence.Table;
 @Table(name = "PERMISSAO", schema = "SCHEMAA")
 public class Permission {
 
-	private Integer id; // FIXME: Wouldn't be the case to put a description as well?
-	private UserType userType;
+  private Integer id; // FIXME: Wouldn't be the case to put a description as well?
+  private UserType userType;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "ID", unique = true, nullable = false)
-	public Integer getId() {
-		return id;
-	}
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  @Column(name = "ID", unique = true, nullable = false)
+  public Integer getId() {
+    return id;
+  }
 
-	public void setId(final Integer id) {
-		this.id = id;
-	}
+  public void setId(final Integer id) {
+    this.id = id;
+  }
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "TIPO_USUARIO_ID", referencedColumnName = "ID", nullable = false)
-	public UserType getUserType() {
-		return userType;
-	}
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "TIPO_USUARIO_ID", referencedColumnName = "ID", nullable = false)
+  public UserType getUserType() {
+    return userType;
+  }
 
-	public void setUserType(final UserType userType) {
-		this.userType = userType;
-	}
+  public void setUserType(final UserType userType) {
+    this.userType = userType;
+  }
 }

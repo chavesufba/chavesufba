@@ -14,28 +14,28 @@ import org.hibernate.validator.constraints.Length;
 @Table(name = "PAVILHAO", schema = "SCHEMAA")
 public class Pavilion {
 
-	private Integer id;
-	private String name;
+  private Integer id;
+  private String name;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "ID", unique = true, nullable = false)
-	public Integer getId() {
-		return id;
-	}
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  @Column(name = "ID", unique = true, nullable = false)
+  public Integer getId() {
+    return id;
+  }
 
-	public void setId(final Integer id) {
-		this.id = id;
-	}
+  public void setId(final Integer id) {
+    this.id = id;
+  }
 
-	@NotNull
-	@Length(max = 512)
-	@Column(name = "NOME", length = 512, nullable = false)
-	public String getName() {
-		return name;
-	}
+  @NotNull
+  @Length(max = 512)
+  @Column(name = "NOME", length = 512, nullable = false)
+  public String getName() {
+    return name;
+  }
 
-	public void setName(final String name) {
-		this.name = name;
-	}
+  public void setName(final String name) {
+    this.name = name;
+  }
 }

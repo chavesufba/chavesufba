@@ -17,39 +17,39 @@ import org.hibernate.validator.constraints.Length;
 @Table(name = "DEPARTAMENTO", schema = "SCHEMAA")
 public class Department {
 
-	private Integer id;
-	private String name;
-	private Institute institute;
+  private Integer id;
+  private String name;
+  private Institute institute;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "ID", unique = true, nullable = false)
-	public Integer getId() {
-		return id;
-	}
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  @Column(name = "ID", unique = true, nullable = false)
+  public Integer getId() {
+    return id;
+  }
 
-	public void setId(final Integer id) {
-		this.id = id;
-	}
+  public void setId(final Integer id) {
+    this.id = id;
+  }
 
-	@NotNull
-	@Length(max = 100)
-	@Column(name = "NOME", length = 100, nullable = false)
-	public String getName() {
-		return name;
-	}
+  @NotNull
+  @Length(max = 100)
+  @Column(name = "NOME", length = 100, nullable = false)
+  public String getName() {
+    return name;
+  }
 
-	public void setName(final String name) {
-		this.name = name;
-	}
+  public void setName(final String name) {
+    this.name = name;
+  }
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "INSTITUTO_ID", referencedColumnName = "ID", nullable = false)
-	public Institute getInstitute() {
-		return institute;
-	}
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "INSTITUTO_ID", referencedColumnName = "ID", nullable = false)
+  public Institute getInstitute() {
+    return institute;
+  }
 
-	public void setInstitute(final Institute institute) {
-		this.institute = institute;
-	}
+  public void setInstitute(final Institute institute) {
+    this.institute = institute;
+  }
 }

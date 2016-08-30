@@ -16,52 +16,52 @@ import org.hibernate.validator.constraints.Length;
 @Entity
 @Table(name = "CURSO", schema = "SCHEMAA")
 public class Course {
-	
-	private Integer id;
-	private String name;
-	private String level;
-	private Department department;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "ID", unique = true, nullable = false)
-	public Integer getId() {
-		return id;
-	}
+  private Integer id;
+  private String name;
+  private String level;
+  private Department department;
 
-	public void setId(final Integer id) {
-		this.id = id;
-	}
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  @Column(name = "ID", unique = true, nullable = false)
+  public Integer getId() {
+    return id;
+  }
 
-	@NotNull
-	@Length(max = 100)
-	@Column(name = "NOME", length = 100, nullable = false)
-	public String getName() {
-		return name;
-	}
+  public void setId(final Integer id) {
+    this.id = id;
+  }
 
-	public void setName(final String name) {
-		this.name = name;
-	}
+  @NotNull
+  @Length(max = 100)
+  @Column(name = "NOME", length = 100, nullable = false)
+  public String getName() {
+    return name;
+  }
 
-	@NotNull
-	@Length(max = 50)
-	@Column(name = "NIVEL", length = 50, nullable = false)
-	public String getLevel() {
-		return level;
-	}
+  public void setName(final String name) {
+    this.name = name;
+  }
 
-	public void setLevel(final String level) {
-		this.level = level;
-	}
+  @NotNull
+  @Length(max = 50)
+  @Column(name = "NIVEL", length = 50, nullable = false)
+  public String getLevel() {
+    return level;
+  }
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "DEPARTAMENTO_ID", referencedColumnName = "ID", nullable = false)
-	public Department getDepartment() {
-		return department;
-	}
+  public void setLevel(final String level) {
+    this.level = level;
+  }
 
-	public void setDepartment(final Department department) {
-		this.department = department;
-	}
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "DEPARTAMENTO_ID", referencedColumnName = "ID", nullable = false)
+  public Department getDepartment() {
+    return department;
+  }
+
+  public void setDepartment(final Department department) {
+    this.department = department;
+  }
 }

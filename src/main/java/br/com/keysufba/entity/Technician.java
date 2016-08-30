@@ -15,38 +15,38 @@ import javax.persistence.Table;
 @Table(name = "TECNICO", schema = "SCHEMAA")
 public class Technician {
 
-	private Integer id;
-	private Department department;
-	private Person person;
+  private Integer id;
+  private Department department;
+  private Person person;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "ID", unique = true, nullable = false)
-	public Integer getId() {
-		return id;
-	}
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  @Column(name = "ID", unique = true, nullable = false)
+  public Integer getId() {
+    return id;
+  }
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+  public void setId(Integer id) {
+    this.id = id;
+  }
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "DEPARTAMENTO_ID", referencedColumnName = "ID", nullable = false)
-	public Department getDepartment() {
-		return department;
-	}
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "DEPARTAMENTO_ID", referencedColumnName = "ID", nullable = false)
+  public Department getDepartment() {
+    return department;
+  }
 
-	public void setDepartment(Department department) {
-		this.department = department;
-	}
+  public void setDepartment(Department department) {
+    this.department = department;
+  }
 
-	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "PESSOA_ID", referencedColumnName = "ID", nullable = false)
-	public Person getPerson() {
-		return person;
-	}
+  @OneToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "PESSOA_ID", referencedColumnName = "ID", nullable = false)
+  public Person getPerson() {
+    return person;
+  }
 
-	public void setPerson(Person person) {
-		this.person = person;
-	}
+  public void setPerson(Person person) {
+    this.person = person;
+  }
 }

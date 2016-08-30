@@ -17,60 +17,60 @@ import org.hibernate.validator.constraints.Length;
 @Table(name = "SALA", schema = "SCHEMAA")
 public class Room {
 
-	private Integer id;
-	private String number;
-	private Integer capacity;
-	private Pavilion pavilion;
-	private RoomType roomType;
+  private Integer id;
+  private String number;
+  private Integer capacity;
+  private Pavilion pavilion;
+  private RoomType roomType;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "ID", unique = true, nullable = false)
-	public Integer getId() {
-		return id;
-	}
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  @Column(name = "ID", unique = true, nullable = false)
+  public Integer getId() {
+    return id;
+  }
 
-	public void setId(final Integer id) {
-		this.id = id;
-	}
+  public void setId(final Integer id) {
+    this.id = id;
+  }
 
-	@NotNull
-	@Length(max = 20)
-	@Column(name = "NUMERO", length = 20, nullable = false)
-	public String getNumber() {
-		return number;
-	}
+  @NotNull
+  @Length(max = 20)
+  @Column(name = "NUMERO", length = 20, nullable = false)
+  public String getNumber() {
+    return number;
+  }
 
-	public void setNumber(final String number) {
-		this.number = number;
-	}
+  public void setNumber(final String number) {
+    this.number = number;
+  }
 
-	@Column(name = "CAPACIDADE")
-	public Integer getCapacity() {
-		return capacity;
-	}
+  @Column(name = "CAPACIDADE")
+  public Integer getCapacity() {
+    return capacity;
+  }
 
-	public void setCapacity(final Integer capacity) {
-		this.capacity = capacity;
-	}
+  public void setCapacity(final Integer capacity) {
+    this.capacity = capacity;
+  }
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "PAVILHAO_ID", referencedColumnName = "ID", nullable = false)
-	public Pavilion getPavilion() {
-		return pavilion;
-	}
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "PAVILHAO_ID", referencedColumnName = "ID", nullable = false)
+  public Pavilion getPavilion() {
+    return pavilion;
+  }
 
-	public void setPavilion(final Pavilion pavilion) {
-		this.pavilion = pavilion;
-	}
+  public void setPavilion(final Pavilion pavilion) {
+    this.pavilion = pavilion;
+  }
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "TIPO_SALA_ID", referencedColumnName = "ID", nullable = false)
-	public RoomType getRoomType() {
-		return roomType;
-	}
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "TIPO_SALA_ID", referencedColumnName = "ID", nullable = false)
+  public RoomType getRoomType() {
+    return roomType;
+  }
 
-	public void setRoomType(final RoomType roomType) {
-		this.roomType = roomType;
-	}
+  public void setRoomType(final RoomType roomType) {
+    this.roomType = roomType;
+  }
 }
