@@ -49,4 +49,5 @@ public class Technician {
   public void setPerson(Person person) {
     this.person = person;
   }
+
 }

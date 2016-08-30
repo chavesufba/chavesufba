@@ -52,4 +52,5 @@ public class Department {
   public void setInstitute(final Institute institute) {
     this.institute = institute;
   }
+
 }

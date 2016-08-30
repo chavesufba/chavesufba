@@ -38,4 +38,5 @@ public class BookingStatus {
   public void setDescription(final String description) {
     this.description = description;
   }
+
 }

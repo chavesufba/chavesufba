@@ -95,4 +95,5 @@ public class Booking {
   public void setBookingStatus(BookingStatus bookingStatus) {
     this.bookingStatus = bookingStatus;
   }
+
 }

@@ -64,4 +64,5 @@ public class Teacher {
   public void setPerson(Person person) {
     this.person = person;
   }
+
 }

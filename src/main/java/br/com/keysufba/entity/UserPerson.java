@@ -31,4 +31,5 @@ public class UserPerson {
   public void setUserType(UserType userType) {
     this.userType = userType;
   }
+
 }

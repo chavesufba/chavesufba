@@ -39,4 +39,5 @@ public class RoomType implements Serializable {
   public void setDescription(final String description) {
     this.description = description;
   }
+
 }

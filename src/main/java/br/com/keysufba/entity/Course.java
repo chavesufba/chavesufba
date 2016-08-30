@@ -64,4 +64,5 @@ public class Course {
   public void setDepartment(final Department department) {
     this.department = department;
   }
+
 }

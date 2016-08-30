@@ -37,4 +37,5 @@ public class Permission {
   public void setUserType(final UserType userType) {
     this.userType = userType;
   }
+
 }
