@@ -5,36 +5,38 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
-@Entity(name="equipamento")
+import org.hibernate.validator.constraints.Length;
+
+@Entity
+@Table(name = "EQUIPAMENTO", schema = "SCHEMAA")
 public class Equipment {
 
-	
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Integer id;
-	
-	
-	@Column(name="descricao", nullable=false)
-	private String descricao;
+  private Integer id;
+  private String description;
 
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  @Column(name = "ID", unique = true, nullable = false)
+  public Integer getId() {
+    return id;
+  }
 
-	public Integer getId() {
-		return id;
-	}
+  public void setId(final Integer id) {
+    this.id = id;
+  }
 
+  @NotNull
+  @Length(max = 512)
+  @Column(name = "DESCRICAO", length = 512, nullable = false)
+  public String getDescription() {
+    return description;
+  }
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+  public void setDescription(final String description) {
+    this.description = description;
+  }
 
-
-	public String getDescricao() {
-		return descricao;
-	}
-
-
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
 }

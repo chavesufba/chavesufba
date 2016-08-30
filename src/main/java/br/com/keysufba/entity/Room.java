@@ -1,71 +1,76 @@
 package br.com.keysufba.entity;
 
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.ForeignKey;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
-@Entity(name="sala")
+import org.hibernate.validator.constraints.Length;
+
+@Entity
+@Table(name = "SALA", schema = "SCHEMAA")
 public class Room {
 
-	
+  private Integer id;
+  private String number;
+  private Integer capacity;
+  private Pavilion pavilion;
+  private RoomType roomType;
+
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
-  private Integer id;
-
-  
-  @Column(name = "numero", nullable=false)
-  private String number;
-
-  
-  @Column(name = "capacidade")
-  private Integer capacity;
-
-  
-  @OneToOne
-  @JoinColumn(name = "pavilhao_id", foreignKey=@ForeignKey(name="id"))
-  private Pavilion pavilionId;
-
-  
-  @OneToOne
-  @JoinColumn(name = "tipo_sala_id")
-  private RoomType roomTypeId;
-
-  
-  Room() { // jpa only
-
-  }
-
-  public Room(final Integer id, final String number, final Integer capacity, final Pavilion pavilionId, final RoomType roomType) {
-    this.id = id;
-    this.number = number;
-    this.capacity = capacity;
-    this.pavilionId = pavilionId;
-    this.roomTypeId = roomType;
-  }
-
+  @Column(name = "ID", unique = true, nullable = false)
   public Integer getId() {
     return id;
   }
 
+  public void setId(final Integer id) {
+    this.id = id;
+  }
+
+  @NotNull
+  @Length(max = 20)
+  @Column(name = "NUMERO", length = 20, nullable = false)
   public String getNumber() {
     return number;
   }
 
+  public void setNumber(final String number) {
+    this.number = number;
+  }
+
+  @Column(name = "CAPACIDADE")
   public Integer getCapacity() {
     return capacity;
   }
 
-  public Pavilion getPavilionId() {
-    return pavilionId;
+  public void setCapacity(final Integer capacity) {
+    this.capacity = capacity;
   }
 
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "PAVILHAO_ID", referencedColumnName = "ID", nullable = false)
+  public Pavilion getPavilion() {
+    return pavilion;
+  }
+
+  public void setPavilion(final Pavilion pavilion) {
+    this.pavilion = pavilion;
+  }
+
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "TIPO_SALA_ID", referencedColumnName = "ID", nullable = false)
   public RoomType getRoomType() {
-    return roomTypeId;
+    return roomType;
+  }
+
+  public void setRoomType(final RoomType roomType) {
+    this.roomType = roomType;
   }
 }

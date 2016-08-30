@@ -2,61 +2,67 @@ package br.com.keysufba.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.ForeignKey;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
-@Entity(name="curso")
+import org.hibernate.validator.constraints.Length;
+
+@Entity
+@Table(name = "CURSO", schema = "SCHEMAA")
 public class Course {
-	
-	@Id
-	@Column(name="id", nullable=false)
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Integer id;
-	
-	
-	@Column(name="nome", nullable=false)
-	private String name;
-	
-	
-	@Column(name="nivel", nullable=false)
-	private String level;
-	
-	@OneToOne
-	@JoinColumn(name="dapartamento_id", foreignKey=@ForeignKey(name="id"))
-	private Department departamentoId;
-	
-	public Integer getId() {
-		return id;
-	}
-	public void setId(Integer id) {
-		this.id = id;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getNivel() {
-		return level;
-	}
-	public void setNivel(String level) {
-		this.level = level;
-	}
-	public String getLevel() {
-		return level;
-	}
-	public void setLevel(String level) {
-		this.level = level;
-	}
-	public Department getDepartamentoId() {
-		return departamentoId;
-	}
-	public void setDepartamentoId(Department departamentoId) {
-		this.departamentoId = departamentoId;
-	}
+
+  private Integer id;
+  private String name;
+  private String level;
+  private Department department;
+
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  @Column(name = "ID", unique = true, nullable = false)
+  public Integer getId() {
+    return id;
+  }
+
+  public void setId(final Integer id) {
+    this.id = id;
+  }
+
+  @NotNull
+  @Length(max = 100)
+  @Column(name = "NOME", length = 100, nullable = false)
+  public String getName() {
+    return name;
+  }
+
+  public void setName(final String name) {
+    this.name = name;
+  }
+
+  @NotNull
+  @Length(max = 50)
+  @Column(name = "NIVEL", length = 50, nullable = false)
+  public String getLevel() {
+    return level;
+  }
+
+  public void setLevel(final String level) {
+    this.level = level;
+  }
+
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "DEPARTAMENTO_ID", referencedColumnName = "ID", nullable = false)
+  public Department getDepartment() {
+    return department;
+  }
+
+  public void setDepartment(final Department department) {
+    this.department = department;
+  }
+
 }

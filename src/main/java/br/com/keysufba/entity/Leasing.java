@@ -14,16 +14,14 @@ import javax.persistence.TemporalType;
 import java.util.Date;
 
 @Entity
-@Table(name = "RESERVA", schema = "SCHEMAA")
-public class Booking {
+@Table(name = "LOCACAO", schema = "SCHEMAA")
+public class Leasing {
 
   private Integer id;
-  private Teacher teacher;
+  private Student student;
   private Room room;
   private Date startTime;
   private Date endTime;
-  private Technician technician;
-  private BookingStatus bookingStatus;
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
@@ -32,18 +30,18 @@ public class Booking {
     return id;
   }
 
-  public void setId(Integer id) {
+  public void setId(final Integer id) {
     this.id = id;
   }
 
   @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "PROFESSOR_ID", referencedColumnName = "ID")
-  public Teacher getTeacher() {
-    return teacher;
+  @JoinColumn(name = "ALUNO_ID", referencedColumnName = "ID", nullable = false)
+  public Student getStudent() {
+    return student;
   }
 
-  public void setTeacher(Teacher teacher) {
-    this.teacher = teacher;
+  public void setStudent(final Student student) {
+    this.student = student;
   }
 
   @ManyToOne(fetch = FetchType.LAZY)
@@ -52,7 +50,7 @@ public class Booking {
     return room;
   }
 
-  public void setRoom(Room room) {
+  public void setRoom(final Room room) {
     this.room = room;
   }
 
@@ -62,7 +60,7 @@ public class Booking {
     return startTime;
   }
 
-  public void setStartTime(Date startTime) {
+  public void setStartTime(final Date startTime) {
     this.startTime = startTime;
   }
 
@@ -72,28 +70,7 @@ public class Booking {
     return endTime;
   }
 
-  public void setEndTime(Date endTime) {
+  public void setEndTime(final Date endTime) {
     this.endTime = endTime;
   }
-
-  @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "TECNICO_ID", referencedColumnName = "ID")
-  public Technician getTechnician() {
-    return technician;
-  }
-
-  public void setTechnician(Technician technician) {
-    this.technician = technician;
-  }
-
-  @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "STATUS_RESERVA_ID", referencedColumnName = "ID")
-  public BookingStatus getBookingStatus() {
-    return bookingStatus;
-  }
-
-  public void setBookingStatus(BookingStatus bookingStatus) {
-    this.bookingStatus = bookingStatus;
-  }
-
 }

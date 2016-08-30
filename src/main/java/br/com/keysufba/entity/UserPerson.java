@@ -1,53 +1,35 @@
 package br.com.keysufba.entity;
 
 import javax.persistence.Entity;
-import javax.persistence.ForeignKey;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 
-@Entity(name="Pessoa_Usuario")
+@Entity
+@Table(name = "PESSOA_USUARIO", schema = "SCHEMAA")
 public class UserPerson {
-	
-	
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Integer id;
-	
-	
-	@ManyToOne
-	@JoinColumn(name="tipo_usuario", nullable=false, foreignKey=@ForeignKey(name="id"))
-	private UserType userTypeId;
-	
-	
-	@ManyToOne
-	@JoinColumn(name="pessoa_id", nullable=false, foreignKey=@ForeignKey(name="id"))
-	private Person personId;
 
-	
-	public Integer getId() {
-		return id;
-	}
+  private Person person; // FIXME: Check the real necessity of this class
+  private UserType userType;
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+  @ManyToMany
+  @JoinColumn(name = "PESSOA_ID", referencedColumnName = "ID", nullable = false)
+  public Person getPerson() {
+    return person;
+  }
 
-	public UserType getUserTypeId() {
-		return userTypeId;
-	}
+  public void setPerson(Person person) {
+    this.person = person;
+  }
 
-	public void setUserTypeId(UserType userTypeId) {
-		this.userTypeId = userTypeId;
-	}
+  @ManyToMany
+  @JoinColumn(name = "TIPO_USUARIO_ID", referencedColumnName = "ID", nullable = false)
+  public UserType getUserType() {
+    return userType;
+  }
 
-	public Person getPersonId() {
-		return personId;
-	}
+  public void setUserType(UserType userType) {
+    this.userType = userType;
+  }
 
-	public void setPersonId(Person personId) {
-		this.personId = personId;
-	}
 }
