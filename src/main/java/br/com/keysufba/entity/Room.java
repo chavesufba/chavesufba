@@ -1,5 +1,7 @@
 package br.com.keysufba.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -13,64 +15,76 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name = "SALA", schema = "SCHEMAA")
-public class Room {
+public class Room implements Serializable {
 
-  private Integer id;
-  private String number;
-  private Integer capacity;
-  private Pavilion pavilion;
-  private RoomType roomType;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private Integer id;
+	private String number;
+	private Integer capacity;
+	private Pavilion pavilion;
+	private RoomType roomType;
 
-  @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
-  @Column(name = "ID", unique = true, nullable = false)
-  public Integer getId() {
-    return id;
-  }
+	Room() {
 
-  public void setId(final Integer id) {
-    this.id = id;
-  }
+	}
 
-  @NotNull
-  @Length(max = 20)
-  @Column(name = "NUMERO", length = 20, nullable = false)
-  public String getNumber() {
-    return number;
-  }
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "ID", unique = true, nullable = false)
+	public Integer getId() {
+		return id;
+	}
 
-  public void setNumber(final String number) {
-    this.number = number;
-  }
+	public void setId(final Integer id) {
+		this.id = id;
+	}
 
-  @Column(name = "CAPACIDADE")
-  public Integer getCapacity() {
-    return capacity;
-  }
+	@NotNull
+	@Length(max = 20)
+	@Column(name = "NUMERO", length = 20, nullable = false)
+	public String getNumber() {
+		return number;
+	}
 
-  public void setCapacity(final Integer capacity) {
-    this.capacity = capacity;
-  }
+	public void setNumber(final String number) {
+		this.number = number;
+	}
 
-  @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "PAVILHAO_ID", referencedColumnName = "ID", nullable = false)
-  public Pavilion getPavilion() {
-    return pavilion;
-  }
+	@Column(name = "CAPACIDADE")
+	public Integer getCapacity() {
+		return capacity;
+	}
 
-  public void setPavilion(final Pavilion pavilion) {
-    this.pavilion = pavilion;
-  }
+	public void setCapacity(final Integer capacity) {
+		this.capacity = capacity;
+	}
 
-  @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "TIPO_SALA_ID", referencedColumnName = "ID", nullable = false)
-  public RoomType getRoomType() {
-    return roomType;
-  }
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "PAVILHAO_ID", referencedColumnName = "ID", nullable = false)
+	public Pavilion getPavilion() {
+		return pavilion;
+	}
 
-  public void setRoomType(final RoomType roomType) {
-    this.roomType = roomType;
-  }
+	public void setPavilion(final Pavilion pavilion) {
+		this.pavilion = pavilion;
+	}
+
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "TIPO_SALA_ID", referencedColumnName = "ID", nullable = false)
+	public RoomType getRoomType() {
+		return roomType;
+	}
+
+	public void setRoomType(final RoomType roomType) {
+		this.roomType = roomType;
+	}
 }
