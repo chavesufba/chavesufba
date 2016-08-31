@@ -1,7 +1,5 @@
 package br.com.keysufba.entity;
 
-import java.io.Serializable;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -19,12 +17,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "SALA", schema = "SCHEMAA")
-public class Room implements Serializable {
+public class Room {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	private Integer id;
 	private String number;
 	private Integer capacity;
