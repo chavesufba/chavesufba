@@ -7,13 +7,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-import java.io.Serializable;
 
 import org.hibernate.validator.constraints.Length;
 
 @Entity
 @Table(name = "TIPO_SALA", schema = "SCHEMAA")
-public class RoomType implements Serializable {
+public class RoomType {
 
   private Integer id;
   private String description;
