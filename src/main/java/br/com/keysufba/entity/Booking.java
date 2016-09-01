@@ -14,6 +14,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import br.com.keysufba.domain.BookingStatus;
 
 import java.util.Date;
@@ -43,6 +45,7 @@ public class Booking {
 
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "PROFESSOR_ID")
+  @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
   public Teacher getTeacher() {
     return teacher;
   }
@@ -53,6 +56,7 @@ public class Booking {
 
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "SALA_ID", nullable = false)
+  @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
   public Room getRoom() {
     return room;
   }
@@ -83,6 +87,7 @@ public class Booking {
 
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "TECNICO_ID")
+  @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
   public Technician getTechnician() {
     return technician;
   }

@@ -17,5 +17,20 @@ public enum BookingStatus {
    */
   R;
   
+  public int getCode() {
+    return this.ordinal();
+  }
   
+  public String getDescryption() {
+    switch(this) {
+    case P:
+      return "Pending";
+    case A:
+      return "Accepted";
+    case R:
+      return "Refused";
+    default:
+      return "";
+    }
+  }
 }

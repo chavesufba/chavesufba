@@ -1,7 +1,5 @@
 package br.com.keysufba.entity;
 
-import java.io.Serializable;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -13,9 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-
-import org.hibernate.validator.constraints.Length;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -23,10 +18,8 @@ import br.com.keysufba.domain.RoomType;
 
 @Entity
 @Table(name = "SALA", schema = "SCHEMAA")
-public class Room implements Serializable {
+public class Room {
 
-  private static final long serialVersionUID = 798680138849449531L;
-  
   private Integer id;
   private String number;
   private Integer capacity;

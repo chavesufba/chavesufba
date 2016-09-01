@@ -3,17 +3,34 @@ package br.com.keysufba.domain;
 public enum RoomType {
 
   /*
-   * Class(r)oom
+   * Classroom
    */
   R,
   
   /*
-   * (C)lass Lab
+   * Class Lab
    */
   C,
   
   /*
-   * (S)tudent Lab
+   * Student Lab
    */
   S;
+  
+  public int getCode() {
+    return this.ordinal();
+  }
+  
+  public String getDescryption() {
+    switch(this) {
+    case R:
+      return "Classroom";
+    case C:
+      return "Class Laboratory";
+    case S:
+      return "Student Laboratory";
+    default:
+      return "";
+    }
+  }
 }

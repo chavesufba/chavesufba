@@ -10,6 +10,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name = "USUARIO", schema = "SCHEMAA")
 public class User {
@@ -49,7 +51,8 @@ public class User {
   }
 
   @OneToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "PESSOA_ID", referencedColumnName = "ID", nullable = false)
+  @JoinColumn(name = "PESSOA_ID", nullable = false)
+  @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
   public Person getPerson() {
     return person;
   }

@@ -11,6 +11,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name = "ALUNO", schema = "SCHEMAA")
 public class Student {
@@ -41,7 +43,8 @@ public class Student {
   }
 
   @OneToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "PESSOA_ID", referencedColumnName = "ID", nullable = false)
+  @JoinColumn(name = "PESSOA_ID", nullable = false)
+  @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
   public Person getPerson() {
     return person;
   }
@@ -51,7 +54,8 @@ public class Student {
   }
 
   @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "CURSO_ID", referencedColumnName = "ID", nullable = false)
+  @JoinColumn(name = "CURSO_ID", nullable = false)
+  @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
   public Course getCourse() {
     return course;
   }

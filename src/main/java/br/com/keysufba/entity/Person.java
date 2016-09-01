@@ -15,6 +15,8 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name = "PESSOA", schema = "SCHEMAA")
 public class Person {
@@ -77,6 +79,7 @@ public class Person {
   @JoinTable(name = "PESSOA_USUARIO", schema = "SCHEMAA", joinColumns = {
       @JoinColumn(name = "PESSOA_ID", nullable = false, updatable = false) }, inverseJoinColumns = {
 	  @JoinColumn(name = "TIPO_USUARIO_ID", nullable = false, updatable = false) })
+  @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
   public Set<UserType> getUserTypes() {
     return userTypes;
   }

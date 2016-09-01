@@ -12,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name = "TIPO_USUARIO", schema = "SCHEMAA")
 public class UserType {
@@ -41,6 +43,7 @@ public class UserType {
   }
 
   @ManyToMany(fetch = FetchType.LAZY, mappedBy = "userTypes")
+  @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
   public Set<Person> getPeople() {
     return people;
   }

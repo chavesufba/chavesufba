@@ -11,6 +11,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.util.Date;
 
 @Entity
@@ -36,6 +39,7 @@ public class Leasing {
 
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "ALUNO_ID", nullable = false)
+  @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
   public Student getStudent() {
     return student;
   }
@@ -46,6 +50,7 @@ public class Leasing {
 
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "SALA_ID", nullable = false)
+  @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
   public Room getRoom() {
     return room;
   }
