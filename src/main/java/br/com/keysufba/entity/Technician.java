@@ -31,7 +31,7 @@ public class Technician {
   }
 
   @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "DEPARTAMENTO_ID", referencedColumnName = "ID", nullable = false)
+  @JoinColumn(name = "DEPARTAMENTO_ID", nullable = false)
   public Department getDepartment() {
     return department;
   }
@@ -41,7 +41,7 @@ public class Technician {
   }
 
   @OneToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "PESSOA_ID", referencedColumnName = "ID", nullable = false)
+  @JoinColumn(name = "PESSOA_ID", nullable = false)
   public Person getPerson() {
     return person;
   }

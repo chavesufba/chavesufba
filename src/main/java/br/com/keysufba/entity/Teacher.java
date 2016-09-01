@@ -10,9 +10,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-
-import org.hibernate.validator.constraints.Length;
 
 @Entity
 @Table(name = "PROFESSOR", schema = "SCHEMAA")
@@ -34,8 +31,6 @@ public class Teacher {
     this.id = id;
   }
 
-  @NotNull
-  @Length(max = 20)
   @Column(name = "NUM_SIAP", length = 20, nullable = false)
   public String getSiap() {
     return siap;

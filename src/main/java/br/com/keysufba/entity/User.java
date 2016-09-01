@@ -9,9 +9,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-
-import org.hibernate.validator.constraints.Length;
 
 @Entity
 @Table(name = "USUARIO", schema = "SCHEMAA")
@@ -33,8 +30,6 @@ public class User {
     this.id = id;
   }
 
-  @NotNull
-  @Length(max = 50)
   @Column(name = "LOGIN", length = 50, nullable = false)
   public String getLogin() {
     return login;
@@ -44,8 +39,6 @@ public class User {
     this.login = login;
   }
 
-  @NotNull
-  @Length(max = 100)
   @Column(name = "SENHA", length = 100, nullable = false)
   public String getPassword() {
     return password;

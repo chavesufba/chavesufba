@@ -6,9 +6,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-
-import org.hibernate.validator.constraints.Length;
 
 @Entity
 @Table(name = "INSTITUTO", schema = "SCHEMAA")
@@ -28,8 +25,6 @@ public class Institute {
     this.id = id;
   }
 
-  @NotNull
-  @Length(max = 100)
   @Column(name = "NOME", length = 100, nullable = false)
   public String getName() {
     return name;

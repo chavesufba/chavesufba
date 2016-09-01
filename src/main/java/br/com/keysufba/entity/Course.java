@@ -9,9 +9,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-
-import org.hibernate.validator.constraints.Length;
 
 @Entity
 @Table(name = "CURSO", schema = "SCHEMAA")
@@ -33,8 +30,6 @@ public class Course {
     this.id = id;
   }
 
-  @NotNull
-  @Length(max = 100)
   @Column(name = "NOME", length = 100, nullable = false)
   public String getName() {
     return name;
@@ -44,8 +39,6 @@ public class Course {
     this.name = name;
   }
 
-  @NotNull
-  @Length(max = 50)
   @Column(name = "NIVEL", length = 50, nullable = false)
   public String getLevel() {
     return level;
@@ -56,7 +49,7 @@ public class Course {
   }
 
   @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "DEPARTAMENTO_ID", referencedColumnName = "ID", nullable = false)
+  @JoinColumn(name = "DEPARTAMENTO_ID", nullable = false)
   public Department getDepartment() {
     return department;
   }
