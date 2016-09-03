@@ -1,13 +1,21 @@
 package br.com.keysufba.entity;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-import org.hibernate.validator.constraints.Length;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "PESSOA", schema = "SCHEMAA")
@@ -18,6 +26,7 @@ public class Person {
   private String email;
   private String phone;
   private String photo;
+  private Set<UserType> userTypes = new HashSet<UserType>(0);
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
@@ -30,8 +39,6 @@ public class Person {
     this.id = id;
   }
 
-  @NotNull
-  @Length(max = 100)
   @Column(name = "NOME", length = 100, nullable = false)
   public String getName() {
     return name;
@@ -41,8 +48,6 @@ public class Person {
     this.name = name;
   }
 
-  @NotNull
-  @Length(max = 100)
   @Column(name = "EMAIL", length = 100, nullable = false)
   public String getEmail() {
     return email;
@@ -52,7 +57,6 @@ public class Person {
     this.email = email;
   }
 
-  @Length(max = 20)
   @Column(name = "TELEFONE", length = 20)
   public String getPhone() {
     return phone;
@@ -62,7 +66,6 @@ public class Person {
     this.phone = phone;
   }
 
-  @Length(max = 250)
   @Column(name = "FOTO", length = 250)
   public String getPhoto() {
     return photo;
@@ -72,4 +75,16 @@ public class Person {
     this.photo = photo;
   }
 
+  @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+  @JoinTable(name = "PESSOA_USUARIO", schema = "SCHEMAA", joinColumns = {
+      @JoinColumn(name = "PESSOA_ID", nullable = false, updatable = false) }, inverseJoinColumns = {
+	  @JoinColumn(name = "TIPO_USUARIO_ID", nullable = false, updatable = false) })
+  @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+  public Set<UserType> getUserTypes() {
+    return userTypes;
+  }
+
+  public void setUserTypes(Set<UserType> userTypes) {
+    this.userTypes = userTypes;
+  }
 }

@@ -2,6 +2,8 @@ package br.com.keysufba.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -9,9 +11,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 
-import org.hibernate.validator.constraints.Length;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import br.com.keysufba.domain.RoomType;
 
 @Entity
 @Table(name = "SALA", schema = "SCHEMAA")
@@ -21,7 +24,7 @@ public class Room {
   private String number;
   private Integer capacity;
   private Pavilion pavilion;
-  private RoomType roomType;
+  private RoomType type;
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
@@ -34,8 +37,6 @@ public class Room {
     this.id = id;
   }
 
-  @NotNull
-  @Length(max = 20)
   @Column(name = "NUMERO", length = 20, nullable = false)
   public String getNumber() {
     return number;
@@ -55,7 +56,8 @@ public class Room {
   }
 
   @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "PAVILHAO_ID", referencedColumnName = "ID", nullable = false)
+  @JoinColumn(name = "PAVILHAO_ID", nullable = false)
+  @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
   public Pavilion getPavilion() {
     return pavilion;
   }
@@ -64,13 +66,13 @@ public class Room {
     this.pavilion = pavilion;
   }
 
-  @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "TIPO_SALA_ID", referencedColumnName = "ID", nullable = false)
-  public RoomType getRoomType() {
-    return roomType;
+  @Column(name = "TIPO", length = 1, nullable = false)
+  @Enumerated(EnumType.STRING)
+  public RoomType getType() {
+    return type;
   }
 
-  public void setRoomType(final RoomType roomType) {
-    this.roomType = roomType;
+  public void setType(final RoomType type) {
+    this.type = type;
   }
 }

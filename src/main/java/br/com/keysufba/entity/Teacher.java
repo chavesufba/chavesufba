@@ -10,9 +10,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 
-import org.hibernate.validator.constraints.Length;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "PROFESSOR", schema = "SCHEMAA")
@@ -34,8 +33,6 @@ public class Teacher {
     this.id = id;
   }
 
-  @NotNull
-  @Length(max = 20)
   @Column(name = "NUM_SIAP", length = 20, nullable = false)
   public String getSiap() {
     return siap;
@@ -46,7 +43,8 @@ public class Teacher {
   }
 
   @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "DEPARTAMENTO_ID", referencedColumnName = "ID", nullable = false)
+  @JoinColumn(name = "DEPARTAMENTO_ID", nullable = false)
+  @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
   public Department getDepartment() {
     return department;
   }
@@ -56,7 +54,8 @@ public class Teacher {
   }
 
   @OneToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "PESSOA_ID", referencedColumnName = "ID", nullable = false)
+  @JoinColumn(name = "PESSOA_ID", nullable = false)
+  @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
   public Person getPerson() {
     return person;
   }
