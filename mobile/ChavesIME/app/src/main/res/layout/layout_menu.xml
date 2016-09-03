@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/menuRelativeLayout"
+    android:layout_gravity="start">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:id="@+id/menuTopView"
+        android:background="@color/colorPrimary"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:id="@+id/menuMidView"
+        android:background="@color/white"
+        android:layout_below="@id/menuTopView"/>
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/logo_ufba"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/menuRecyclerView"
+        android:layout_below="@id/menuMidView"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"/>
+
+
+</RelativeLayout>

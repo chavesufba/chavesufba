@@ -16,8 +16,6 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
 
-
-
     }
 
     /**
@@ -29,7 +27,6 @@ public class LoginActivity extends AppCompatActivity {
      */
     public void botaoLogin(View botao) {
 
-        // TODO: Conferir conteúdo do campo matrícula (tipo de caractere, tamanho, etc)
         // TODO: Conferir conteúdo do campo matrícula (tipo de caractere, tamanho, etc)
         if (true) {
 
@@ -46,6 +43,17 @@ public class LoginActivity extends AppCompatActivity {
             Toast.makeText(LoginActivity.this, getString(R.string.preenchaCorretamente), Toast.LENGTH_LONG).show();
 
         }
+
+    }
+
+    /**
+     * Abre a tela de cadastro
+     */
+    public void botaoCadastro(View botao) {
+
+        Intent intent = new Intent(/*LoginActivity.this, CadastroActivity.class,*/); // TODO: Descomentar linha e criar 'CadastroActivity
+        //startActivity(intent); // TODO: Descomentar linha
+        Toast.makeText(LoginActivity.this, "Tela em desenvolvimento.", Toast.LENGTH_SHORT).show(); // TODO: Apagar linha
 
     }
 

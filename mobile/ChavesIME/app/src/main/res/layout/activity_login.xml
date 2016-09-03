@@ -15,41 +15,29 @@
             android:id="@+id/login_logoIMEImageView"
             android:src="@drawable/logo_ufba"
             android:layout_centerHorizontal="true"
-            android:layout_margin="20dp"/>
+            android:layout_margin="40dp"
+            tools:ignore="ContentDescription"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/login_matriculaTextView"
-            android:text="@string/matricula"
-            android:textStyle="bold"
-            android:layout_below="@id/login_logoIMEImageView"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"/>
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/login_matriculaEditText"
-            android:layout_below="@id/login_matriculaTextView"
+            android:hint="@string/matricula"
+            android:layout_below="@id/login_logoIMEImageView"
+            android:layout_marginTop="20dp"
             android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/login_senhaTextView"
-            android:text="@string/senha"
-            android:textStyle="bold"
-            android:layout_below="@id/login_matriculaEditText"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"/>
+            android:layout_marginEnd="20dp"
+            android:inputType="number"/>
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/login_senhaEditText"
-            android:layout_below="@id/login_senhaTextView"
+            android:hint="@string/senha"
+            android:inputType="numberPassword"
+            android:layout_below="@id/login_matriculaEditText"
+            android:layout_marginTop="20dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"/>
 
@@ -64,6 +52,18 @@
             android:layout_marginTop="30dp"
             android:layout_centerHorizontal="true"
             android:onClick="botaoLogin"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/login_registerButton"
+            android:layout_below="@id/login_loginButton"
+            android:layout_centerHorizontal="true"
+            android:background="@android:color/transparent"
+            android:layout_marginTop="10dp"
+            android:text="@string/naoTenhoCadastro"
+            android:textColor="@android:color/darker_gray"
+            android:onClick="botaoCadastro"/>
 
     </RelativeLayout>
 
