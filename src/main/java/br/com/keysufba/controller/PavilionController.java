@@ -65,4 +65,18 @@ public class PavilionController {
       return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
   }
+
+  @RequestMapping(path = "/pavilions", method = RequestMethod.DELETE, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+  public HttpEntity<Pavilion> deletePavilion(@RequestBody Pavilion pavilion) throws DataIntegrityViolationException {
+    if (pavilion == null) {
+      return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+    }
+
+    try {
+      pavilionService.delete(pavilion);
+      return new ResponseEntity<>(pavilion, HttpStatus.OK);
+    } catch (Exception e) {
+      return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+    }
+  }
 }
