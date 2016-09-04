@@ -28,15 +28,15 @@ public class UserService implements GenericService<User> {
   @Override
   public User create(User t) throws DataIntegrityViolationException {
 	if(findById(t.getId()) != null){
-		throw new DataIntegrityViolationException("entity already exists");
+		throw new DataIntegrityViolationException("User already exists");
 	}
     return userRepository.save(t);
   }
 
   @Override
-  public Integer delete(User t) {
-    userRepository.delete(t);
-    return null;
+  public Integer delete(final Integer id) {
+    userRepository.delete(id);
+    return id;
   }
 
   @Override
@@ -44,7 +44,7 @@ public class UserService implements GenericService<User> {
     if(findById(t.getId()) != null){
     	return userRepository.save(t);
     }
-    throw new DataIntegrityViolationException("entity not found");
+    throw new DataIntegrityViolationException("User not found");
   }
 
 }

@@ -16,7 +16,7 @@ import br.com.keysufba.entity.User;
 import br.com.keysufba.service.UserService;
 
 @RestController
-@RequestMapping("/api/v1/users")
+@RequestMapping("/api/v1")
 public class UserController {
 
   @Autowired
@@ -28,7 +28,7 @@ public class UserController {
     return new ResponseEntity<>(Users, HttpStatus.OK);
   }
 
-  @RequestMapping("/{id}")
+  @RequestMapping("/users/{id}")
   public HttpEntity<User> getUser(@PathVariable("id") Integer id) {
     final User User = userService.findById(id);
     if (User == null) {
@@ -37,7 +37,7 @@ public class UserController {
     return new ResponseEntity<>(User, HttpStatus.OK);
   }
   
-  @RequestMapping(method=RequestMethod.POST)
+  @RequestMapping(path="/users", method=RequestMethod.POST)
   public HttpEntity<User> createUser(@RequestBody User user) throws DataIntegrityViolationException {
 	  if (user == null) {
 		  return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
@@ -46,7 +46,7 @@ public class UserController {
 	  return new ResponseEntity<>(user, HttpStatus.OK);
   }
   
-  @RequestMapping(method=RequestMethod.PUT)
+  @RequestMapping(path="/users", method=RequestMethod.PUT)
   public HttpEntity<User> updateUser(@RequestBody User user) throws DataIntegrityViolationException {
 	  if (user == null) {
 		  return new ResponseEntity<>(HttpStatus.BAD_REQUEST);

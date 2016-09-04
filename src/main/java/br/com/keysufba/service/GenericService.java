@@ -1,9 +1,8 @@
 package br.com.keysufba.service;
 
-import java.util.Collection;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.util.Collection;
 
 public interface GenericService<T> {
 
@@ -33,10 +32,10 @@ public interface GenericService<T> {
   /**
    * Remove an instance of the {@link Entity}
    * 
-   * @param t - Instance of the {@link Entity}
+   * @param id - Attribute {@link Id} of the {@link Entity}
    * @return Attribute {@link Id} of the {@link Entity} removed
    */
-  Integer delete(T t);
+  Integer delete(Integer id);
 
   /**
    * Update an instance of the {@link Entity}
