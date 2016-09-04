@@ -19,6 +19,14 @@ public class Department {
   private Integer id;
   private String name;
   private Institute institute;
+  
+  Department() { // jpa only
+
+  }
+
+  public Department(Integer id) {
+    this.id = id;
+  }
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
