@@ -24,7 +24,15 @@ public class Room {
   private String number;
   private Integer capacity;
   private Pavilion pavilion;
-  private RoomType type;
+  private RoomType roomType;
+
+  Room() { // jpa only
+
+  }
+
+  public Room(Integer id) {
+    this.id = id;
+  }
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
@@ -68,11 +76,11 @@ public class Room {
 
   @Column(name = "TIPO", length = 1, nullable = false)
   @Enumerated(EnumType.STRING)
-  public RoomType getType() {
-    return type;
+  public RoomType getRoomType() {
+    return roomType;
   }
 
-  public void setType(final RoomType type) {
-    this.type = type;
+  public void setRoomType(final RoomType roomType) {
+    this.roomType = roomType;
   }
 }
