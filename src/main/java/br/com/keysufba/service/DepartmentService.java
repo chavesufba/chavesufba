@@ -25,9 +25,9 @@ public class DepartmentService implements GenericService<Department> {
   }
 
   @Override
-  public Department create(Department r) {
-    departmentRepository.save(r);
-    return r;
+  public Department create(Department department) {
+    departmentRepository.save(department);
+    return department;
   }
 
   @Override
@@ -37,14 +37,14 @@ public class DepartmentService implements GenericService<Department> {
   }
 
   @Override
-  public Department update(Department r) {
-    final Department foundDepartment = findById(r.getId());
+  public Department update(Department department) {
+    final Department foundDepartment = findById(department.getId());
     if (foundDepartment == null) {
       return null;
     }
 
-    departmentRepository.save(r);
-    return r;
+    departmentRepository.save(department);
+    return department;
   }
 
 }
