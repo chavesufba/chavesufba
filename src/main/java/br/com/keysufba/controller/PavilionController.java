@@ -45,8 +45,8 @@ public class PavilionController {
     }
 
     try {
-      pavilionService.create(pavilion);
-      return new ResponseEntity<>(pavilion, HttpStatus.OK);
+      final Pavilion createdPavilion = pavilionService.create(pavilion);
+      return new ResponseEntity<>(createdPavilion, HttpStatus.OK);
     } catch (Exception e) {
       return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
@@ -59,7 +59,10 @@ public class PavilionController {
     }
 
     try {
-      pavilionService.update(pavilion);
+      final Pavilion updatedPavilion = pavilionService.update(pavilion);
+      if (updatedPavilion == null) {
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+      }
       return new ResponseEntity<>(pavilion, HttpStatus.OK);
     } catch (Exception e) {
       return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
@@ -73,8 +76,8 @@ public class PavilionController {
     }
 
     try {
-      pavilionService.delete(pavilion);
-      return new ResponseEntity<>(pavilion, HttpStatus.OK);
+      final Pavilion deletedPavilion = pavilionService.delete(pavilion);
+      return new ResponseEntity<>(deletedPavilion, HttpStatus.OK);
     } catch (Exception e) {
       return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
