@@ -58,4 +58,13 @@ public class CourseController {
         courseService.update(course);
         return new ResponseEntity<>(course, HttpStatus.OK);
     }
+
+    @RequestMapping(method=RequestMethod.DELETE)
+    public HttpEntity<Course> deleteCourse(@RequestBody Course course) throws DataIntegrityViolationException {
+        if (course == null) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        courseService.delete(course);
+        return new ResponseEntity<>(course, HttpStatus.OK);
+    }
 }
