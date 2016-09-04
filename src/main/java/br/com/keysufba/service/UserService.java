@@ -34,7 +34,7 @@ public class UserService implements GenericService<User> {
   }
 
   @Override
-  public Integer delete(User t) {
+  public User delete(User t) {
     userRepository.delete(t);
     return null;
   }

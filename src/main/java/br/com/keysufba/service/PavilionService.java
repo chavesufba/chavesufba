@@ -30,13 +30,18 @@ public class PavilionService implements GenericService<Pavilion> {
   }
 
   @Override
-  public Integer delete(Pavilion p) {
+  public Pavilion delete(Pavilion p) {
     pavilionRepository.delete(p);
-    return p.getId();
+    return p;
   }
 
   @Override
   public Pavilion update(Pavilion p) {
+    final Pavilion foundPavilion = findById(p.getId());
+    if (foundPavilion == null) {
+      return null;
+    }
+
     pavilionRepository.save(p);
     return p;
   }

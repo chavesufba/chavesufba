@@ -31,7 +31,7 @@ public class RoomService implements GenericService<Room> {
   }
 
   @Override
-  public Integer delete(Room t) {
+  public Room delete(Room t) {
     // TODO Auto-generated method stub
     return null;
   }
