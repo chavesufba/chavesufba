@@ -17,20 +17,24 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping("/api/v1/pavilions")
 public class PavilionController {
 
   @Autowired
   private PavilionService pavilionService;
 
-  @RequestMapping("/pavilions")
+  @RequestMapping(method = RequestMethod.GET)
   public HttpEntity<List<Pavilion>> getPavilions() {
     final List<Pavilion> pavilions = pavilionService.findAll();
     return new ResponseEntity<>(pavilions, HttpStatus.OK);
   }
 
-  @RequestMapping("/pavilions/{id}")
+  @RequestMapping(path = "/{id}", method = RequestMethod.GET)
   public HttpEntity<Pavilion> getPavilion(@PathVariable("id") Integer id) {
+    if (id == null) {
+      return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+
     final Pavilion pavilion = pavilionService.findById(id);
     if (pavilion == null) {
       return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -38,7 +42,7 @@ public class PavilionController {
     return new ResponseEntity<>(pavilion, HttpStatus.OK);
   }
 
-  @RequestMapping(path = "/pavilions", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+  @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
   public HttpEntity<Pavilion> createPavilion(@RequestBody Pavilion pavilion) throws DataIntegrityViolationException {
     if (pavilion == null) {
       return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
@@ -52,13 +56,14 @@ public class PavilionController {
     }
   }
 
-  @RequestMapping(path = "/pavilions", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-  public HttpEntity<Pavilion> updatePavilion(@RequestBody Pavilion pavilion) {
-    if (pavilion == null) {
+  @RequestMapping(path = "/{id}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+  public HttpEntity<Pavilion> updatePavilion(@PathVariable("id") Integer id, @RequestBody Pavilion pavilion) {
+    if (id == null || pavilion == null) {
       return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 
     try {
+      pavilion.setId(id);
       final Pavilion updatedPavilion = pavilionService.update(pavilion);
       if (updatedPavilion == null) {
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -69,15 +74,15 @@ public class PavilionController {
     }
   }
 
-  @RequestMapping(path = "/pavilions", method = RequestMethod.DELETE, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-  public HttpEntity<Pavilion> deletePavilion(@RequestBody Pavilion pavilion) throws DataIntegrityViolationException {
-    if (pavilion == null) {
+  @RequestMapping(path = "/{id}", method = RequestMethod.DELETE, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+  public HttpEntity<Pavilion> deletePavilion(@PathVariable("id") Integer id) {
+    if (id == null) {
       return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 
     try {
-      final Pavilion deletedPavilion = pavilionService.delete(pavilion);
-      return new ResponseEntity<>(deletedPavilion, HttpStatus.OK);
+      final Integer deletedId = pavilionService.delete(id);
+      return new ResponseEntity<>(new Pavilion(deletedId), HttpStatus.OK);
     } catch (Exception e) {
       return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
