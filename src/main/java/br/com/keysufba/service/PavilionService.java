@@ -30,9 +30,9 @@ public class PavilionService implements GenericService<Pavilion> {
   }
 
   @Override
-  public Pavilion delete(Pavilion p) {
-    pavilionRepository.delete(p);
-    return p;
+  public Integer delete(Integer id) {
+    pavilionRepository.delete(id);
+    return id;
   }
 
   @Override

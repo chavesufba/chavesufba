@@ -31,9 +31,9 @@ public class RoomService implements GenericService<Room> {
   }
 
   @Override
-  public Room delete(Room r) {
-    roomRepository.delete(r);
-    return r;
+  public Integer delete(Integer id) {
+    roomRepository.delete(id);
+    return id;
   }
 
   @Override
