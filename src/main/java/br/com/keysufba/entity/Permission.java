@@ -16,8 +16,16 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @Table(name = "PERMISSAO", schema = "SCHEMAA")
 public class Permission {
 
-  private Integer id; // FIXME: Wouldn't be the case to put a description as well?
+  private Integer id; // FIXME: Wouldn't be the case to put a description as well? 
   private UserType userType;
+
+  Permission() { // jpa only
+
+  }
+
+  public Permission(Integer id) {
+    this.id = id;
+  }
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)

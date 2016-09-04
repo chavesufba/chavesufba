@@ -22,6 +22,14 @@ public class Teacher {
   private Department department;
   private Person person;
 
+  Teacher() { // jpa only
+
+  }
+
+  public Teacher(Integer id) {
+    this.id = id;
+  }
+
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   @Column(name = "ID", unique = true, nullable = false)

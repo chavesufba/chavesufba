@@ -28,6 +28,14 @@ public class Person {
   private String photo;
   private Set<UserType> userTypes = new HashSet<UserType>(0);
 
+  Person() { // jpa only
+
+  }
+
+  public Person(Integer id) {
+    this.id = id;
+  }
+
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   @Column(name = "ID", unique = true, nullable = false)

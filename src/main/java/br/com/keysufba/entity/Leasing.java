@@ -26,11 +26,11 @@ public class Leasing {
   private Date startTime;
   private Date endTime;
 
-  Course() { // jpa only
+  Leasing() { // jpa only
 
   }
 
-  public Course(Integer id) {
+  public Leasing(Integer id) {
     this.id = id;
   }
 

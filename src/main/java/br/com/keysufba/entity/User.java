@@ -21,6 +21,14 @@ public class User {
   private String password;
   private Person person;
 
+  User() { // jpa only
+
+  }
+
+  public User(Integer id) {
+    this.id = id;
+  }
+
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   @Column(name = "ID", unique = true, nullable = false)

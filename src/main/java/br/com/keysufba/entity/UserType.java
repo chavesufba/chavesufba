@@ -21,6 +21,14 @@ public class UserType {
   private Integer id;
   private String description;
   private Set<Person> people = new HashSet<Person>(0);
+  
+  UserType() { // jpa only
+
+  }
+
+  public UserType(Integer id) {
+    this.id = id;
+  }
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
