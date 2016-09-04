@@ -74,6 +74,10 @@ public class RoomController {
 
   @RequestMapping(path = "/{id}", method = RequestMethod.DELETE, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
   public HttpEntity<Room> deleteRoom(@PathVariable("id") Integer id) {
+    if (id == null) {
+      return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+    }
+
     try {
       final Integer deletedId = roomService.delete(id);
       return new ResponseEntity<>(new Room(deletedId), HttpStatus.OK);
