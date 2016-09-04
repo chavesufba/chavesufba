@@ -41,7 +41,7 @@ public class InstituteController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<Institute> addInstitute(@RequestBody Institute institute) {
+    public ResponseEntity<Institute> createInstitute(@RequestBody Institute institute) {
         if (institute == null) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }

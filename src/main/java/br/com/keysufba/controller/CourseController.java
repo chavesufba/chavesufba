@@ -41,7 +41,7 @@ public class CourseController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<Course> addCourse(@RequestBody Course course) {
+    public ResponseEntity<Course> createCourse(@RequestBody Course course) {
         if (course == null) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }

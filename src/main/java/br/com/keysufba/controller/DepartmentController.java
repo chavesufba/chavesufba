@@ -41,7 +41,7 @@ public class DepartmentController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<Department> addDepartment(@RequestBody Department department) {
+    public ResponseEntity<Department> createDepartment(@RequestBody Department department) {
         if (department == null) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
