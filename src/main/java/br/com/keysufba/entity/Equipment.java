@@ -1,22 +1,22 @@
 package br.com.keysufba.entity;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
-@Table(name = "INSTITUTO", schema = "SCHEMAA")
-public class Institute {
-
-  private Integer id;
-  private String name;
+@Table(name = "EQUIPAMENTO", schema = "SCHEMAA")
+public class Equipment {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
-  @Column(name = "ID", unique = true, nullable = false)
+  @Column(name = "ID")
+  private Integer id;
+
+  @Column(name = "DESCRICAO")
+  private String description;
+
   public Integer getId() {
     return id;
   }
@@ -25,12 +25,11 @@ public class Institute {
     this.id = id;
   }
 
-  @Column(name = "NOME", length = 100, nullable = false)
-  public String getName() {
-    return name;
+  public String getDescription() {
+    return description;
   }
 
-  public void setName(final String name) {
-    this.name = name;
+  public void setDescription(final String description) {
+    this.description = description;
   }
 }

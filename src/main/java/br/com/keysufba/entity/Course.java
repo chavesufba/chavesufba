@@ -32,6 +32,7 @@ public class Course {
     this.id = id;
   }
 
+
   @Column(name = "NOME", length = 100, nullable = false)
   public String getName() {
     return name;
@@ -40,6 +41,7 @@ public class Course {
   public void setName(final String name) {
     this.name = name;
   }
+
 
   @Column(name = "NIVEL", length = 50, nullable = false)
   public String getLevel() {
@@ -60,5 +62,4 @@ public class Course {
   public void setDepartment(final Department department) {
     this.department = department;
   }
-
 }

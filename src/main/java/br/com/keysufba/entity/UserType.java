@@ -47,7 +47,7 @@ public class UserType {
   public Set<Person> getPeople() {
     return people;
   }
-  
+
   public void setPeople(Set<Person> people) {
     this.people = people;
   }
