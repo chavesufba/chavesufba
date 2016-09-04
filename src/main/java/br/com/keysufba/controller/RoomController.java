@@ -2,8 +2,9 @@ package br.com.keysufba.controller;
 
 import java.util.List;
 
+import br.com.keysufba.entity.Room;
+import br.com.keysufba.service.RoomService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -13,9 +14,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
-import br.com.keysufba.entity.Room;
-import br.com.keysufba.service.RoomService;
 
 @RestController
 @RequestMapping("/api/v1/rooms")
@@ -44,7 +42,7 @@ public class RoomController {
   }
 
   @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-  public HttpEntity<Room> createRoom(@RequestBody Room room) throws DataIntegrityViolationException {
+  public HttpEntity<Room> createRoom(@RequestBody Room room) {
     if (room == null) {
       return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
