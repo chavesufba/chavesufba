@@ -14,6 +14,14 @@ public class Institute {
   private Integer id;
   private String name;
 
+  Institute() { // jpa only
+
+  }
+
+  public Institute(Integer id) {
+    this.id = id;
+  }
+
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   @Column(name = "ID", unique = true, nullable = false)

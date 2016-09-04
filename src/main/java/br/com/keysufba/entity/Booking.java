@@ -32,6 +32,14 @@ public class Booking {
   private Technician technician;
   private BookingStatus status;
 
+  Booking() { // jpa only
+
+  }
+
+  public Booking(Integer id) {
+    this.id = id;
+  }
+
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   @Column(name = "ID", unique = true, nullable = false)

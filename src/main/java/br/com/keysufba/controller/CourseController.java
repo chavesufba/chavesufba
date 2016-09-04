@@ -1,19 +1,20 @@
 package br.com.keysufba.controller;
 
-import br.com.keysufba.entity.Course;
-import br.com.keysufba.service.CourseService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataIntegrityViolationException;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
-/**
- * Created by ian on 28/08/16.
- */
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import br.com.keysufba.entity.Course;
+import br.com.keysufba.service.CourseService;
 
 @RestController
 @RequestMapping("/api/v1/courses")
@@ -25,46 +26,63 @@ public class CourseController {
     @RequestMapping(method = RequestMethod.GET)
     public HttpEntity<List<Course>> getCourses() {
         final List<Course> courses = courseService.findAll();
-        if(courses.isEmpty()){
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
         return new ResponseEntity<>(courses, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    @RequestMapping(path = "/{id}", method = RequestMethod.GET)
     public HttpEntity<Course> getCourse(@PathVariable("id") Integer id) {
-       final Course course = courseService.findById(id);
+        if (id == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+        final Course course = courseService.findById(id);
         if (course == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<>(course, HttpStatus.OK);
     }
 
-    @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<Course> createCourse(@RequestBody Course course) {
+    @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public HttpEntity<Course> createCourse(@RequestBody Course course) {
         if (course == null) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
-        courseService.create(course);
-        return new ResponseEntity<>(course, HttpStatus.OK);
-    }
 
-
-    @RequestMapping(method=RequestMethod.PUT)
-    public HttpEntity<Course> updateCourse(@RequestBody Course course) throws DataIntegrityViolationException {
-        if (course == null) {
+        try {
+            courseService.create(course);
+            return new ResponseEntity<>(course, HttpStatus.OK);
+        } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
-        courseService.update(course);
-        return new ResponseEntity<>(course, HttpStatus.OK);
     }
 
-    @RequestMapping(method=RequestMethod.DELETE)
-    public HttpEntity<Course> deleteCourse(@RequestBody Course course) throws DataIntegrityViolationException {
-        if (course == null) {
+    @RequestMapping(path = "/{id}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public HttpEntity<Course> updateCourse(@PathVariable("id") Integer id, @RequestBody Course course) {
+        if (id == null || course == null) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
-        courseService.delete(course);
-        return new ResponseEntity<>(course, HttpStatus.OK);
+
+        try {
+            course.setId(id);
+            final Course updatedCourse = courseService.update(course);
+            return new ResponseEntity<>(updatedCourse, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
     }
+
+    @RequestMapping(path = "/{id}", method = RequestMethod.DELETE, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public HttpEntity<Course> deleteCourse(@PathVariable("id") Integer id) {
+        if (id == null) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+
+        try {
+            final Integer deletedId = courseService.delete(id);
+            return new ResponseEntity<>(new Course(deletedId), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
 }

@@ -26,6 +26,14 @@ public class Leasing {
   private Date startTime;
   private Date endTime;
 
+  Course() { // jpa only
+
+  }
+
+  public Course(Integer id) {
+    this.id = id;
+  }
+
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   @Column(name = "ID", unique = true, nullable = false)

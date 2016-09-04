@@ -6,14 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
-/**
- * Created by ian on 28/08/16.
- */
 
 @RestController
 @RequestMapping("/api/v1/institutes")
@@ -25,14 +22,15 @@ public class InstituteController {
     @RequestMapping(method = RequestMethod.GET)
     public HttpEntity<List<Institute>> getInstitutes() {
         final List<Institute> institutes = instituteService.findAll();
-        if(institutes.isEmpty()){
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
         return new ResponseEntity<>(institutes, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    @RequestMapping(path = "/{id}", method = RequestMethod.GET)
     public HttpEntity<Institute> getInstitute(@PathVariable("id") Integer id) {
+        if (id == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
         final Institute institute = instituteService.findById(id);
         if (institute == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -40,31 +38,45 @@ public class InstituteController {
         return new ResponseEntity<>(institute, HttpStatus.OK);
     }
 
-    @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<Institute> createInstitute(@RequestBody Institute institute) {
+    @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Institute> createInstitute(@RequestBody Institute institute) throws DataIntegrityViolationException {
         if (institute == null) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
-        instituteService.create(institute);
-        return new ResponseEntity<>(institute, HttpStatus.OK);
+        try {
+            instituteService.create(institute);
+            return new ResponseEntity<>(institute, HttpStatus.OK);
+        } catch (Exception e){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
     }
 
 
-    @RequestMapping(method=RequestMethod.PUT)
-    public HttpEntity<Institute> updateInstitute(@RequestBody Institute institute) throws DataIntegrityViolationException {
-        if (institute == null) {
+    @RequestMapping(path="/{id}", method=RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public HttpEntity<Institute> updateInstitute(@PathVariable("id") Integer id, @RequestBody Institute institute) {
+        if (id == null || institute == null) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
-        instituteService.update(institute);
-        return new ResponseEntity<>(institute, HttpStatus.OK);
+
+        try {
+            institute.setId(id);
+            final Institute updatedInstitute = instituteService.update(institute);
+            return new ResponseEntity<>(updatedInstitute, HttpStatus.OK);
+        } catch (Exception e){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
     }
 
-    @RequestMapping(method=RequestMethod.DELETE)
-    public HttpEntity<Institute> deleteInstitute(@RequestBody Institute institute) throws DataIntegrityViolationException {
-        if (institute == null) {
+    @RequestMapping(path="/{id}", method=RequestMethod.DELETE, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public HttpEntity<Institute> deleteInstitute(@PathVariable("id") Integer id) {
+        if (id == null) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
-        instituteService.delete(institute);
-        return new ResponseEntity<>(institute, HttpStatus.OK);
+        try {
+            final Integer deletedId = instituteService.delete(id);
+            return new ResponseEntity<>(new Institute(deletedId), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
     }
 }

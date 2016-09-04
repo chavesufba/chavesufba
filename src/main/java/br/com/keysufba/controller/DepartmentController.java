@@ -1,19 +1,20 @@
 package br.com.keysufba.controller;
 
-import br.com.keysufba.entity.Department;
-import br.com.keysufba.service.DepartmentService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataIntegrityViolationException;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
-/**
- * Created by ian on 28/08/16.
- */
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import br.com.keysufba.entity.Department;
+import br.com.keysufba.service.DepartmentService;
 
 @RestController
 @RequestMapping("/api/v1/departments")
@@ -25,14 +26,15 @@ public class DepartmentController {
     @RequestMapping(method = RequestMethod.GET)
     public HttpEntity<List<Department>> getDepartments() {
         final List<Department> departments = departmentService.findAll();
-        if(departments.isEmpty()){
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
         return new ResponseEntity<>(departments, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    @RequestMapping(path = "/{id}", method = RequestMethod.GET)
     public HttpEntity<Department> getDepartment(@PathVariable("id") Integer id) {
+        if (id == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
         final Department department = departmentService.findById(id);
         if (department == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -40,31 +42,47 @@ public class DepartmentController {
         return new ResponseEntity<>(department, HttpStatus.OK);
     }
 
-    @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<Department> createDepartment(@RequestBody Department department) {
+    @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public HttpEntity<Department> createDepartment(@RequestBody Department department) {
         if (department == null) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
-        departmentService.create(department);
-        return new ResponseEntity<>(department, HttpStatus.OK);
-    }
 
-
-    @RequestMapping(method=RequestMethod.PUT)
-    public HttpEntity<Department> updateDepartment(@RequestBody Department department) throws DataIntegrityViolationException {
-        if (department == null) {
+        try {
+            departmentService.create(department);
+            return new ResponseEntity<>(department, HttpStatus.OK);
+        } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
-        departmentService.update(department);
-        return new ResponseEntity<>(department, HttpStatus.OK);
     }
 
-    @RequestMapping(method=RequestMethod.DELETE)
-    public HttpEntity<Department> deleteDepartment(@RequestBody Department department) throws DataIntegrityViolationException {
-        if (department == null) {
+    @RequestMapping(path = "/{id}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public HttpEntity<Department> updateDepartment(@PathVariable("id") Integer id, @RequestBody Department department) {
+        if (id == null || department == null) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
-        departmentService.delete(department);
-        return new ResponseEntity<>(department, HttpStatus.OK);
+
+        try {
+            department.setId(id);
+            final Department updatedDepartment = departmentService.update(department);
+            return new ResponseEntity<>(updatedDepartment, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
     }
+
+    @RequestMapping(path = "/{id}", method = RequestMethod.DELETE, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public HttpEntity<Department> deleteDepartment(@PathVariable("id") Integer id) {
+        if (id == null) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+
+        try {
+            final Integer deletedId = departmentService.delete(id);
+            return new ResponseEntity<>(new Department(deletedId), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
 }

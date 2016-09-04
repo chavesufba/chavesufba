@@ -17,6 +17,14 @@ public class Equipment {
   @Column(name = "DESCRICAO")
   private String description;
 
+  Equipment() { // jpa only
+
+  }
+
+  public Equipment(Integer id) {
+    this.id = id;
+  }
+
   public Integer getId() {
     return id;
   }

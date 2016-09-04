@@ -1,21 +1,15 @@
 package br.com.keysufba.service;
 
-import br.com.keysufba.entity.Department;
-import br.com.keysufba.repository.DepartmentRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataIntegrityViolationException;
-import org.springframework.stereotype.Service;
-
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import br.com.keysufba.entity.Department;
+import br.com.keysufba.repository.DepartmentRepository;
 
-/**
- * Created by ian on 04/09/16.
- */
 @Service("departmentService")
 public class DepartmentService implements GenericService<Department> {
-
 
     @Autowired
     private DepartmentRepository departmentRepository;
@@ -31,23 +25,25 @@ public class DepartmentService implements GenericService<Department> {
     }
 
     @Override
-    public Department create(Department t) throws DataIntegrityViolationException {
-        if(findById(t.getId()) != null){
-            throw new DataIntegrityViolationException("entity already exists");
-        }
-        return departmentRepository.save(t);
+    public Department create(Department d) {
+        departmentRepository.save(d);
+        return d;
     }
 
     @Override
-    public Integer delete(Department t) {
-        departmentRepository.delete(t);
-        return null;
+    public Integer delete(Integer id) {
+        departmentRepository.delete(id);
+        return id;
     }
 
-    public Department update(Department t) throws DataIntegrityViolationException {
-        if(findById(t.getId()) != null){
-            return departmentRepository.save(t);
+    @Override
+    public Department update(Department d) {
+        final Department foundDepartment = findById(d.getId());
+        if (foundDepartment == null) {
+            return null;
         }
-        throw new DataIntegrityViolationException("entity not found");
+        departmentRepository.save(d);
+        return d;
     }
+
 }

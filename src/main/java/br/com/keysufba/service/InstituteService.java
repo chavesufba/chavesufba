@@ -1,21 +1,15 @@
 package br.com.keysufba.service;
 
-import br.com.keysufba.entity.Institute;
-import br.com.keysufba.repository.InstituteRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataIntegrityViolationException;
-import org.springframework.stereotype.Service;
-
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import br.com.keysufba.entity.Institute;
+import br.com.keysufba.repository.InstituteRepository;
 
-/**
- * Created by ian on 04/09/16.
- */
 @Service("instituteService")
 public class InstituteService implements GenericService<Institute> {
-
 
     @Autowired
     private InstituteRepository instituteRepository;
@@ -31,23 +25,25 @@ public class InstituteService implements GenericService<Institute> {
     }
 
     @Override
-    public Institute create(Institute t) throws DataIntegrityViolationException {
-        if(findById(t.getId()) != null){
-            throw new DataIntegrityViolationException("entity already exists");
-        }
-        return instituteRepository.save(t);
+    public Institute create(Institute i) {
+        instituteRepository.save(i);
+        return i;
     }
 
     @Override
-    public Integer delete(Institute t) {
-        instituteRepository.delete(t);
-        return null;
+    public Integer delete(Integer id) {
+        instituteRepository.delete(id);
+        return id;
     }
 
-    public Institute update(Institute t) throws DataIntegrityViolationException {
-        if(findById(t.getId()) != null){
-            return instituteRepository.save(t);
+    @Override
+    public Institute update(Institute i) {
+        final Institute foundInstitute = findById(i.getId());
+        if (foundInstitute == null) {
+            return null;
         }
-        throw new DataIntegrityViolationException("entity not found");
+        instituteRepository.save(i);
+        return i;
     }
+
 }

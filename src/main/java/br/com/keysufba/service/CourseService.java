@@ -1,21 +1,15 @@
 package br.com.keysufba.service;
 
-import br.com.keysufba.entity.Course;
-import br.com.keysufba.repository.CourseRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataIntegrityViolationException;
-import org.springframework.stereotype.Service;
-
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import br.com.keysufba.entity.Course;
+import br.com.keysufba.repository.CourseRepository;
 
-/**
- * Created by ian on 04/09/16.
- */
 @Service("courseService")
 public class CourseService implements GenericService<Course> {
-
 
     @Autowired
     private CourseRepository courseRepository;
@@ -31,23 +25,25 @@ public class CourseService implements GenericService<Course> {
     }
 
     @Override
-    public Course create(Course t) throws DataIntegrityViolationException {
-        if(findById(t.getId()) != null){
-            throw new DataIntegrityViolationException("entity already exists");
-        }
-        return courseRepository.save(t);
+    public Course create(Course c) {
+        courseRepository.save(c);
+        return c;
     }
 
     @Override
-    public Integer delete(Course t) {
-        courseRepository.delete(t);
-        return null;
+    public Integer delete(Integer id) {
+        courseRepository.delete(id);
+        return id;
     }
 
-    public Course update(Course t) throws DataIntegrityViolationException {
-        if(findById(t.getId()) != null){
-            return courseRepository.save(t);
+    @Override
+    public Course update(Course c) {
+        final Course foundCourse = findById(c.getId());
+        if (foundCourse == null) {
+            return null;
         }
-        throw new DataIntegrityViolationException("entity not found");
+        courseRepository.save(c);
+        return c;
     }
+
 }

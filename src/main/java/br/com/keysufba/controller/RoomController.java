@@ -44,7 +44,7 @@ public class RoomController {
   }
 
   @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-  public HttpEntity<Room> createRoom(@RequestBody Room room) throws DataIntegrityViolationException {
+  public HttpEntity<Room> createRoom(@RequestBody Room room) {
     if (room == null) {
       return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
