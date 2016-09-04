@@ -66,6 +66,9 @@ public class RoomController {
     try {
       room.setId(id);
       final Room updatedRoom = roomService.update(room);
+      if (updatedRoom == null) {
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+      }
       return new ResponseEntity<>(updatedRoom, HttpStatus.OK);
     } catch (Exception e) {
       return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
