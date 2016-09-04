@@ -25,21 +25,26 @@ public class RoomService implements GenericService<Room> {
   }
 
   @Override
-  public Room create(Room t) {
-    // TODO Auto-generated method stub
-    return null;
+  public Room create(Room r) {
+    roomRepository.save(r);
+    return r;
   }
 
   @Override
-  public Room delete(Room t) {
-    // TODO Auto-generated method stub
-    return null;
+  public Room delete(Room r) {
+    roomRepository.delete(r);
+    return r;
   }
 
   @Override
-  public Room update(Room t) {
-    // TODO Auto-generated method stub
-    return null;
+  public Room update(Room r) {
+    final Room foundRoom = findById(r.getId());
+    if (foundRoom == null) {
+      return null;
+    }
+
+    roomRepository.save(r);
+    return r;
   }
 
 }
