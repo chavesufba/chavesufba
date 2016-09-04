@@ -14,6 +14,10 @@ public class Pavilion {
   private Integer id;
   private String name;
 
+  Pavilion () { // jpa only
+
+  }
+
   public Pavilion(Integer id) {
     this.id = id;
   }

@@ -26,6 +26,10 @@ public class Room {
   private Pavilion pavilion;
   private RoomType roomType;
 
+  Room() { // jpa only
+
+  }
+
   public Room(Integer id) {
     this.id = id;
   }
