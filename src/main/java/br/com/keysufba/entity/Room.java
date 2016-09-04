@@ -26,6 +26,10 @@ public class Room {
   private Pavilion pavilion;
   private RoomType roomType;
 
+  public Room(Integer id) {
+    this.id = id;
+  }
+
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   @Column(name = "ID", unique = true, nullable = false)

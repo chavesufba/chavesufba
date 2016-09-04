@@ -14,6 +14,10 @@ public class Pavilion {
   private Integer id;
   private String name;
 
+  public Pavilion(Integer id) {
+    this.id = id;
+  }
+
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   @Column(name = "ID", unique = true, nullable = false)
