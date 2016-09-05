@@ -48,8 +48,8 @@ public class RoomController {
     }
 
     try {
-      roomService.create(room);
-      return new ResponseEntity<>(room, HttpStatus.OK);
+      final Room createdRoom = roomService.create(room);
+      return new ResponseEntity<>(createdRoom, HttpStatus.OK);
     } catch (Exception e) {
       return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
