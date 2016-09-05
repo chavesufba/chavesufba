@@ -1,9 +1,21 @@
-<?xml version="1.0" encoding="UTF-8"?><Db flnm="newDb" nm="newDb" ver="1.3.4">
+<?xml version="1.0" encoding="UTF-8"?><Db flnm="MER_CHAVES_ALTERAR" nm="newDb" ver="1.3.4">
   <VerLbl/>
   <VerNotes/>
   <DefTblOpts/>
   <DocFolder>C:\Users\Elayne\Documents</DocFolder>
-  <Sch Cm="" nm="schemaA">
+  <Sch Cm="" nm="Chaves">
+    <Tbl UsSo="1" nm="Acao">
+      <TblOpts/>
+      <Pk ClNs="Id" nm="pkAcao"/>
+      <Cl au="0" df="" nm="Id" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="Descricao" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <UniqueConstraints/>
+      <SchTrHis/>
+    </Tbl>
     <Tbl UsSo="1" nm="Aluno">
       <TblOpts/>
       <Pk ClNs="Id" nm="pkAluno"/>
@@ -16,17 +28,20 @@
       <Cl au="0" df="" nm="Pessoa_Id" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
-      <Cl au="0" df="" nm="Curso_Id" nu="0">
+      <Cl au="0" df="" nm="Curso_Id" nu="1">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
+      <Cl au="0" df="" nm="Aluno_visitante" nu="0">
+        <DT arr="0" ds="Boolean" en="" id="16" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
       <Fk deAc="3" nm="fk_Aluno_Curso" prLkCl="Id" upAc="3">
-        <PrTb mn="0" nm="Curso" oe="1" sch="schemaA" zr="0"/>
-        <CdTb mn="1" nm="Aluno" oe="0" sch="schemaA" zr="1"/>
+        <PrTb mn="0" nm="Curso" oe="1" sch="Chaves" zr="1"/>
+        <CdTb mn="1" nm="Aluno" oe="0" sch="Chaves" zr="1"/>
         <ClPr cdCl="Curso_Id" prCl="Id"/>
       </Fk>
       <Fk deAc="3" nm="fk_Aluno_Pessoa" prLkCl="Id" upAc="3">
-        <PrTb mn="0" nm="Pessoa" oe="1" sch="schemaA" zr="0"/>
-        <CdTb mn="1" nm="Aluno" oe="0" sch="schemaA" zr="1"/>
+        <PrTb mn="0" nm="Pessoa" oe="1" sch="Chaves" zr="0"/>
+        <CdTb mn="1" nm="Aluno" oe="0" sch="Chaves" zr="1"/>
         <ClPr cdCl="Pessoa_Id" prCl="Id"/>
       </Fk>
       <UniqueConstraints/>
@@ -44,12 +59,12 @@
       <Cl au="0" df="" nm="Nivel" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
       </Cl>
-      <Cl au="0" df="" nm="Departamento_Id" nu="1">
+      <Cl au="0" df="" nm="Departamento_Id" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
       <Fk deAc="3" nm="fk_Curso_Departamento" prLkCl="Id" upAc="3">
-        <PrTb mn="0" nm="Departamento" oe="1" sch="schemaA" zr="1"/>
-        <CdTb mn="1" nm="Curso" oe="0" sch="schemaA" zr="1"/>
+        <PrTb mn="0" nm="Departamento" oe="1" sch="Chaves" zr="0"/>
+        <CdTb mn="1" nm="Curso" oe="0" sch="Chaves" zr="1"/>
         <ClPr cdCl="Departamento_Id" prCl="Id"/>
       </Fk>
       <UniqueConstraints/>
@@ -85,9 +100,6 @@
       <Cl au="0" df="" nm="Id" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
-      <Cl au="0" df="" nm="Aluno_Id" nu="0">
-        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
-      </Cl>
       <Cl au="0" df="" nm="Sala_Id" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
@@ -97,14 +109,17 @@
       <Cl au="0" df="" nm="Hora_Final" nu="1">
         <DT arr="0" ds="DateTime" en="" id="700" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
-      <Fk deAc="3" nm="fk_Locacao_Aluno" prLkCl="Id" upAc="3">
-        <PrTb mn="0" nm="Aluno" oe="1" sch="schemaA" zr="0"/>
-        <CdTb mn="1" nm="Locacao" oe="0" sch="schemaA" zr="1"/>
-        <ClPr cdCl="Aluno_Id" prCl="Id"/>
+      <Cl au="0" df="" nm="Pessoa_Id" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Fk deAc="3" nm="fk_Locacao_Pessoa" prLkCl="Id" upAc="3">
+        <PrTb mn="0" nm="Pessoa" oe="1" sch="Chaves" zr="0"/>
+        <CdTb mn="1" nm="Locacao" oe="0" sch="Chaves" zr="1"/>
+        <ClPr cdCl="Pessoa_Id" prCl="Id"/>
       </Fk>
       <Fk deAc="3" nm="fk_Locacao_Sala" prLkCl="Id" upAc="3">
-        <PrTb mn="0" nm="Sala" oe="1" sch="schemaA" zr="0"/>
-        <CdTb mn="1" nm="Locacao" oe="0" sch="schemaA" zr="1"/>
+        <PrTb mn="0" nm="Sala" oe="1" sch="Chaves" zr="0"/>
+        <CdTb mn="1" nm="Locacao" oe="0" sch="Chaves" zr="1"/>
         <ClPr cdCl="Sala_Id" prCl="Id"/>
       </Fk>
       <UniqueConstraints/>
@@ -124,16 +139,24 @@
     </Tbl>
     <Tbl UsSo="1" nm="Permissao">
       <TblOpts/>
-      <Pk ClNs="Id" nm="pkPermissao"/>
+      <Pk ClNs="Id, Tipo_Usuario_Id, Acao_Id" nm="pkPermissao"/>
       <Cl au="0" df="" nm="Id" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
       <Cl au="0" df="" nm="Tipo_Usuario_Id" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
+      <Cl au="0" df="" nm="Acao_Id" nu="0">
+        <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Fk deAc="3" nm="fk_Permissao_Acao" prLkCl="Id" upAc="3">
+        <PrTb mn="0" nm="Acao" oe="1" sch="Chaves" zr="0"/>
+        <CdTb mn="1" nm="Permissao" oe="0" sch="Chaves" zr="1"/>
+        <ClPr cdCl="Acao_Id" prCl="Id"/>
+      </Fk>
       <Fk deAc="3" nm="fk_Permissao_Tipo_Usuario" prLkCl="Id" upAc="3">
-        <PrTb mn="0" nm="Tipo_Usuario" oe="1" sch="schemaA" zr="0"/>
-        <CdTb mn="1" nm="Permissao" oe="0" sch="schemaA" zr="1"/>
+        <PrTb mn="0" nm="Tipo_Usuario" oe="1" sch="Chaves" zr="0"/>
+        <CdTb mn="1" nm="Permissao" oe="0" sch="Chaves" zr="1"/>
         <ClPr cdCl="Tipo_Usuario_Id" prCl="Id"/>
       </Fk>
       <UniqueConstraints/>
@@ -157,6 +180,12 @@
       <Cl au="0" df="" nm="Foto" nu="1">
         <DT arr="0" ds="VarChar" en="" id="12" ln="250" sc="null" sg="1" un="0"/>
       </Cl>
+      <Cl au="0" df="" nm="Login" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="50" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="Senha" nu="0">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="100" sc="null" sg="1" un="0"/>
+      </Cl>
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
@@ -169,13 +198,13 @@
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
       <Fk deAc="3" nm="fk_Pessoa_Usuario_Pessoa" prLkCl="Id" upAc="3">
-        <PrTb mn="0" nm="Pessoa" oe="1" sch="schemaA" zr="0"/>
-        <CdTb mn="1" nm="Pessoa_Usuario" oe="0" sch="schemaA" zr="1"/>
+        <PrTb mn="0" nm="Pessoa" oe="1" sch="Chaves" zr="0"/>
+        <CdTb mn="1" nm="Pessoa_Usuario" oe="0" sch="Chaves" zr="1"/>
         <ClPr cdCl="Pessoa_Id" prCl="Id"/>
       </Fk>
       <Fk deAc="3" nm="fk_Pessoa_Usuario_Tipo_Usuario" prLkCl="Id" upAc="3">
-        <PrTb mn="0" nm="Tipo_Usuario" oe="1" sch="schemaA" zr="0"/>
-        <CdTb mn="1" nm="Pessoa_Usuario" oe="0" sch="schemaA" zr="1"/>
+        <PrTb mn="0" nm="Tipo_Usuario" oe="1" sch="Chaves" zr="0"/>
+        <CdTb mn="1" nm="Pessoa_Usuario" oe="0" sch="Chaves" zr="1"/>
         <ClPr cdCl="Tipo_Usuario_Id" prCl="Id"/>
       </Fk>
       <UniqueConstraints/>
@@ -190,20 +219,23 @@
       <Cl au="0" df="" nm="Num_siap" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="20" sc="null" sg="1" un="0"/>
       </Cl>
-      <Cl au="0" df="" nm="Departamento_Id" nu="0">
+      <Cl au="0" df="" nm="Departamento_Id" nu="1">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
       <Cl au="0" df="" nm="Pessoa_Id" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
+      <Cl au="0" df="" nm="Professor_visitante" nu="0">
+        <DT arr="0" ds="Boolean" en="" id="16" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
       <Fk deAc="3" nm="fk_Professor_Departamento" prLkCl="Id" upAc="3">
-        <PrTb mn="0" nm="Departamento" oe="1" sch="schemaA" zr="0"/>
-        <CdTb mn="1" nm="Professor" oe="0" sch="schemaA" zr="1"/>
+        <PrTb mn="0" nm="Departamento" oe="1" sch="Chaves" zr="1"/>
+        <CdTb mn="1" nm="Professor" oe="0" sch="Chaves" zr="1"/>
         <ClPr cdCl="Departamento_Id" prCl="Id"/>
       </Fk>
       <Fk deAc="3" nm="fk_Professor_Pessoa" prLkCl="Id" upAc="3">
-        <PrTb mn="0" nm="Pessoa" oe="1" sch="schemaA" zr="0"/>
-        <CdTb mn="1" nm="Professor" oe="0" sch="schemaA" zr="1"/>
+        <PrTb mn="0" nm="Pessoa" oe="1" sch="Chaves" zr="0"/>
+        <CdTb mn="1" nm="Professor" oe="0" sch="Chaves" zr="1"/>
         <ClPr cdCl="Pessoa_Id" prCl="Id"/>
       </Fk>
       <UniqueConstraints/>
@@ -230,27 +262,22 @@
       <Cl au="0" df="" nm="Tecnico_Id" nu="1">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
-      <Cl au="0" df="" nm="Status_Reserva_Id" nu="1">
+      <Cl au="0" df="" nm="Status_Reserva" nu="1">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
       <Fk deAc="3" nm="fk_Reserva_Professor" prLkCl="Id" upAc="3">
-        <PrTb mn="0" nm="Professor" oe="1" sch="schemaA" zr="0"/>
-        <CdTb mn="1" nm="Reserva" oe="0" sch="schemaA" zr="1"/>
+        <PrTb mn="0" nm="Professor" oe="1" sch="Chaves" zr="0"/>
+        <CdTb mn="1" nm="Reserva" oe="0" sch="Chaves" zr="1"/>
         <ClPr cdCl="Professor_Id" prCl="Id"/>
       </Fk>
       <Fk deAc="3" nm="fk_Reserva_Sala" prLkCl="Id" upAc="3">
-        <PrTb mn="0" nm="Sala" oe="1" sch="schemaA" zr="0"/>
-        <CdTb mn="1" nm="Reserva" oe="0" sch="schemaA" zr="1"/>
+        <PrTb mn="0" nm="Sala" oe="1" sch="Chaves" zr="0"/>
+        <CdTb mn="1" nm="Reserva" oe="0" sch="Chaves" zr="1"/>
         <ClPr cdCl="Sala_Id" prCl="Id"/>
       </Fk>
-      <Fk deAc="3" nm="fk_Reserva_Status_Reserva" prLkCl="Id" upAc="3">
-        <PrTb mn="0" nm="Status_Reserva" oe="1" sch="schemaA" zr="1"/>
-        <CdTb mn="1" nm="Reserva" oe="0" sch="schemaA" zr="1"/>
-        <ClPr cdCl="Status_Reserva_Id" prCl="Id"/>
-      </Fk>
       <Fk deAc="3" nm="fk_Reserva_Tecnico" prLkCl="Id" upAc="3">
-        <PrTb mn="0" nm="Tecnico" oe="1" sch="schemaA" zr="1"/>
-        <CdTb mn="1" nm="Reserva" oe="0" sch="schemaA" zr="1"/>
+        <PrTb mn="0" nm="Tecnico" oe="1" sch="Chaves" zr="1"/>
+        <CdTb mn="1" nm="Reserva" oe="0" sch="Chaves" zr="1"/>
         <ClPr cdCl="Tecnico_Id" prCl="Id"/>
       </Fk>
       <UniqueConstraints/>
@@ -265,24 +292,22 @@
       <Cl au="0" df="" nm="Numero" nu="0">
         <DT arr="0" ds="VarChar" en="" id="12" ln="20" sc="null" sg="1" un="0"/>
       </Cl>
-      <Cl au="0" df="" nm="Capacidade" nu="1">
+      <Cl au="0" df="" nm="Capacidade" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="0" un="0"/>
       </Cl>
-      <Cl au="0" df="" nm="Pavilhao_Id" nu="1">
+      <Cl au="0" df="" nm="Pavilhao_Id" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
-      <Cl au="0" df="" nm="Tipo_Sala_Id" nu="1">
+      <Cl au="0" df="" nm="Tipo_Sala" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
+      </Cl>
+      <Cl au="0" df="" nm="Descricao_equipamentos" nu="1">
+        <DT arr="0" ds="VarChar" en="" id="12" ln="255" sc="null" sg="1" un="0"/>
       </Cl>
       <Fk deAc="3" nm="fk_Sala_Pavilhao" prLkCl="Id" upAc="3">
-        <PrTb mn="0" nm="Pavilhao" oe="1" sch="schemaA" zr="1"/>
-        <CdTb mn="1" nm="Sala" oe="0" sch="schemaA" zr="1"/>
+        <PrTb mn="0" nm="Pavilhao" oe="1" sch="Chaves" zr="0"/>
+        <CdTb mn="1" nm="Sala" oe="0" sch="Chaves" zr="1"/>
         <ClPr cdCl="Pavilhao_Id" prCl="Id"/>
-      </Fk>
-      <Fk deAc="3" nm="fk_Sala_Tipo_Sala" prLkCl="Id" upAc="3">
-        <PrTb mn="0" nm="Tipo_Sala" oe="1" sch="schemaA" zr="1"/>
-        <CdTb mn="1" nm="Sala" oe="0" sch="schemaA" zr="1"/>
-        <ClPr cdCl="Tipo_Sala_Id" prCl="Id"/>
       </Fk>
       <UniqueConstraints/>
       <SchTrHis/>
@@ -302,16 +327,6 @@
       <Cl au="0" df="" nm="Sala_Id" nu="1">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
-      <Fk deAc="3" nm="fk_Sala_Equipamento_Equipamento" prLkCl="Id" upAc="3">
-        <PrTb mn="0" nm="Equipamento" oe="1" sch="schemaA" zr="1"/>
-        <CdTb mn="1" nm="Sala_Equipamento" oe="0" sch="schemaA" zr="1"/>
-        <ClPr cdCl="Equipamento_Id" prCl="Id"/>
-      </Fk>
-      <Fk deAc="3" nm="fk_Sala_Equipamento_Sala" prLkCl="Id" upAc="3">
-        <PrTb mn="0" nm="Sala" oe="1" sch="schemaA" zr="1"/>
-        <CdTb mn="1" nm="Sala_Equipamento" oe="0" sch="schemaA" zr="1"/>
-        <ClPr cdCl="Sala_Id" prCl="Id"/>
-      </Fk>
       <UniqueConstraints/>
       <SchTrHis/>
     </Tbl>
@@ -333,20 +348,20 @@
       <Cl au="0" df="" nm="Id" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
-      <Cl au="0" df="" nm="Departamento_Id" nu="0">
+      <Cl au="0" df="" nm="Departamento_Id" nu="1">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
       <Cl au="0" df="" nm="Pessoa_Id" nu="0">
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
       <Fk deAc="3" nm="fk_Tecnico_Departamento" prLkCl="Id" upAc="3">
-        <PrTb mn="0" nm="Departamento" oe="1" sch="schemaA" zr="0"/>
-        <CdTb mn="1" nm="Tecnico" oe="0" sch="schemaA" zr="1"/>
+        <PrTb mn="0" nm="Departamento" oe="1" sch="Chaves" zr="1"/>
+        <CdTb mn="1" nm="Tecnico" oe="0" sch="Chaves" zr="1"/>
         <ClPr cdCl="Departamento_Id" prCl="Id"/>
       </Fk>
       <Fk deAc="3" nm="fk_Tecnico_Pessoa" prLkCl="Id" upAc="3">
-        <PrTb mn="0" nm="Pessoa" oe="1" sch="schemaA" zr="0"/>
-        <CdTb mn="1" nm="Tecnico" oe="0" sch="schemaA" zr="1"/>
+        <PrTb mn="0" nm="Pessoa" oe="1" sch="Chaves" zr="0"/>
+        <CdTb mn="1" nm="Tecnico" oe="0" sch="Chaves" zr="1"/>
         <ClPr cdCl="Pessoa_Id" prCl="Id"/>
       </Fk>
       <UniqueConstraints/>
@@ -392,8 +407,8 @@
         <DT arr="0" ds="Integer" en="" id="4" ln="null" sc="null" sg="1" un="0"/>
       </Cl>
       <Fk deAc="3" nm="fk_Usuario_Pessoa" prLkCl="Id" upAc="3">
-        <PrTb mn="0" nm="Pessoa" oe="1" sch="schemaA" zr="0"/>
-        <CdTb mn="1" nm="Usuario" oe="0" sch="schemaA" zr="1"/>
+        <PrTb mn="0" nm="Pessoa" oe="1" sch="Chaves" zr="0"/>
+        <CdTb mn="1" nm="Usuario" oe="0" sch="Chaves" zr="1"/>
         <ClPr cdCl="Pessoa_Id" prCl="Id"/>
       </Fk>
       <UniqueConstraints/>
@@ -423,152 +438,124 @@
       <DbTableRectangleFill>HeaderFooterFill</DbTableRectangleFill>
       <svg path=""/>
     </DiaProps>
-    <TbGl bkCl="ff6666ff" sch="schemaA" tbl="Pessoa" x="106" y="45"/>
-    <TbGl bkCl="ff6666ff" sch="schemaA" tbl="Tipo_Usuario" x="613" y="158"/>
-    <TbGl bkCl="ff6666ff" sch="schemaA" tbl="Usuario" x="783" y="8"/>
-    <TbGl bkCl="ff6666ff" sch="schemaA" tbl="Aluno" x="29" y="229"/>
-    <TbGl bkCl="ff6666ff" sch="schemaA" tbl="Professor" x="605" y="247"/>
-    <TbGl bkCl="ff6666ff" sch="schemaA" tbl="Tecnico" x="260" y="237"/>
-    <TbGl bkCl="ff6666ff" sch="schemaA" tbl="Curso" x="17" y="379"/>
-    <TbGl bkCl="ff6666ff" sch="schemaA" tbl="Departamento" x="324" y="371"/>
-    <TbGl bkCl="ff6666ff" sch="schemaA" tbl="Pessoa_Usuario" x="432" y="58"/>
-    <TbGl bkCl="ff6666ff" sch="schemaA" tbl="Permissao" x="901" y="155"/>
-    <TbGl bkCl="ff6666ff" sch="schemaA" tbl="Sala" x="671" y="378"/>
-    <TbGl bkCl="ff6666ff" sch="schemaA" tbl="Pavilhao" x="946" y="479"/>
-    <TbGl bkCl="ff6666ff" sch="schemaA" tbl="Tipo_Sala" x="903" y="318"/>
-    <TbGl bkCl="ff6666ff" sch="schemaA" tbl="Reserva" x="346" y="459"/>
-    <TbGl bkCl="ff6666ff" sch="schemaA" tbl="Locacao" x="101" y="558"/>
-    <TbGl bkCl="ff6666ff" sch="schemaA" tbl="Status_Reserva" x="463" y="616"/>
-    <TbGl bkCl="ff6666ff" sch="schemaA" tbl="Equipamento" x="702" y="630"/>
-    <TbGl bkCl="ff6666ff" sch="schemaA" tbl="Sala_Equipamento" x="927" y="574"/>
-    <FkGl bkCl="ff000000" childEdge="SOUTH" nm="schemaA.Aluno.fk_Aluno_Curso" parentEdge="NORTH" positioner="OneLineUserLinkPositioner">
+    <TbGl bkCl="ff6666ff" sch="Chaves" tbl="Pessoa" x="143" y="53"/>
+    <TbGl bkCl="ff6666ff" sch="Chaves" tbl="Tipo_Usuario" x="662" y="187"/>
+    <TbGl bkCl="ff6666ff" sch="Chaves" tbl="Aluno" x="32" y="262"/>
+    <TbGl bkCl="ff6666ff" sch="Chaves" tbl="Professor" x="371" y="189"/>
+    <TbGl bkCl="ff6666ff" sch="Chaves" tbl="Tecnico" x="295" y="293"/>
+    <TbGl bkCl="ff6666ff" sch="Chaves" tbl="Curso" x="42" y="428"/>
+    <TbGl bkCl="ff6666ff" sch="Chaves" tbl="Departamento" x="405" y="501"/>
+    <TbGl bkCl="ff6666ff" sch="Chaves" tbl="Pessoa_Usuario" x="530" y="75"/>
+    <TbGl bkCl="ff6666ff" sch="Chaves" tbl="Permissao" x="1037" y="178"/>
+    <TbGl bkCl="ff6666ff" sch="Chaves" tbl="Sala" x="652" y="531"/>
+    <TbGl bkCl="ff6666ff" sch="Chaves" tbl="Pavilhao" x="1087" y="583"/>
+    <TbGl bkCl="ff6666ff" sch="Chaves" tbl="Reserva" x="787" y="298"/>
+    <TbGl bkCl="ff6666ff" sch="Chaves" tbl="Locacao" x="15" y="558"/>
+    <TbGl bkCl="ff6666ff" sch="Chaves" tbl="Acao" x="1075" y="52"/>
+    <FkGl bkCl="ff000000" childEdge="SOUTH" nm="Chaves.Aluno.fk_Aluno_Curso" parentEdge="NORTH" positioner="OneLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="SINGLE_LINE" x1="113" x2="113" y1="379" y2="308"/>
+        <positionableLine lineRole="SINGLE_LINE" x1="138" x2="138" y1="428" y2="354"/>
       </positionableLines>
     </FkGl>
-    <FkGl bkCl="ff000000" childEdge="NORTH" nm="schemaA.Aluno.fk_Aluno_Pessoa" parentEdge="SOUTH" positioner="OneLineUserLinkPositioner">
+    <FkGl bkCl="ff000000" childEdge="NORTH" nm="Chaves.Aluno.fk_Aluno_Pessoa" parentEdge="SOUTH" positioner="OneLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="SINGLE_LINE" x1="175" x2="175" y1="137" y2="229"/>
+        <positionableLine lineRole="SINGLE_LINE" x1="212" x2="212" y1="171" y2="262"/>
       </positionableLines>
     </FkGl>
-    <FkGl bkCl="ff000000" childEdge="EAST" nm="schemaA.Curso.fk_Curso_Departamento" parentEdge="WEST" positioner="OneLineUserLinkPositioner">
+    <FkGl bkCl="ff000000" childEdge="SOUTH" nm="Chaves.Curso.fk_Curso_Departamento" parentEdge="WEST" positioner="TwoLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="SINGLE_LINE" x1="324" x2="278" y1="397" y2="397"/>
+        <positionableLine lineRole="PARENT_LINE" x1="405" x2="302" y1="530" y2="530"/>
+        <positionableLine lineRole="CHILD_LINE" x1="298" x2="298" y1="507" y2="526"/>
       </positionableLines>
     </FkGl>
-    <FkGl bkCl="ff000000" childEdge="NORTH" nm="schemaA.Locacao.fk_Locacao_Aluno" parentEdge="SOUTH" positioner="OneLineUserLinkPositioner">
+    <FkGl bkCl="ff000000" childEdge="NORTH" nm="Chaves.Locacao.fk_Locacao_Pessoa" parentEdge="WEST" positioner="TwoLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="SINGLE_LINE" x1="137" x2="137" y1="308" y2="558"/>
+        <positionableLine lineRole="PARENT_LINE" x1="143" x2="19" y1="140" y2="140"/>
+        <positionableLine lineRole="CHILD_LINE" x1="15" x2="15" y1="558" y2="144"/>
       </positionableLines>
     </FkGl>
-    <FkGl bkCl="ff000000" childEdge="EAST" nm="schemaA.Locacao.fk_Locacao_Sala" parentEdge="SOUTH" positioner="TwoLineUserLinkPositioner">
+    <FkGl bkCl="ff000000" childEdge="EAST" nm="Chaves.Locacao.fk_Locacao_Sala" parentEdge="WEST" positioner="OneLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="PARENT_LINE" x1="785" x2="785" y1="470" y2="587"/>
-        <positionableLine lineRole="CHILD_LINE" x1="302" x2="781" y1="591" y2="591"/>
+        <positionableLine lineRole="SINGLE_LINE" x1="652" x2="216" y1="631" y2="631"/>
       </positionableLines>
     </FkGl>
-    <FkGl bkCl="ff000000" childEdge="WEST" nm="schemaA.Permissao.fk_Permissao_Tipo_Usuario" parentEdge="EAST" positioner="OneLineUserLinkPositioner">
+    <FkGl bkCl="ff000000" childEdge="NORTH" nm="Chaves.Permissao.fk_Permissao_Acao" parentEdge="SOUTH" positioner="OneLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="SINGLE_LINE" x1="822" x2="901" y1="172" y2="172"/>
+        <positionableLine lineRole="SINGLE_LINE" x1="1175" x2="1175" y1="105" y2="178"/>
       </positionableLines>
     </FkGl>
-    <FkGl bkCl="ff000000" childEdge="WEST" nm="schemaA.Pessoa_Usuario.fk_Pessoa_Usuario_Pessoa" parentEdge="EAST" positioner="OneLineUserLinkPositioner">
+    <FkGl bkCl="ff000000" childEdge="WEST" nm="Chaves.Permissao.fk_Permissao_Tipo_Usuario" parentEdge="EAST" positioner="OneLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="SINGLE_LINE" x1="315" x2="432" y1="88" y2="88"/>
+        <positionableLine lineRole="SINGLE_LINE" x1="871" x2="1037" y1="200" y2="200"/>
       </positionableLines>
     </FkGl>
-    <FkGl bkCl="ff000000" childEdge="EAST" nm="schemaA.Pessoa_Usuario.fk_Pessoa_Usuario_Tipo_Usuario" parentEdge="NORTH" positioner="TwoLineUserLinkPositioner">
+    <FkGl bkCl="ff000000" childEdge="WEST" nm="Chaves.Pessoa_Usuario.fk_Pessoa_Usuario_Pessoa" parentEdge="EAST" positioner="OneLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="PARENT_LINE" x1="719" x2="719" y1="158" y2="110"/>
-        <positionableLine lineRole="CHILD_LINE" x1="648" x2="715" y1="106" y2="106"/>
+        <positionableLine lineRole="SINGLE_LINE" x1="352" x2="530" y1="96" y2="96"/>
       </positionableLines>
     </FkGl>
-    <FkGl bkCl="ff000000" childEdge="WEST" nm="schemaA.Professor.fk_Professor_Departamento" parentEdge="NORTH" positioner="TwoLineUserLinkPositioner">
+    <FkGl bkCl="ff000000" childEdge="EAST" nm="Chaves.Pessoa_Usuario.fk_Pessoa_Usuario_Tipo_Usuario" parentEdge="NORTH" positioner="TwoLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="PARENT_LINE" x1="511" x2="511" y1="371" y2="325"/>
-        <positionableLine lineRole="CHILD_LINE" x1="605" x2="515" y1="321" y2="321"/>
+        <positionableLine lineRole="PARENT_LINE" x1="769" x2="769" y1="187" y2="127"/>
+        <positionableLine lineRole="CHILD_LINE" x1="746" x2="765" y1="123" y2="123"/>
       </positionableLines>
     </FkGl>
-    <FkGl bkCl="ff000000" childEdge="NORTH" nm="schemaA.Professor.fk_Professor_Pessoa" parentEdge="SOUTH" positioner="ThreeLineUserLinkPositioner">
+    <FkGl bkCl="ff000000" childEdge="SOUTH" nm="Chaves.Professor.fk_Professor_Departamento" parentEdge="SOUTH" positioner="OneLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="PARENT_LINE" x1="310" x2="310" y1="137" y2="198"/>
-        <positionableLine lineRole="CHILD_LINE" x1="610" x2="610" y1="247" y2="206"/>
-        <positionableLine lineRole="MIDDLE_LINE" x1="606" x2="314" y1="202" y2="202"/>
+        <positionableLine lineRole="SINGLE_LINE" x1="593" x2="593" y1="554" y2="281"/>
       </positionableLines>
     </FkGl>
-    <FkGl bkCl="ff000000" childEdge="EAST" nm="schemaA.Reserva.fk_Reserva_Professor" parentEdge="SOUTH" positioner="TwoLineUserLinkPositioner">
+    <FkGl bkCl="ff000000" childEdge="WEST" nm="Chaves.Professor.fk_Professor_Pessoa" parentEdge="SOUTH" positioner="TwoLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="PARENT_LINE" x1="622" x2="622" y1="326" y2="460"/>
-        <positionableLine lineRole="CHILD_LINE" x1="591" x2="618" y1="464" y2="464"/>
+        <positionableLine lineRole="PARENT_LINE" x1="343" x2="343" y1="171" y2="190"/>
+        <positionableLine lineRole="CHILD_LINE" x1="371" x2="347" y1="194" y2="194"/>
       </positionableLines>
     </FkGl>
-    <FkGl bkCl="ff000000" childEdge="EAST" nm="schemaA.Reserva.fk_Reserva_Sala" parentEdge="WEST" positioner="OneLineUserLinkPositioner">
+    <FkGl bkCl="ff000000" childEdge="WEST" nm="Chaves.Reserva.fk_Reserva_Professor" parentEdge="SOUTH" positioner="TwoLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="SINGLE_LINE" x1="671" x2="591" y1="465" y2="465"/>
+        <positionableLine lineRole="PARENT_LINE" x1="616" x2="616" y1="281" y2="299"/>
+        <positionableLine lineRole="CHILD_LINE" x1="787" x2="620" y1="303" y2="303"/>
       </positionableLines>
     </FkGl>
-    <FkGl bkCl="ff000000" childEdge="SOUTH" nm="schemaA.Reserva.fk_Reserva_Status_Reserva" parentEdge="NORTH" positioner="OneLineUserLinkPositioner">
+    <FkGl bkCl="ff000000" childEdge="WEST" nm="Chaves.Reserva.fk_Reserva_Sala" parentEdge="NORTH" positioner="TwoLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="SINGLE_LINE" x1="579" x2="579" y1="616" y2="577"/>
+        <positionableLine lineRole="PARENT_LINE" x1="688" x2="688" y1="531" y2="415"/>
+        <positionableLine lineRole="CHILD_LINE" x1="787" x2="692" y1="411" y2="411"/>
       </positionableLines>
     </FkGl>
-    <FkGl bkCl="ff000000" childEdge="NORTH" nm="schemaA.Reserva.fk_Reserva_Tecnico" parentEdge="SOUTH" positioner="OneLineUserLinkPositioner">
+    <FkGl bkCl="ff000000" childEdge="WEST" nm="Chaves.Reserva.fk_Reserva_Tecnico" parentEdge="EAST" positioner="OneLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="SINGLE_LINE" x1="479" x2="479" y1="303" y2="459"/>
+        <positionableLine lineRole="SINGLE_LINE" x1="519" x2="787" y1="354" y2="354"/>
       </positionableLines>
     </FkGl>
-    <FkGl bkCl="ff000000" childEdge="SOUTH" nm="schemaA.Sala.fk_Sala_Pavilhao" parentEdge="WEST" positioner="TwoLineUserLinkPositioner">
+    <FkGl bkCl="ff000000" childEdge="EAST" nm="Chaves.Sala.fk_Sala_Pavilhao" parentEdge="WEST" positioner="OneLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="PARENT_LINE" x1="946" x2="898" y1="488" y2="488"/>
-        <positionableLine lineRole="CHILD_LINE" x1="894" x2="894" y1="470" y2="484"/>
+        <positionableLine lineRole="SINGLE_LINE" x1="1087" x2="955" y1="588" y2="588"/>
       </positionableLines>
     </FkGl>
-    <FkGl bkCl="ff000000" childEdge="EAST" nm="schemaA.Sala.fk_Sala_Tipo_Sala" parentEdge="SOUTH" positioner="TwoLineUserLinkPositioner">
+    <FkGl bkCl="ff000000" childEdge="SOUTH" nm="Chaves.Tecnico.fk_Tecnico_Departamento" parentEdge="NORTH" positioner="OneLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="PARENT_LINE" x1="1011" x2="1011" y1="371" y2="420"/>
-        <positionableLine lineRole="CHILD_LINE" x1="899" x2="1007" y1="424" y2="424"/>
+        <positionableLine lineRole="SINGLE_LINE" x1="510" x2="510" y1="501" y2="359"/>
       </positionableLines>
     </FkGl>
-    <FkGl bkCl="ff000000" childEdge="WEST" nm="schemaA.Sala_Equipamento.fk_Sala_Equipamento_Equipamento" parentEdge="EAST" positioner="OneLineUserLinkPositioner">
+    <FkGl bkCl="ff000000" childEdge="NORTH" nm="Chaves.Tecnico.fk_Tecnico_Pessoa" parentEdge="SOUTH" positioner="ThreeLineUserLinkPositioner">
       <positionableLines>
-        <positionableLine lineRole="SINGLE_LINE" x1="918" x2="927" y1="635" y2="635"/>
-      </positionableLines>
-    </FkGl>
-    <FkGl bkCl="ff000000" childEdge="WEST" nm="schemaA.Sala_Equipamento.fk_Sala_Equipamento_Sala" parentEdge="SOUTH" positioner="TwoLineUserLinkPositioner">
-      <positionableLines>
-        <positionableLine lineRole="PARENT_LINE" x1="785" x2="785" y1="470" y2="609"/>
-        <positionableLine lineRole="CHILD_LINE" x1="927" x2="789" y1="613" y2="613"/>
-      </positionableLines>
-    </FkGl>
-    <FkGl bkCl="ff000000" childEdge="SOUTH" nm="schemaA.Tecnico.fk_Tecnico_Departamento" parentEdge="NORTH" positioner="OneLineUserLinkPositioner">
-      <positionableLines>
-        <positionableLine lineRole="SINGLE_LINE" x1="428" x2="428" y1="371" y2="303"/>
-      </positionableLines>
-    </FkGl>
-    <FkGl bkCl="ff000000" childEdge="NORTH" nm="schemaA.Tecnico.fk_Tecnico_Pessoa" parentEdge="SOUTH" positioner="ThreeLineUserLinkPositioner">
-      <positionableLines>
-        <positionableLine lineRole="PARENT_LINE" x1="237" x2="237" y1="137" y2="198"/>
-        <positionableLine lineRole="CHILD_LINE" x1="265" x2="265" y1="237" y2="206"/>
-        <positionableLine lineRole="MIDDLE_LINE" x1="261" x2="241" y1="202" y2="202"/>
-      </positionableLines>
-    </FkGl>
-    <FkGl bkCl="ff000000" childEdge="WEST" nm="schemaA.Usuario.fk_Usuario_Pessoa" parentEdge="NORTH" positioner="TwoLineUserLinkPositioner">
-      <positionableLines>
-        <positionableLine lineRole="PARENT_LINE" x1="310" x2="310" y1="45" y2="30"/>
-        <positionableLine lineRole="CHILD_LINE" x1="783" x2="314" y1="26" y2="26"/>
+        <positionableLine lineRole="PARENT_LINE" x1="274" x2="274" y1="171" y2="254"/>
+        <positionableLine lineRole="CHILD_LINE" x1="300" x2="300" y1="293" y2="262"/>
+        <positionableLine lineRole="MIDDLE_LINE" x1="296" x2="278" y1="258" y2="258"/>
       </positionableLines>
     </FkGl>
     <Notes/>
     <Zones/>
   </Dgm>
-  <RnmMgr NxRnmId="8">
+  <RnmMgr NxRnmId="11">
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="Pessoa" SupCls="Schema" SupNme="schemaA">
       <Rnm id="1" nNm="Name" oNm="PessoaName"/>
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="Tipo_Usuario" SupCls="Schema" SupNme="schemaA">
       <Rnm id="2" nNm="Descricao" oNm="Classe_PessoaName"/>
     </RnmCh>
-    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="schemaA" SupCls="" SupNme="">
+    <RnmCh ObjCls="Table" ParCls="Schema" ParNme="Chaves" SupCls="" SupNme="">
       <Rnm id="7" nNm="Tipo_Usuario" oNm="Tipo_Pessoa"/>
       <Rnm id="4" nNm="Tipo_Pessoa" oNm="Tipo_Usuario"/>
       <Rnm id="3" nNm="Tipo_Usuario" oNm="Classe_Pessoa"/>
@@ -578,6 +565,15 @@
     </RnmCh>
     <RnmCh ObjCls="Column" ParCls="Table" ParNme="Aluno" SupCls="Schema" SupNme="schemaA">
       <Rnm id="6" nNm="Matricula" oNm="AlunoName"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Reserva" SupCls="Schema" SupNme="schemaA">
+      <Rnm id="8" nNm="Status_Reserva" oNm="Status_Reserva_Id"/>
+    </RnmCh>
+    <RnmCh ObjCls="Column" ParCls="Table" ParNme="Sala" SupCls="Schema" SupNme="schemaA">
+      <Rnm id="9" nNm="Tipo_Sala" oNm="Tipo_Sala_Id"/>
+    </RnmCh>
+    <RnmCh ObjCls="Schema" ParCls="Database" ParNme="newDb" SupCls="" SupNme="">
+      <Rnm id="10" nNm="Chaves" oNm="schemaA"/>
     </RnmCh>
   </RnmMgr>
   <DbDocOptionMgr>
@@ -600,6 +596,8 @@
   </OpenEditors>
   <TreePaths>
     <TreePath/>
+    <TreePath>/Schemas (1)</TreePath>
+    <TreePath>/Diagrams (1)</TreePath>
   </TreePaths>
   <SqlTexts/>
 </Db>
