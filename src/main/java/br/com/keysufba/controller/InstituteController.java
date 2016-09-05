@@ -49,8 +49,8 @@ public class InstituteController {
     }
 
     try {
-      instituteService.create(room);
-      return new ResponseEntity<>(room, HttpStatus.OK);
+      final Institute createdInstitute = instituteService.create(room);
+      return new ResponseEntity<>(createdInstitute, HttpStatus.OK);
     } catch (Exception e) {
       return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }

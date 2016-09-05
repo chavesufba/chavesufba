@@ -48,8 +48,8 @@ public class DepartmentController {
     }
 
     try {
-      departmentService.create(department);
-      return new ResponseEntity<>(department, HttpStatus.OK);
+      final Department createdDepartment = departmentService.create(department);
+      return new ResponseEntity<>(createdDepartment, HttpStatus.OK);
     } catch (Exception e) {
       return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
