@@ -21,6 +21,14 @@ public class Course {
   private String level;
   private Department department;
 
+  Course() { // jpa only
+
+  }
+
+  public Course(Integer id) {
+    this.id = id;
+  }
+
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   @Column(name = "ID", unique = true, nullable = false)
