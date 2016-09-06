@@ -17,51 +17,55 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @Table(name = "ALUNO", schema = "SCHEMAA")
 public class Student {
 
-  private Integer id;
-  private String registrationNumber;
-  private Person person;
-  private Course course;
+	private Integer id;
+	private String registrationNumber;
+	private Person person;
+	private Course course;
 
-  @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
-  @Column(name = "ID", unique = true, nullable = false)
-  public Integer getId() {
-    return id;
-  }
+	public Student(Integer id) {
+		this.id = id;
+	}
 
-  public void setId(Integer id) {
-    this.id = id;
-  }
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "ID", unique = true, nullable = false)
+	public Integer getId() {
+		return id;
+	}
 
-  @Column(name = "MATRICULA", length = 20, nullable = false)
-  public String getRegistrationNumber() {
-    return registrationNumber;
-  }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-  public void setRegistrationNumber(String registrationNumber) {
-    this.registrationNumber = registrationNumber;
-  }
+	@Column(name = "MATRICULA", length = 20, nullable = false)
+	public String getRegistrationNumber() {
+		return registrationNumber;
+	}
 
-  @OneToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "PESSOA_ID", nullable = false)
-  @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-  public Person getPerson() {
-    return person;
-  }
+	public void setRegistrationNumber(String registrationNumber) {
+		this.registrationNumber = registrationNumber;
+	}
 
-  public void setPerson(Person person) {
-    this.person = person;
-  }
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "PESSOA_ID", nullable = false)
+	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
+	public Person getPerson() {
+		return person;
+	}
 
-  @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "CURSO_ID", nullable = false)
-  @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-  public Course getCourse() {
-    return course;
-  }
+	public void setPerson(Person person) {
+		this.person = person;
+	}
 
-  public void setCourse(Course course) {
-    this.course = course;
-  }
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "CURSO_ID", nullable = false)
+	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
+	public Course getCourse() {
+		return course;
+	}
+
+	public void setCourse(Course course) {
+		this.course = course;
+	}
 
 }
