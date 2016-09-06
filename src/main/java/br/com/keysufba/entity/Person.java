@@ -1,21 +1,15 @@
 package br.com.keysufba.entity;
 
-import java.util.HashSet;
-import java.util.Set;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.PrePersist;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.apache.commons.codec.digest.DigestUtils;
+
 
 @Entity
 @Table(name = "PESSOA", schema = "SCHEMAA")
@@ -26,7 +20,16 @@ public class Person {
   private String email;
   private String phone;
   private String photo;
-  private Set<UserType> userTypes = new HashSet<UserType>(0);
+  private String login;
+  private String password;
+
+  Person() { // jpa only
+
+  }
+
+  public Person(Integer id) {
+    this.id = id;
+  }
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
@@ -75,16 +78,26 @@ public class Person {
     this.photo = photo;
   }
 
-  @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-  @JoinTable(name = "PESSOA_USUARIO", schema = "SCHEMAA", joinColumns = {
-      @JoinColumn(name = "PESSOA_ID", nullable = false, updatable = false) }, inverseJoinColumns = {
-	  @JoinColumn(name = "TIPO_USUARIO_ID", nullable = false, updatable = false) })
-  @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-  public Set<UserType> getUserTypes() {
-    return userTypes;
+  @Column(name = "LOGIN", length = 100, nullable = false)
+  public String getLogin() {
+    return login;
   }
 
-  public void setUserTypes(Set<UserType> userTypes) {
-    this.userTypes = userTypes;
+  public void setLogin(final String login) {
+    this.login = login;
+  }
+
+  @Column(name = "SENHA", length = 100, nullable = false)
+  public String getPassword() {
+    return password;
+  }
+
+  public void setPassword(final String password) {
+    this.password = password;
+  }
+
+  @PrePersist
+  protected void onCreate() {
+    password = DigestUtils.sha1Hex(password);
   }
 }
