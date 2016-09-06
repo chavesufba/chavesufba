@@ -22,6 +22,10 @@ public class Student {
 	private Person person;
 	private Course course;
 
+	Student(){
+		
+	}
+	
 	public Student(Integer id) {
 		this.id = id;
 	}
