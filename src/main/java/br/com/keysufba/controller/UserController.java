@@ -57,7 +57,7 @@ public class UserController {
 
 		try {
 			userService.create(user);
-		} catch (DataIntegrityViolationException e) {
+		} catch (Exception e) {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
 		return new ResponseEntity<>(user, HttpStatus.OK);
@@ -72,7 +72,7 @@ public class UserController {
 
 		try {
 			userService.update(user);
-		} catch (DataIntegrityViolationException e) {
+		} catch (Exception e) {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
 		return new ResponseEntity<>(user, HttpStatus.OK);
