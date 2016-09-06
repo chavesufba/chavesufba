@@ -9,9 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 
-import org.hibernate.validator.constraints.Length;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "DEPARTAMENTO", schema = "SCHEMAA")
@@ -20,6 +19,14 @@ public class Department {
   private Integer id;
   private String name;
   private Institute institute;
+  
+  Department() { // jpa only
+
+  }
+
+  public Department(Integer id) {
+    this.id = id;
+  }
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
@@ -32,8 +39,6 @@ public class Department {
     this.id = id;
   }
 
-  @NotNull
-  @Length(max = 100)
   @Column(name = "NOME", length = 100, nullable = false)
   public String getName() {
     return name;
@@ -44,7 +49,8 @@ public class Department {
   }
 
   @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "INSTITUTO_ID", referencedColumnName = "ID", nullable = false)
+  @JoinColumn(name = "INSTITUTO_ID", nullable = false)
+  @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
   public Institute getInstitute() {
     return institute;
   }
@@ -52,5 +58,4 @@ public class Department {
   public void setInstitute(final Institute institute) {
     this.institute = institute;
   }
-
 }

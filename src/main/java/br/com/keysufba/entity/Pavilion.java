@@ -6,9 +6,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-
-import org.hibernate.validator.constraints.Length;
 
 @Entity
 @Table(name = "PAVILHAO", schema = "SCHEMAA")
@@ -16,6 +13,14 @@ public class Pavilion {
 
   private Integer id;
   private String name;
+
+  Pavilion () { // jpa only
+
+  }
+
+  public Pavilion(Integer id) {
+    this.id = id;
+  }
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
@@ -28,8 +33,6 @@ public class Pavilion {
     this.id = id;
   }
 
-  @NotNull
-  @Length(max = 512)
   @Column(name = "NOME", length = 512, nullable = false)
   public String getName() {
     return name;

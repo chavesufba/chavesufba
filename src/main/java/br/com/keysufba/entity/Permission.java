@@ -10,6 +10,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name = "PERMISSAO", schema = "SCHEMAA")
 public class Permission {
@@ -30,6 +32,7 @@ public class Permission {
 
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "TIPO_USUARIO_ID", referencedColumnName = "ID", nullable = false)
+  @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
   public UserType getUserType() {
     return userType;
   }

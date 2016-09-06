@@ -2,6 +2,8 @@ package br.com.keysufba.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,6 +13,11 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import br.com.keysufba.domain.BookingStatus;
+
 import java.util.Date;
 
 @Entity
@@ -23,7 +30,7 @@ public class Booking {
   private Date startTime;
   private Date endTime;
   private Technician technician;
-  private BookingStatus bookingStatus;
+  private BookingStatus status;
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
@@ -37,7 +44,8 @@ public class Booking {
   }
 
   @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "PROFESSOR_ID", referencedColumnName = "ID")
+  @JoinColumn(name = "PROFESSOR_ID")
+  @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
   public Teacher getTeacher() {
     return teacher;
   }
@@ -47,7 +55,8 @@ public class Booking {
   }
 
   @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "SALA_ID", referencedColumnName = "ID", nullable = false)
+  @JoinColumn(name = "SALA_ID", nullable = false)
+  @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
   public Room getRoom() {
     return room;
   }
@@ -77,7 +86,8 @@ public class Booking {
   }
 
   @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "TECNICO_ID", referencedColumnName = "ID")
+  @JoinColumn(name = "TECNICO_ID")
+  @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
   public Technician getTechnician() {
     return technician;
   }
@@ -86,14 +96,14 @@ public class Booking {
     this.technician = technician;
   }
 
-  @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "STATUS_RESERVA_ID", referencedColumnName = "ID")
-  public BookingStatus getBookingStatus() {
-    return bookingStatus;
+  @Column(name = "STATUS", length = 1)
+  @Enumerated(EnumType.STRING)
+  public BookingStatus getStatus() {
+    return status;
   }
 
-  public void setBookingStatus(BookingStatus bookingStatus) {
-    this.bookingStatus = bookingStatus;
+  public void setStatus(BookingStatus status) {
+    this.status = status;
   }
 
 }
