@@ -22,6 +22,7 @@ public class Room {
 
   private Integer id;
   private String number;
+  private String equipmentDescription;
   private Integer capacity;
   private Pavilion pavilion;
   private RoomType roomType;
@@ -82,5 +83,14 @@ public class Room {
 
   public void setRoomType(final RoomType roomType) {
     this.roomType = roomType;
+  }
+
+  @Column(name = "DESCRICAO_EQUIPAMENTOS")
+  public String getEquipmentDescription() {
+    return equipmentDescription;
+  }
+
+  public void setEquipmentDescription(final String equipmentDescription) {
+    this.equipmentDescription = equipmentDescription;
   }
 }
