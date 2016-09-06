@@ -1,18 +1,11 @@
 package br.com.keysufba.entity;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.Table;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "TIPO_USUARIO", schema = "SCHEMAA")
@@ -20,7 +13,6 @@ public class UserType {
 
   private Integer id;
   private String description;
-  private Set<Person> people = new HashSet<Person>(0);
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
@@ -42,13 +34,4 @@ public class UserType {
     this.description = description;
   }
 
-  @ManyToMany(fetch = FetchType.LAZY, mappedBy = "userTypes")
-  @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-  public Set<Person> getPeople() {
-    return people;
-  }
-  
-  public void setPeople(Set<Person> people) {
-    this.people = people;
-  }
 }
