@@ -2,12 +2,10 @@
 <resources>
     <string-array name="menuItemsArray">
         <item>Salas</item>
-        <item>Item 2</item>
-        <item>Item 3</item>
+        <item>Datas</item>
         <item>Sair</item>
     </string-array>
     <string-array name="menuDrawablesArray">
-        <item>logo_ufba</item>
         <item>logo_ufba</item>
         <item>logo_ufba</item>
         <item>logo_ufba</item>

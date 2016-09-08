@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:background="@drawable/card">
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:id="@+id/cardSalaImageView"
+        android:layout_margin="10dp"
+        android:src="@android:drawable/ic_menu_mapmode"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:id="@+id/cardSalaTextView"
+        android:layout_toEndOf="@id/cardSalaImageView"
+        android:gravity="center"
+        android:layout_alignBottom="@id/cardSalaImageView"
+        android:text="Sala 148"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/cardTipoSalaTextView"
+        android:layout_margin="10dp"
+        android:text="Laboratório"
+        android:textSize="17sp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignBaseline="@id/cardSalaTextView"
+        android:gravity="center"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/cardCapacidadeTextView"
+        android:layout_margin="10dp"
+        android:text="Capacidade: 48 alunos"
+        android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>

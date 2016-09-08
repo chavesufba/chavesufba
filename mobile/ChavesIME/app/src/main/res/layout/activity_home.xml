@@ -12,7 +12,8 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="br.ufba.chavesime.HomeActivity">
+        tools:context=".controller.HomeActivity"
+        android:background="@color/light_gray">
 
         <android.support.v7.widget.Toolbar
             android:layout_width="match_parent"
@@ -22,13 +23,15 @@
             android:id="@+id/homeToolbar">
         </android.support.v7.widget.Toolbar>
 
-        <TextView
+        <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Home Activity"
-            android:textSize="40sp"
-            android:layout_centerInParent="true"
-            android:gravity="center"/>
+            android:layout_height="wrap_content"
+            android:id="@+id/homeRecyclerView"
+            android:layout_below="@id/homeToolbar"
+            android:layout_alignParentBottom="true"
+            android:background="@color/light_gray">
+
+        </android.support.v7.widget.RecyclerView>
 
     </RelativeLayout>
 
