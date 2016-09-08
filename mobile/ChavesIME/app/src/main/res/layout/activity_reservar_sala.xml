@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="br.ufba.chavesime.ReservarSalaActivity"
+    android:textAlignment="center">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:minHeight="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Sala X"
+        android:id="@+id/textSala"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:layout_alignParentEnd="false"
+        android:layout_alignParentStart="false"
+        android:autoText="false"
+        android:enabled="true"
+        android:focusable="false"
+        android:textSize="50dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/data"
+        android:id="@+id/textData"
+        android:layout_below="@+id/textSala"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:textSize="35dp"
+        android:layout_alignParentEnd="false"
+        android:layout_alignParentStart="true"
+        android:clickable="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/horario"
+        android:id="@+id/textHorario"
+        android:layout_below="@+id/textData"
+        android:layout_alignParentStart="true"
+        android:textSize="35dp"
+        android:layout_marginTop="40dp" />
+
+    <Button
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonConfirmarReserva"
+        android:text="@string/confirmarReserva"
+        android:textColor="@color/white"
+        android:background="@drawable/botao_redondo"
+        android:onClick="botaoConfirmarReserva"
+        android:layout_below="@+id/textHorario"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp"
+        android:clickable="false" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ddownHorario"
+        android:spinnerMode="dropdown"
+        android:textAlignment="textEnd"
+        android:touchscreenBlocksFocus="false"
+        android:transitionGroup="false"
+        android:layout_alignTop="@+id/textHorario"
+        android:layout_toEndOf="@+id/textHorario"
+        android:layout_marginLeft="60dp"
+        android:layout_alignParentStart="false"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:id="@+id/containerData"
+        android:layout_centerHorizontal="true"
+        android:layout_toEndOf="@id/textHorario"
+        android:layout_alignTop="@+id/textData"
+        android:layout_alignParentEnd="false"
+        android:inputType="none"
+        android:onClick="showDatePickerDialog"
+        android:textSize="25dp"
+        android:textStyle="italic"
+        android:textAlignment="textEnd"
+        android:autoText="false"
+        android:editable="false"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="-5dp" />
+
+</RelativeLayout>

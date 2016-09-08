@@ -6,4 +6,17 @@
     <string name="naoTenhoCadastro">Não tenho cadastro</string>
     <string name="preenchaCorretamente">Por favor, preencha os campos Matrícula e Senha corretamente.</string>
     <string name="usuarioNaoCadastrado">Usuário não cadastrado.</string>
+    <string name="confirmarReserva">Confirmar Reserva</string>
+    <string name="horario">Horário:</string>
+    <string name="data">Data:</string>
+    <string name="titleReservarSala">Reservar Sala</string>
+    <string name="titleCronograma">Cronograma</string>
+
+
+    <string-array name="horarios_array">
+        <item>07h00-08h50</item>
+        <item>08h50-10h40</item>
+        <item>10h40-12h30</item>
+    </string-array>
+
 </resources>
