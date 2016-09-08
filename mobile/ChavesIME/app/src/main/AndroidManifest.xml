@@ -16,6 +16,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".HomeActivity"></activity>
+        <activity android:name=".ReservarSalaActivity" />
+        <activity android:name=".CronogramaActivity"></activity>
     </application>
 
 </manifest>
