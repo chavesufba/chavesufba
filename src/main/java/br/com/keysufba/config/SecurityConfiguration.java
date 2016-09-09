@@ -18,25 +18,26 @@ import org.springframework.context.annotation.Bean;
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
-	@Autowired
-	@Qualifier("customUserDetailsService")
-	UserDetailsService userDetailsService;
+  @Autowired
+  @Qualifier("customUserDetailsService")
+  UserDetailsService userDetailsService;
 
-        @Bean
-        public PasswordEncoder passwordEncoder() {
-	    return new BCryptPasswordEncoder();
-	}
+  @Bean
+  public PasswordEncoder passwordEncoder() {
+    return new BCryptPasswordEncoder();
+  }
 
-	@Autowired
-	public void configureGlobalSecurity(AuthenticationManagerBuilder auth) throws Exception {
-		auth.userDetailsService(userDetailsService);
-	}
-	@Override
-	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests()
-		.antMatchers("/", "/login").permitAll()
-		.antMatchers("/api/v1/**").access("hasRole('ROLE_PERSON')")
-                .and().httpBasic()
-                .and().csrf();
-	}
+  @Autowired
+  public void configureGlobalSecurity(AuthenticationManagerBuilder auth) throws Exception {
+    auth.userDetailsService(userDetailsService);
+  }
+
+  @Override
+  protected void configure(HttpSecurity http) throws Exception {
+    http.authorizeRequests()
+      .antMatchers("/", "/login").permitAll()
+      .antMatchers("/api/v1/**").access("hasRole('ROLE_PERSON')")
+      .and().httpBasic()
+      .and().csrf();
+  }
 }
