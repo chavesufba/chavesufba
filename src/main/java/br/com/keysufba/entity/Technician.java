@@ -20,11 +20,11 @@ public class Technician {
   private Integer id;
   private Department department;
   private Person person;
-  
+
   Technician() { // jpa only
-    
+
   }
-  
+
   public Technician(Integer id) {
     this.id = id;
   }
