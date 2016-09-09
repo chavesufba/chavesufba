@@ -21,10 +21,18 @@ import java.util.Date;
 public class Leasing {
 
   private Integer id;
-  private Student student;
   private Room room;
   private Date startTime;
   private Date endTime;
+  private Person person;
+  
+  Leasing() { // jpa only
+    
+  }
+  
+  public Leasing(Integer id) {
+    this.id = id;
+  }
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
@@ -35,17 +43,6 @@ public class Leasing {
 
   public void setId(final Integer id) {
     this.id = id;
-  }
-
-  @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "ALUNO_ID", nullable = false)
-  @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-  public Student getStudent() {
-    return student;
-  }
-
-  public void setStudent(final Student student) {
-    this.student = student;
   }
 
   @ManyToOne(fetch = FetchType.LAZY)
@@ -77,5 +74,16 @@ public class Leasing {
 
   public void setEndTime(final Date endTime) {
     this.endTime = endTime;
+  }
+
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "PESSOA_ID", nullable = false)
+  @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+  public Person getPerson() {
+    return person;
+  }
+
+  public void setPerson(Person person) {
+    this.person = person;
   }
 }

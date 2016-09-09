@@ -31,6 +31,14 @@ public class Booking {
   private Date endTime;
   private Technician technician;
   private BookingStatus status;
+  
+  Booking() { // jpa only
+    
+  }
+  
+  public Booking(Integer id) {
+    this.id = id;
+  }
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
@@ -96,7 +104,7 @@ public class Booking {
     this.technician = technician;
   }
 
-  @Column(name = "STATUS", length = 1)
+  @Column(name = "STATUS_RESERVA", length = 1)
   @Enumerated(EnumType.STRING)
   public BookingStatus getStatus() {
     return status;

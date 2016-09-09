@@ -16,8 +16,17 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @Table(name = "PERMISSAO", schema = "SCHEMAA")
 public class Permission {
 
-  private Integer id; // FIXME: Wouldn't be the case to put a description as well?
+  private Integer id;
   private UserType userType;
+  private Action action;
+  
+  Permission() { // jpa only
+
+  }
+
+  public Permission(Integer id) {
+    this.id = id;
+  }
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
@@ -31,7 +40,7 @@ public class Permission {
   }
 
   @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "TIPO_USUARIO_ID", referencedColumnName = "ID", nullable = false)
+  @JoinColumn(name = "TIPO_USUARIO_ID", nullable = false)
   @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
   public UserType getUserType() {
     return userType;
@@ -39,6 +48,17 @@ public class Permission {
 
   public void setUserType(final UserType userType) {
     this.userType = userType;
+  }
+
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "ACAO_ID", nullable = false)
+  @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+  public Action getAction() {
+    return action;
+  }
+
+  public void setAction(Action action) {
+    this.action = action;
   }
 
 }

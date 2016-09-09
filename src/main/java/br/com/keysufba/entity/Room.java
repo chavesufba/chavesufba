@@ -22,10 +22,10 @@ public class Room {
 
   private Integer id;
   private String number;
-  private String equipmentDescription;
   private Integer capacity;
   private Pavilion pavilion;
   private RoomType roomType;
+  private String equipmentDescription;
 
   Room() { // jpa only
 
@@ -55,7 +55,7 @@ public class Room {
     this.number = number;
   }
 
-  @Column(name = "CAPACIDADE")
+  @Column(name = "CAPACIDADE", nullable = false)
   public Integer getCapacity() {
     return capacity;
   }
@@ -85,7 +85,7 @@ public class Room {
     this.roomType = roomType;
   }
 
-  @Column(name = "DESCRICAO_EQUIPAMENTOS")
+  @Column(name = "DESCRICAO_EQUIPAMENTOS", length = 255)
   public String getEquipmentDescription() {
     return equipmentDescription;
   }

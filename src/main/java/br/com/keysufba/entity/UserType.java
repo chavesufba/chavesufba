@@ -14,6 +14,14 @@ public class UserType {
   private Integer id;
   private String description;
 
+  UserType() { // jpa only
+
+  }
+
+  public UserType(Integer id) {
+    this.id = id;
+  }
+  
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   @Column(name = "ID", unique = true, nullable = false)

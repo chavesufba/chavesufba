@@ -6,16 +6,21 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-
-import org.hibernate.validator.constraints.Length;
 
 @Entity
-@Table(name = "TIPO_SALA", schema = "SCHEMAA")
-public class RoomType {
+@Table(name = "ACAO", schema = "SCHEMAA")
+public class Action {
 
   private Integer id;
   private String description;
+
+  Action() { // jpa only
+
+  }
+
+  public Action(Integer id) {
+    this.id = id;
+  }
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
@@ -28,9 +33,7 @@ public class RoomType {
     this.id = id;
   }
 
-  @NotNull
-  @Length(max = 256)
-  @Column(name = "DESCRICAO", length = 256, nullable = false)
+  @Column(name = "DESCRICAO", length = 50, nullable = false)
   public String getDescription() {
     return description;
   }

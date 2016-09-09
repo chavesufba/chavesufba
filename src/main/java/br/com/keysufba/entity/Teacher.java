@@ -11,6 +11,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Type;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
@@ -21,6 +23,15 @@ public class Teacher {
   private String siap;
   private Department department;
   private Person person;
+  private Boolean visitor;
+  
+  Teacher() { // jpa only
+    
+  }
+  
+  public Teacher(Integer id) {
+    this.id = id;
+  }
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
@@ -64,4 +75,14 @@ public class Teacher {
     this.person = person;
   }
 
+  @Type(type = "boolean")
+  @Column(name = "PROFESSOR_VISITANTE", nullable = false)
+  public Boolean getVisitor() {
+    return visitor;
+  }
+
+  public void setVisitor(Boolean visitor) {
+    this.visitor = visitor;
+  }
+  
 }

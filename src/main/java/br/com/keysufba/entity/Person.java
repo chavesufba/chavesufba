@@ -78,7 +78,7 @@ public class Person {
     this.photo = photo;
   }
 
-  @Column(name = "LOGIN", length = 100, nullable = false)
+  @Column(name = "LOGIN", length = 50, nullable = false)
   public String getLogin() {
     return login;
   }

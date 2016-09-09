@@ -14,7 +14,7 @@ public class Pavilion {
   private Integer id;
   private String name;
 
-  Pavilion () { // jpa only
+  Pavilion() { // jpa only
 
   }
 

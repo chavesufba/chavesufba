@@ -11,6 +11,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Type;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
@@ -21,6 +23,15 @@ public class Student {
   private String registrationNumber;
   private Person person;
   private Course course;
+  private Boolean visitor;
+  
+  Student() { // jpa only
+    
+  }
+  
+  public Student(Integer id) {
+    this.id = id;
+  }
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
@@ -54,7 +65,7 @@ public class Student {
   }
 
   @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "CURSO_ID", nullable = false)
+  @JoinColumn(name = "CURSO_ID")
   @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
   public Course getCourse() {
     return course;
@@ -62,6 +73,16 @@ public class Student {
 
   public void setCourse(Course course) {
     this.course = course;
+  }
+
+  @Type(type = "boolean")
+  @Column(name = "ALUNO_VISITANTE", nullable = false)
+  public Boolean getVisitor() {
+    return visitor;
+  }
+
+  public void setVisitor(Boolean visitor) {
+    this.visitor = visitor;
   }
 
 }
