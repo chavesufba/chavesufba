@@ -2,8 +2,8 @@ package br.com.keysufba.controller;
 
 import java.util.List;
 
-import br.com.keysufba.entity.Person;
-import br.com.keysufba.service.PersonService;
+import br.com.keysufba.entity.Permission;
+import br.com.keysufba.service.PermissionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
@@ -16,74 +16,75 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/v1/people")
-public class PersonController {
+@RequestMapping("/api/v1/permissions")
+public class PermissionController {
 
   @Autowired
-  private PersonService personService;
+  private PermissionService permissionService;
 
   @RequestMapping(method = RequestMethod.GET)
-  public HttpEntity<List<Person>> getPeople() {
-    final List<Person> people = personService.findAll();
-    return new ResponseEntity<>(people, HttpStatus.OK);
+  public HttpEntity<List<Permission>> getPermissions() {
+    final List<Permission> permissions = permissionService.findAll();
+    return new ResponseEntity<>(permissions, HttpStatus.OK);
   }
 
   @RequestMapping(path = "/{id}", method = RequestMethod.GET)
-  public HttpEntity<Person> getPerson(@PathVariable("id") Integer id) {
+  public HttpEntity<Permission> getPermission(@PathVariable("id") Integer id) {
     if (id == null) {
       return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    final Person person = personService.findById(id);
-    if (person == null) {
+    final Permission permission = permissionService.findById(id);
+    if (permission == null) {
       return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
-    return new ResponseEntity<>(person, HttpStatus.OK);
+    return new ResponseEntity<>(permission, HttpStatus.OK);
   }
 
   @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-  public HttpEntity<Person> createPerson(@RequestBody Person person) {
-    if (person == null) {
+  public HttpEntity<Permission> createPermission(@RequestBody Permission permission) {
+    if (permission == null) {
       return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 
     try {
-      final Person createdPerson = personService.create(person);
-      return new ResponseEntity<>(createdPerson, HttpStatus.OK);
+      final Permission createdPermission = permissionService.create(permission);
+      return new ResponseEntity<>(createdPermission, HttpStatus.OK);
     } catch (Exception e) {
       return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
   }
 
   @RequestMapping(path = "/{id}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-  public HttpEntity<Person> updatePerson(@PathVariable("id") Integer id, @RequestBody Person person){
-    if (id == null || person == null) {
+  public HttpEntity<Permission> updatePermission(@PathVariable("id") Integer id, @RequestBody Permission permission) {
+    if (id == null || permission == null) {
       return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 
     try {
-      person.setId(id);
-      final Person updatedPerson = personService.update(person);
-      if (updatedPerson == null) {
+      permission.setId(id);
+      final Permission updatedPermission = permissionService.update(permission);
+      if (updatedPermission == null) {
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
       }
-      return new ResponseEntity<>(updatedPerson, HttpStatus.OK);
+      return new ResponseEntity<>(updatedPermission, HttpStatus.OK);
     } catch (Exception e) {
       return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
   }
 
   @RequestMapping(path = "/{id}", method = RequestMethod.DELETE, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-  public HttpEntity<Person> deletePerson(@PathVariable("id") Integer id) {
+  public HttpEntity<Permission> deletePermission(@PathVariable("id") Integer id) {
     if (id == null) {
       return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 
     try {
-      final Integer deletedId = personService.delete(id);
-      return new ResponseEntity<>(new Person(deletedId), HttpStatus.OK);
+      final Integer deletedId = permissionService.delete(id);
+      return new ResponseEntity<>(new Permission(deletedId), HttpStatus.OK);
     } catch (Exception e) {
       return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
   }
+
 }

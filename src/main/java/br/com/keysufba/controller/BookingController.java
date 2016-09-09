@@ -2,8 +2,8 @@ package br.com.keysufba.controller;
 
 import java.util.List;
 
-import br.com.keysufba.entity.Person;
-import br.com.keysufba.service.PersonService;
+import br.com.keysufba.entity.Booking;
+import br.com.keysufba.service.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
@@ -16,74 +16,75 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/v1/people")
-public class PersonController {
+@RequestMapping("/api/v1/bookings")
+public class BookingController {
 
   @Autowired
-  private PersonService personService;
+  private BookingService bookingService;
 
   @RequestMapping(method = RequestMethod.GET)
-  public HttpEntity<List<Person>> getPeople() {
-    final List<Person> people = personService.findAll();
-    return new ResponseEntity<>(people, HttpStatus.OK);
+  public HttpEntity<List<Booking>> getBookings() {
+    final List<Booking> bookings = bookingService.findAll();
+    return new ResponseEntity<>(bookings, HttpStatus.OK);
   }
 
   @RequestMapping(path = "/{id}", method = RequestMethod.GET)
-  public HttpEntity<Person> getPerson(@PathVariable("id") Integer id) {
+  public HttpEntity<Booking> getBooking(@PathVariable("id") Integer id) {
     if (id == null) {
       return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    final Person person = personService.findById(id);
-    if (person == null) {
+    final Booking booking = bookingService.findById(id);
+    if (booking == null) {
       return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
-    return new ResponseEntity<>(person, HttpStatus.OK);
+    return new ResponseEntity<>(booking, HttpStatus.OK);
   }
 
   @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-  public HttpEntity<Person> createPerson(@RequestBody Person person) {
-    if (person == null) {
+  public HttpEntity<Booking> createBooking(@RequestBody Booking booking) {
+    if (booking == null) {
       return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 
     try {
-      final Person createdPerson = personService.create(person);
-      return new ResponseEntity<>(createdPerson, HttpStatus.OK);
+      final Booking createdBooking = bookingService.create(booking);
+      return new ResponseEntity<>(createdBooking, HttpStatus.OK);
     } catch (Exception e) {
       return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
   }
 
   @RequestMapping(path = "/{id}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-  public HttpEntity<Person> updatePerson(@PathVariable("id") Integer id, @RequestBody Person person){
-    if (id == null || person == null) {
+  public HttpEntity<Booking> updateBooking(@PathVariable("id") Integer id, @RequestBody Booking booking) {
+    if (id == null || booking == null) {
       return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 
     try {
-      person.setId(id);
-      final Person updatedPerson = personService.update(person);
-      if (updatedPerson == null) {
+      booking.setId(id);
+      final Booking updatedBooking = bookingService.update(booking);
+      if (updatedBooking == null) {
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
       }
-      return new ResponseEntity<>(updatedPerson, HttpStatus.OK);
+      return new ResponseEntity<>(updatedBooking, HttpStatus.OK);
     } catch (Exception e) {
       return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
   }
 
   @RequestMapping(path = "/{id}", method = RequestMethod.DELETE, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-  public HttpEntity<Person> deletePerson(@PathVariable("id") Integer id) {
+  public HttpEntity<Booking> deleteBooking(@PathVariable("id") Integer id) {
     if (id == null) {
       return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 
     try {
-      final Integer deletedId = personService.delete(id);
-      return new ResponseEntity<>(new Person(deletedId), HttpStatus.OK);
+      final Integer deletedId = bookingService.delete(id);
+      return new ResponseEntity<>(new Booking(deletedId), HttpStatus.OK);
     } catch (Exception e) {
       return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
   }
+
 }
