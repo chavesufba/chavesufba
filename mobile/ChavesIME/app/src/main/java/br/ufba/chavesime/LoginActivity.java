@@ -32,7 +32,7 @@ public class LoginActivity extends AppCompatActivity {
 
             if (login()) {
 
-                Intent intent = new Intent(this, HomeActivity.class);
+                Intent intent = new Intent(this, CronogramaActivity.class);
                 intent.putExtra("user", "Teste");
                 startActivity(intent);
 

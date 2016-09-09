@@ -9,6 +9,8 @@
     <string name="confirmarReserva">Confirmar Reserva</string>
     <string name="horario">Horário:</string>
     <string name="data">Data:</string>
+    <string name="sala">Sala:</string>
+    <string name="buscarCronograma">Buscar Cronograma</string>
     <string name="titleReservarSala">Reservar Sala</string>
     <string name="titleCronograma">Cronograma</string>
 
@@ -17,6 +19,13 @@
         <item>07h00-08h50</item>
         <item>08h50-10h40</item>
         <item>10h40-12h30</item>
+    </string-array>
+
+    <string-array name="salas_array">
+        <item>147</item>
+        <item>148</item>
+        <item>154</item>
+        <item>Todas</item>
     </string-array>
 
 </resources>

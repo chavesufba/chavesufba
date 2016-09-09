@@ -26,14 +26,14 @@ public class ReservarSalaActivity extends AppCompatActivity implements DatePicke
         initDropDownHorarios();
         initDateText();
 
-        //TODO: Inserir código para o voltar da toolbar
-
-
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.homeToolbar);
         setSupportActionBar(toolbar);
+
         if (getSupportActionBar() != null) {
+            //TODO: Seta de voltar estar escura, corrigir!
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setHomeButtonEnabled(true);
+
         }
     }
 
@@ -56,7 +56,7 @@ public class ReservarSalaActivity extends AppCompatActivity implements DatePicke
 
         // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.horarios_array, android.R.layout.simple_spinner_dropdown_item);;
+                R.array.horarios_array,R.layout.spinner);
 
         // Apply the adapter to the spinner
         spinner.setAdapter(adapter);
@@ -77,13 +77,16 @@ public class ReservarSalaActivity extends AppCompatActivity implements DatePicke
         today =  (day < 10)     ? "0" + day + "/"             : "" + day + "/";
         today += (month < 10)   ? "0" + month + "/" + year    : "" + month + "/" + year ;
 
-        EditText textDate = (EditText) findViewById(R.id.containerData);
+        EditText textDate = (EditText) findViewById(R.id.editTextData);
         textDate.setText(today);
     }
 
 
     public void showDatePickerDialog(View v) {
         DialogFragment newFragment = new DatePickerFragment();
+        Bundle args = new Bundle();
+        args.putString("Class", "ReservarSala");
+        newFragment.setArguments(args);
         newFragment.show(getFragmentManager(), "datePicker");
     }
 
@@ -109,7 +112,7 @@ public class ReservarSalaActivity extends AppCompatActivity implements DatePicke
         today =  (day < 10)     ? "0" + day + "/"             : "" + day + "/";
         today += (month < 10)   ? "0" + month + "/" + year    : "" + month + "/" + year ;
 
-        EditText textDate = (EditText) findViewById(R.id.containerData);
+        EditText textDate = (EditText) findViewById(R.id.editTextData);
         textDate.setText(today);
     }
 

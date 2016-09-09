@@ -18,7 +18,9 @@ public class DatePickerFragment extends DialogFragment {
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         // Use the current date as the default date in the picker
 
-        EditText text = (EditText) getActivity().findViewById(R.id.containerData);
+        String classFrom  = getArguments().getString("Class");
+
+        EditText text = (EditText) getActivity().findViewById(R.id.editTextData);
         String teste = text.getText().toString();
         String[] parts = teste.split("/");
 
@@ -27,7 +29,12 @@ public class DatePickerFragment extends DialogFragment {
         int year = Integer.parseInt(parts[2]);
 
         // Create a new instance of DatePickerDialog and return it
-        DatePickerDialog pickerDialog = new DatePickerDialog(getActivity(), (ReservarSalaActivity)getActivity(), year, month, day);
+        DatePickerDialog pickerDialog;
+        if(classFrom.equals("Cronograma"))
+            pickerDialog = new DatePickerDialog(getActivity(), (CronogramaActivity)getActivity(), year, month, day);
+        else
+            pickerDialog = new DatePickerDialog(getActivity(), (ReservarSalaActivity)getActivity(), year, month, day);
+
         pickerDialog.getDatePicker().setMinDate(System.currentTimeMillis() - 1000);
         return pickerDialog;
     }
