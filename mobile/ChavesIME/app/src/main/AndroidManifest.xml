@@ -17,6 +17,8 @@
         </activity>
         <activity android:name=".controller.HomeActivity" />
         <activity android:name=".controller.CadastroPorDataActivity"></activity>
+        <activity android:name=".ReservarSalaActivity" />
+        <activity android:name=".CronogramaActivity"></activity>
     </application>
 
 </manifest>
