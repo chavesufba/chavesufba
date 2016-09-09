@@ -183,6 +183,12 @@ public class HomeActivity extends AppCompatActivity {
                                 drawerLayout.closeDrawer(GravityCompat.START);
 
                                 break;
+                            case "Datas":
+
+                                Intent intent = new Intent(getApplicationContext(), CadastroPorDataActivity.class);
+                                startActivity(intent);
+
+                                break;
                             case "Sair":
 
                                 logoutUser();

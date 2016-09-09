@@ -16,6 +16,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".controller.HomeActivity" />
+        <activity android:name=".controller.CadastroPorDataActivity"></activity>
     </application>
 
 </manifest>
