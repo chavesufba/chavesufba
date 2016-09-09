@@ -64,8 +64,6 @@ public class PersonController {
     try {
       person.setId(id);
       final Person updatedPerson = personService.update(person);
-      System.err.println("AQUI");
-      System.err.println(updatedPerson);
       if (updatedPerson == null) {
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
       }
