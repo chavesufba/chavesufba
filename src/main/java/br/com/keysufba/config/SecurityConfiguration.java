@@ -9,9 +9,12 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
+
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.context.annotation.Bean;
+
+import org.springframework.http.HttpMethod;
 
 
 @Configuration
@@ -39,9 +42,15 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
-		.antMatchers("/", "/login").permitAll()
-		.antMatchers("/api/v1/**").access("hasRole('ROLE_PERSON')")
+		.antMatchers(HttpMethod.GET, "/*").permitAll()
+                .anyRequest().authenticated()
+		.antMatchers(HttpMethod.POST, "/api/v1/*").permitAll()
+                .anyRequest().authenticated()
+		.antMatchers(HttpMethod.PUT, "/api/v1/*").permitAll()
+                .anyRequest().authenticated()
+		.antMatchers(HttpMethod.DELETE, "/api/v1/*").permitAll()
+                .anyRequest().authenticated()
                 .and().httpBasic()
-                .and().csrf();
+                .and().csrf().disable();
 	}
 }
