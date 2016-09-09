@@ -2,8 +2,8 @@ package br.com.keysufba.controller;
 
 import java.util.List;
 
-import br.com.keysufba.entity.Person;
-import br.com.keysufba.service.PersonService;
+import br.com.keysufba.entity.Action;
+import br.com.keysufba.service.ActionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
@@ -16,74 +16,75 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/v1/people")
-public class PersonController {
+@RequestMapping("/api/v1/actions")
+public class ActionController {
 
   @Autowired
-  private PersonService personService;
+  private ActionService actionService;
 
   @RequestMapping(method = RequestMethod.GET)
-  public HttpEntity<List<Person>> getPeople() {
-    final List<Person> people = personService.findAll();
-    return new ResponseEntity<>(people, HttpStatus.OK);
+  public HttpEntity<List<Action>> getActions() {
+    final List<Action> actions = actionService.findAll();
+    return new ResponseEntity<>(actions, HttpStatus.OK);
   }
 
   @RequestMapping(path = "/{id}", method = RequestMethod.GET)
-  public HttpEntity<Person> getPerson(@PathVariable("id") Integer id) {
+  public HttpEntity<Action> getAction(@PathVariable("id") Integer id) {
     if (id == null) {
       return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    final Person person = personService.findById(id);
-    if (person == null) {
+    final Action action = actionService.findById(id);
+    if (action == null) {
       return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
-    return new ResponseEntity<>(person, HttpStatus.OK);
+    return new ResponseEntity<>(action, HttpStatus.OK);
   }
 
   @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-  public HttpEntity<Person> createPerson(@RequestBody Person person) {
-    if (person == null) {
+  public HttpEntity<Action> createAction(@RequestBody Action action) {
+    if (action == null) {
       return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 
     try {
-      final Person createdPerson = personService.create(person);
-      return new ResponseEntity<>(createdPerson, HttpStatus.OK);
+      final Action createdAction = actionService.create(action);
+      return new ResponseEntity<>(createdAction, HttpStatus.OK);
     } catch (Exception e) {
       return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
   }
 
   @RequestMapping(path = "/{id}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-  public HttpEntity<Person> updatePerson(@PathVariable("id") Integer id, @RequestBody Person person){
-    if (id == null || person == null) {
+  public HttpEntity<Action> updateAction(@PathVariable("id") Integer id, @RequestBody Action action) {
+    if (id == null || action == null) {
       return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 
     try {
-      person.setId(id);
-      final Person updatedPerson = personService.update(person);
-      if (updatedPerson == null) {
+      action.setId(id);
+      final Action updatedAction = actionService.update(action);
+      if (updatedAction == null) {
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
       }
-      return new ResponseEntity<>(updatedPerson, HttpStatus.OK);
+      return new ResponseEntity<>(updatedAction, HttpStatus.OK);
     } catch (Exception e) {
       return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
   }
 
   @RequestMapping(path = "/{id}", method = RequestMethod.DELETE, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-  public HttpEntity<Person> deletePerson(@PathVariable("id") Integer id) {
+  public HttpEntity<Action> deleteAction(@PathVariable("id") Integer id) {
     if (id == null) {
       return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 
     try {
-      final Integer deletedId = personService.delete(id);
-      return new ResponseEntity<>(new Person(deletedId), HttpStatus.OK);
+      final Integer deletedId = actionService.delete(id);
+      return new ResponseEntity<>(new Action(deletedId), HttpStatus.OK);
     } catch (Exception e) {
       return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
   }
+
 }
