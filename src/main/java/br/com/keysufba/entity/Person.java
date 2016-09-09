@@ -8,8 +8,6 @@ import javax.persistence.Id;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
 
-import org.apache.commons.codec.digest.DigestUtils;
-
 
 @Entity
 @Table(name = "PESSOA", schema = "SCHEMAA")
@@ -96,8 +94,4 @@ public class Person {
     this.password = password;
   }
 
-  @PrePersist
-  protected void onCreate() {
-    password = DigestUtils.sha1Hex(password);
-  }
 }
