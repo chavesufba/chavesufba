@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import br.ufba.chavesime.CronogramaActivity;
 import br.ufba.chavesime.R;
 
 public class LoginActivity extends AppCompatActivity {
@@ -32,7 +33,7 @@ public class LoginActivity extends AppCompatActivity {
 
             if (login()) {
 
-                Intent intent = new Intent(this, CronogramaActivity.class);
+                Intent intent = new Intent(this, HomeActivity.class);
                 intent.putExtra("user", "Teste");
                 startActivity(intent);
 

@@ -19,7 +19,9 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.ufba.chavesime.CronogramaActivity;
 import br.ufba.chavesime.R;
+import br.ufba.chavesime.ReservarSalaActivity;
 import br.ufba.chavesime.model.Sala;
 
 public class HomeActivity extends AppCompatActivity {
@@ -176,6 +178,7 @@ public class HomeActivity extends AppCompatActivity {
                     public void onClick(View v) {
                         
                         String item = menuItemsList[getAdapterPosition()];
+                        Intent intent;
 
                         switch (item) {
                             case "Salas":
@@ -185,10 +188,15 @@ public class HomeActivity extends AppCompatActivity {
                                 break;
                             case "Datas":
 
-                                Intent intent = new Intent(getApplicationContext(), CadastroPorDataActivity.class);
+                                intent = new Intent(getApplicationContext(), CadastroPorDataActivity.class);
                                 startActivity(intent);
 
                                 break;
+                            case "Cronograma":
+
+                                intent = new Intent(getApplicationContext(), CronogramaActivity.class);
+                                startActivity(intent);
+
                             case "Sair":
 
                                 logoutUser();
@@ -256,7 +264,15 @@ public class HomeActivity extends AppCompatActivity {
                 numeroTextView = (TextView) itemView.findViewById(R.id.cardSalaTextView);
                 tipoTextView = (TextView) itemView.findViewById(R.id.cardTipoSalaTextView);
                 capacidadeTextView = (TextView) itemView.findViewById(R.id.cardCapacidadeTextView);
+                itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
 
+                        Intent intent = new Intent(getApplicationContext(), ReservarSalaActivity.class);
+                        startActivity(intent);
+
+                    }
+                });
             }
         }
 
