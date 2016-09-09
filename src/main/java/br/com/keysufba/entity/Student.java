@@ -24,11 +24,11 @@ public class Student {
   private Person person;
   private Course course;
   private Boolean visitor;
-  
+
   Student() { // jpa only
-    
+
   }
-  
+
   public Student(Integer id) {
     this.id = id;
   }
