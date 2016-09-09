@@ -6,12 +6,15 @@ import br.com.keysufba.entity.Person;
 import br.com.keysufba.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Service("personService")
 public class PersonService implements GenericService<Person> {
 
   @Autowired
   private PersonRepository personRepository;
+  @Autowired
+  private PasswordEncoder passwordEncoder;
 
   @Override
   public List<Person> findAll() {
@@ -25,6 +28,7 @@ public class PersonService implements GenericService<Person> {
 
   @Override
   public Person create(Person i) {
+    i.setPassword(passwordEncoder.encode(i.getPassword()));
     personRepository.save(i);
     return i;
   }
