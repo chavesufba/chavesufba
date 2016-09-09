@@ -31,6 +31,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	public void configureGlobalSecurity(AuthenticationManagerBuilder auth) throws Exception {
 		auth.userDetailsService(userDetailsService);
 	}
+        @Autowired
+        public void configAuthentication(AuthenticationManagerBuilder auth) throws Exception {    
+                auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());;
+        } 
+
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
