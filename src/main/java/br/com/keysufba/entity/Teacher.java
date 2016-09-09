@@ -24,11 +24,11 @@ public class Teacher {
   private Department department;
   private Person person;
   private Boolean visitor;
-  
+
   Teacher() { // jpa only
-    
+
   }
-  
+
   public Teacher(Integer id) {
     this.id = id;
   }
@@ -84,5 +84,5 @@ public class Teacher {
   public void setVisitor(Boolean visitor) {
     this.visitor = visitor;
   }
-  
+
 }
