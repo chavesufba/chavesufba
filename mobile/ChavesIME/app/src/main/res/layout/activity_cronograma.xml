@@ -34,10 +34,10 @@
             android:text="@string/sala"
             android:id="@+id/textSala"
             android:gravity="center_vertical"
-            android:textSize="35sp"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
-            android:layout_alignBottom="@+id/ddownSala" />
+            android:layout_alignBottom="@+id/ddownSala"
+            android:textSize="25dp" />
 
         <Spinner
             android:layout_width="wrap_content"
@@ -47,9 +47,8 @@
             android:layout_gravity="right"
             android:layout_alignParentEnd="true"
             android:layout_toEndOf="@+id/textHorario"
-            android:layout_marginLeft="15dp"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="7dp" />
+            android:layout_marginLeft="40dp"
+            android:layout_alignParentTop="true" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -59,9 +58,10 @@
             android:id="@+id/textData"
             android:layout_gravity="left|center_vertical"
             android:gravity="center_vertical"
-            android:textSize="35dp"
+            android:textSize="25dp"
             android:layout_below="@+id/ddownSala"
-            android:layout_marginTop="35dp" />
+            android:layout_marginTop="35dp"
+            android:layout_alignBottom="@+id/editTextData" />
 
         <EditText
             android:layout_width="wrap_content"
@@ -74,12 +74,13 @@
             android:layout_alignParentEnd="true"
             android:layout_marginTop="40dp"
             android:layout_toEndOf="@+id/textHorario"
-            android:layout_marginLeft="15dp"
+            android:layout_marginLeft="40dp"
             android:gravity="center"
             android:autoText="false"
             android:editable="false"
             android:textColor="@color/colorPrimary"
-            android:onClick="showDatePickerDialog" />
+            android:onClick="showDatePickerDialog"
+            android:layout_marginRight="20dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -92,7 +93,7 @@
             android:layout_alignBottom="@+id/ddownHorario"
             android:layout_marginTop="40dp"
             android:textIsSelectable="true"
-            android:textSize="35dp"
+            android:textSize="25dp"
             android:gravity="center" />
 
         <Spinner
@@ -105,7 +106,7 @@
             android:layout_below="@+id/editTextData"
             android:layout_marginTop="40dp"
             android:layout_gravity="right"
-            android:layout_marginLeft="15dp" />
+            android:layout_marginLeft="40dp" />
 
         <Button
             android:layout_width="wrap_content"

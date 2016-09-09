@@ -30,7 +30,7 @@
         android:autoText="false"
         android:enabled="true"
         android:focusable="false"
-        android:textSize="50dp"
+        android:textSize="35dp"
         android:layout_below="@+id/homeToolbar"
         android:layout_marginTop="10dp" />
 
@@ -43,11 +43,13 @@
         android:layout_below="@+id/textSala"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
-        android:textSize="35dp"
+        android:textSize="25dp"
         android:layout_alignParentEnd="false"
         android:layout_alignParentStart="true"
         android:clickable="true"
-        android:layout_marginLeft="20dp" />
+        android:layout_marginLeft="20dp"
+        android:layout_alignBottom="@+id/editTextData"
+        android:gravity="center_vertical" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -57,9 +59,11 @@
         android:id="@+id/textHorario"
         android:layout_below="@+id/textData"
         android:layout_alignParentStart="true"
-        android:textSize="35dp"
+        android:textSize="25dp"
         android:layout_marginTop="40dp"
-        android:layout_marginLeft="20dp" />
+        android:layout_marginLeft="20dp"
+        android:layout_alignBottom="@+id/ddownHorario"
+        android:gravity="center_vertical" />
 
     <Button
         android:layout_width="180dp"
@@ -82,13 +86,12 @@
         android:textAlignment="textEnd"
         android:touchscreenBlocksFocus="false"
         android:transitionGroup="false"
-        android:layout_alignTop="@+id/textHorario"
         android:layout_toEndOf="@+id/textHorario"
-        android:layout_marginLeft="15dp"
+        android:layout_marginLeft="40dp"
         android:layout_alignParentStart="false"
         android:layout_alignParentEnd="true"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="7dp" />
+        android:layout_marginTop="40dp"
+        android:layout_below="@+id/editTextData" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -97,17 +100,18 @@
         android:id="@+id/editTextData"
         android:layout_centerHorizontal="true"
         android:layout_toEndOf="@id/textHorario"
-        android:layout_alignTop="@+id/textData"
         android:layout_alignParentEnd="false"
         android:inputType="none"
         android:onClick="showDatePickerDialog"
         android:autoText="false"
         android:editable="false"
-        android:layout_marginLeft="15dp"
+        android:layout_marginLeft="40dp"
         android:layout_marginRight="20dp"
         android:textColor="@color/colorPrimary"
         android:gravity="center"
         android:textIsSelectable="false"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        android:layout_marginTop="40dp"
+        android:layout_below="@+id/textSala" />
 
 </RelativeLayout>
