@@ -2,8 +2,10 @@ package br.com.keysufba.controller;
 
 import java.util.List;
 
+import br.com.keysufba.domain.BookingStatus;
 import br.com.keysufba.entity.Booking;
 import br.com.keysufba.service.BookingService;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -23,9 +26,14 @@ public class BookingController {
   private BookingService bookingService;
 
   @RequestMapping(method = RequestMethod.GET)
-  public HttpEntity<List<Booking>> getBookings() {
-    final List<Booking> bookings = bookingService.findAll();
-    return new ResponseEntity<>(bookings, HttpStatus.OK);
+  public HttpEntity<List<Booking>> getBookings(@RequestParam(value="status", defaultValue = "") BookingStatus status) {
+    if (status == null || StringUtils.isBlank(status.getDescryption())) {
+      final List<Booking> bookings = bookingService.findAll();
+      return new ResponseEntity<>(bookings, HttpStatus.OK);
+    } else {
+      final List<Booking> bookings = bookingService.findByStatus(status);
+      return new ResponseEntity<>(bookings, HttpStatus.OK);
+    }
   }
 
   @RequestMapping(path = "/{id}", method = RequestMethod.GET)
@@ -40,7 +48,7 @@ public class BookingController {
     }
     return new ResponseEntity<>(booking, HttpStatus.OK);
   }
-
+  
   @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
   public HttpEntity<Booking> createBooking(@RequestBody Booking booking) {
     if (booking == null) {

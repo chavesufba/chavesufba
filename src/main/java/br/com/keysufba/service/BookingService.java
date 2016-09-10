@@ -2,6 +2,7 @@ package br.com.keysufba.service;
 
 import java.util.List;
 
+import br.com.keysufba.domain.BookingStatus;
 import br.com.keysufba.entity.Booking;
 import br.com.keysufba.repository.BookingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,6 +44,10 @@ public class BookingService implements GenericService<Booking>{
 
     bookingRepository.save(t);
     return t;
+  }
+
+  public List<Booking> findByStatus(BookingStatus bookingStatus) {
+    return bookingRepository.findByStatus(bookingStatus);
   }
 
 }
