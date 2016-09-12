@@ -22,6 +22,7 @@ import java.util.List;
 import br.ufba.chavesime.CronogramaActivity;
 import br.ufba.chavesime.R;
 import br.ufba.chavesime.ReservarSalaActivity;
+import br.ufba.chavesime.model.MainActivity;
 import br.ufba.chavesime.model.Sala;
 
 public class HomeActivity extends AppCompatActivity {
@@ -195,6 +196,11 @@ public class HomeActivity extends AppCompatActivity {
                             case "Cronograma":
 
                                 intent = new Intent(getApplicationContext(), CronogramaActivity.class);
+                                startActivity(intent);
+
+                            case "Exemplo de Requisição":
+
+                                intent = new Intent(getApplicationContext(), MainActivity.class);
                                 startActivity(intent);
 
                             case "Sair":

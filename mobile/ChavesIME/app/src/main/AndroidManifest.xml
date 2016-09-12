@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="br.ufba.chavesime">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -19,6 +21,7 @@
         <activity android:name=".controller.CadastroPorDataActivity"></activity>
         <activity android:name=".ReservarSalaActivity" />
         <activity android:name=".CronogramaActivity"></activity>
+        <activity android:name=".model.MainActivity"></activity>
     </application>
 
 </manifest>
