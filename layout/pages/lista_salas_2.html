@@ -47,32 +47,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <span class="sr-only">Toggle navigation</span>
       </a>
       <!-- Navbar Right Menu -->
-      <div class="navbar-custom-menu">
-          <ul class="nav navbar-nav">
-                       <li class="dropdown user user-menu">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <img src="../dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-                <span class="hidden-xs">Alexander Pierce</span>
-              </a>
-              <ul class="dropdown-menu">
-                <!-- User image -->
-                <li class="user-header">
-                  <img src="../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
-                  <p>
-                    Usuário
-                  </p>
-                </li>
-                <!-- Menu Footer-->
-                <li class="user-footer">
-                  <div class="pull-right">
-                    <a href="login.html" class="btn btn-default btn-flat">Logout</a>
-                  </div>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </div>
     </nav>
   </header>
   <!-- Left side column. contains the logo and sidebar -->
@@ -121,17 +96,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <li class="active"><a href="lista_salas.html"><i class="fa fa-circle-o"></i> Buscar salas</a></li>
           </ul>
         </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-user"></i> <span>Usuário</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="cadastrar_usuario.html"><i class="fa fa-pencil-square-o"></i> Cadastro</a></li>
-          </ul>
-        </li>
       </ul>
       <!-- /.sidebar-menu -->
     </section>
@@ -160,46 +124,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <div class="panel-body">
                     <form method="POST" action="">
                     	<div class="box-tools">
-                   	  <div class="input-group input-group-sm" >
-                    		<div class="form-group">
-
-                  <div class="col-md-3">
-                    <label>Pavilhão:</label>
-                    <select class="form-control">
-                      <option>-- Pavilhão --</option>
-                      <option value="1">Pavilhão 1</option>
-                      <option value="2">Pavilhão 3</option>
-                      <option value="3">Pavilhão 5</option>
-                      <option value="4">IME</option>
-                    </select>
-                  </div>
-
-                  <div class="col-md-3">
-                    <label>Capacidade Máxima:</label>
-                    <div class="input-group">
-                      <input type="text" class="form-control">
-                      <div class="input-group-addon">
-                      </div>
-                    </div>
-                    <!-- /.input group -->
-                  </div>
-
-                  <div class="col-md-3">
-                    <label>Tipo da Sala:</label>
-                    <select class="form-control">
-                      <option>-- Tipo --</option>
-                      <option value="1">Tipo 1</option>
-                      <option value="2">Tipo 2</option>
-                      <option value="3">Tipo 3</option>
-                    </select>
-                  </div>
-
-                  <div class="col-md-3">
-                    <button type="button" class="btn btn-primary pull-right" style="margin-top: 25px;">Pesquisar</button>
-                  </div>
-
-
-                </div>
+                    	  <div class="input-group input-group-sm" style="width: 250px; margin: 0 auto;">
+                    		<div class='input-group input-group-sm'>
+                    		  <input type='text' class="form-control" id='datetimepicker1' placeholder="Buscar por data..."/>
+                    		  <span class="input-group-btn">
+                    			  <button class="btn btn-primary btn-flat" type="submit">Pesquisar</button>
+                    		  </span>
+                    		</div>
                     	  </div>
                     	</div><br>
                     </form>
@@ -209,51 +140,109 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <th>Número</th>
                         <th>Local</th>
                         <th>Tipo</th>
-                        <th>Cadeiras</th>
-                        <!-- <th>Status</th> -->
+                        <th>Status</th>
                         <th>Reserva</th>
                       </tr>
                       <tr>
                         <td>133</td>
                         <td>IM</td>
                         <td>Laboratório</td>
-                        <td>40</td>
-                        <!-- <td><span class="label label-success">Disponível</span></td> -->
-                        <td><button type="button" class="btn btn-primary"><a href="sala.html" style="color: white;">Solicitar</a></button></td>
+                        <td><span class="label label-success">Disponível</span></td>
+                        <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Solicitar</button></td>
                       </tr>
                       <tr>
                         <td>28</td>
                         <td>PAF III</td>
                         <td>Sala de aula</td>
-                        <td>60</td>
-                        <!-- <td><span class="label label-danger">Reservada</span></td>
-                        <td><button type="button" class="btn btn-danger">Sala Reservada</button></td> -->
-                        <td><button type="button" class="btn btn-primary"><a href="sala.html" style="color: white;">Solicitar</a></button></td>
+                        <td><span class="label label-danger">Reservada</span></td>
+                        <td><button type="button" class="btn btn-danger">Sala Reservada</button></td>
                       </tr>
                       <tr>
                         <td>133</td>
                         <td>IM</td>
                         <td>Laboratório</td>
-                        <td>30</td>
-                        <!-- <td><span class="label label-success">Disponível</span></td> -->
-                        <td><button type="button" class="btn btn-primary"><a href="sala.html" style="color: white;">Solicitar</a></button></td>
+                        <td><span class="label label-success">Disponível</span></td>
+                        <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Solicitar</button></td>
                       </tr>
                       <tr>
                         <td>259</td>
                         <td>PAF 1</td>
                         <td>Sala de aula</td>
-                        <td>50</td>
-                        <!-- <td><span class="label label-success">Disponível</span></td> -->
-                        <td><button type="button" class="btn btn-primary"><a href="sala.html" style="color: white;">Solicitar</a></button></td>
+                        <td><span class="label label-success">Disponível</span></td>
+                        <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Solicitar</button></td>
                       </tr>
                     </table>
-		  </div>
+                  </div>
                 </div>
               <!-- /.box-body -->
             </div>
           </div>
         </div>
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="exampleModalLabel">Cadastro</h4>
+      </div>
+      <div class="modal-body" style="padding: 0px;">
+        <form>
+          <div class="form-group">
+                                    
+                  <div class="col-md-12">
+                    <label>Equipamentos</label>
+                    <select class="form-control">
+                      <option>Equipamento 1</option>
+                      <option>Equipamento 2</option>
+                      <option>Equipamento 3</option>
+                      <option>Equipamento 4</option>
+                      <option>Equipamento 5</option>
+                    </select>
+                  </div>
+                  
+                  <div class="bootstrap-timepicker col-md-12">
+                    <label>Horário de Entrada:</label>
 
+                    <div class="input-group">
+                      <input type="text" class="form-control timepicker">
+
+                      <div class="input-group-addon">
+                        <i class="fa fa-clock-o"></i>
+                      </div>
+                    </div>
+                    <!-- /.input group -->
+                  </div>
+
+                  <div class="alert alert-dismissible alert-danger col-md-12">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <strong>Horário Já Reservado.</strong>
+                  </div>
+                  
+                  <div class="bootstrap-timepicker col-md-12">
+                    <label>Horário de Saída:</label>
+
+                    <div class="input-group">
+                      <input type="text" class="form-control timepicker">
+
+                      <div class="input-group-addon">
+                        <i class="fa fa-clock-o"></i>
+                      </div>
+                    </div>
+                    <!-- /.input group -->
+                  </div>
+                  
+
+
+                </div>
+        </form>
+      </div>
+      <div class="col-md-12" style="height: 10px;"></div>
+      <div class="modal-footer" style="border-top: 0px">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Confirmar</button>
+      </div>
+    </div>
+  </div>
 </div>
     </section>
     <!-- /.content -->
@@ -351,6 +340,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 <!-- REQUIRED JS SCRIPTS -->
 
+
+<!-- bootstrap datepicker -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js"></script>
+<script src="//cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/src/js/bootstrap-datetimepicker.js"></script>
+
+
+<!-- REQUIRED JS SCRIPTS -->
+
 <!-- jQuery 2.2.3 -->
 <script src="../plugins/jQuery/jquery-2.2.3.min.js"></script>
 <!-- Bootstrap 3.3.6 -->
@@ -381,12 +378,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <!-- AdminLTE for demo purposes -->
 <script src="../dist/js/demo.js"></script>
 <!-- Page script -->
-
-<!-- bootstrap datepicker -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js"></script>
-<script src="//cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/src/js/bootstrap-datetimepicker.js"></script>
-
-
 <script>
   $(function () {
     //Initialize Select2 Elements
