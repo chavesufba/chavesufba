@@ -152,7 +152,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <section class="content">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-6">
               <div class="panel panel-primary">
                 <div class="panel-heading">
                   <h3 style="text-align: center;">Sala 109 - PAF 1</h3>
@@ -312,73 +312,51 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <!-- /.box-body -->
             </div>
           </div>
-        </div>
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="exampleModalLabel">Cadastro</h4>
-      </div>
-      <div class="modal-body" style="padding: 0px;">
-        <form>
+
+          <div class="col-md-6">
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 style="text-align: center;">Sala 109 - PAF 1</h3>
+              </div>
+              <div class="panel-body">
+                <form>
           <div class="form-group">
 
                   <div class="col-md-12">
-                    <label>Equipamentos</label>
+                    <label>Repetir Tipo:</label>
                     <select class="form-control">
-                      <option>Equipamento 1</option>
-                      <option>Equipamento 2</option>
-                      <option>Equipamento 3</option>
-                      <option>Equipamento 4</option>
-                      <option>Equipamento 5</option>
+                      <option>Único</option>
+                      <option>Semanalmente</option>
+                      <option>Semestral</option>
                     </select>
                   </div>
 
+                  <div class="col-md-12">
+                    <label>Número de Semanas:</label>
+                    <input class="form-control">
+                  </div>
                   <div class="bootstrap-timepicker col-md-12">
-                    <label>Horário de Entrada:</label>
+                    <label>Data da Reserva:</label>
 
-                    <div class="input-group">
-                      <input type="text" class="form-control timepicker">
-
+                    <div class="input-group date">
+                      <input type="text" class="form-control pull-right" id="datepicker">
                       <div class="input-group-addon">
-                        <i class="fa fa-clock-o"></i>
+                        <i class="fa fa-calendar"></i>
                       </div>
                     </div>
                     <!-- /.input group -->
                   </div>
-
-                  <div class="alert alert-dismissible alert-danger col-md-12">
-                    <button type="button" class="close" data-dismiss="alert">&times;</button>
-                    <strong>Horário Já Reservado.</strong>
-                  </div>
-
-                  <div class="bootstrap-timepicker col-md-12">
-                    <label>Horário de Saída:</label>
-
-                    <div class="input-group">
-                      <input type="text" class="form-control timepicker">
-
-                      <div class="input-group-addon">
-                        <i class="fa fa-clock-o"></i>
-                      </div>
-                    </div>
-                    <!-- /.input group -->
-                  </div>
-
-
-
                 </div>
-        </form>
-      </div>
-      <div class="col-md-12" style="height: 10px;"></div>
+                <div class="col-md-12" style="height: 10px;"></div>
       <div class="modal-footer" style="border-top: 0px">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
         <button type="button" class="btn btn-primary" data-dismiss="modal">Confirmar</button>
       </div>
-    </div>
-  </div>
-</div>
+        </form>
+              </div>
+            </div>
+          </div>
+        </div>
     </section>
     <!-- /.content -->
   </div>

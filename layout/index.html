@@ -213,6 +213,110 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </div>
                 <!-- ./col -->
             </div>
+
+            <!-- Filtros -->
+            
+              <div class="panel panel-primary">
+                <div class="panel-heading">
+                  <h4>Salas</h4>
+                </div>
+                <div class="panel-body">
+                    <form method="POST" action="">
+                        <div class="box-tools">
+                      <div class="input-group input-group-sm" >
+                            <div class="form-group">
+
+                  <div class="col-md-3">
+                    <label>Pavilhão:</label>
+                    <select class="form-control">
+                      <option>-- Pavilhão --</option>
+                      <option value="1">Pavilhão 1</option>
+                      <option value="2">Pavilhão 3</option>
+                      <option value="3">Pavilhão 5</option>
+                      <option value="4">IME</option>
+                    </select>
+                  </div>
+
+                  <div class="col-md-3">
+                    <label>Capacidade Máxima:</label>
+                    <div class="input-group">
+                      <input type="text" class="form-control">
+                      <div class="input-group-addon">
+                      </div>
+                    </div>
+                    <!-- /.input group -->
+                  </div>
+
+                  <div class="col-md-3">
+                    <label>Tipo da Sala:</label>
+                    <select class="form-control">
+                      <option>-- Tipo --</option>
+                      <option value="1">Tipo 1</option>
+                      <option value="2">Tipo 2</option>
+                      <option value="3">Tipo 3</option>
+                    </select>
+                  </div>
+
+                  <div class="col-md-3">
+                    <button type="button" class="btn btn-primary pull-right" style="margin-top: 25px;">Pesquisar</button>
+                  </div>
+
+
+                </div>
+                          </div>
+                        </div><br>
+                    </form>
+                  <div class="box-body table-responsive no-padding">
+                    <table class="table table-bordered table-hover">
+                      <tr>
+                        <th>Número</th>
+                        <th>Local</th>
+                        <th>Tipo</th>
+                        <th>Cadeiras</th>
+                        <!-- <th>Status</th> -->
+                        <th>Reserva</th>
+                      </tr>
+                      <tr>
+                        <td>133</td>
+                        <td>IM</td>
+                        <td>Laboratório</td>
+                        <td>40</td>
+                        <!-- <td><span class="label label-success">Disponível</span></td> -->
+                        <td><button type="button" class="btn btn-primary"><a href="pages/sala.html" style="color: white;">Solicitar</a></button></td>
+                      </tr>
+                      <tr>
+                        <td>28</td>
+                        <td>PAF III</td>
+                        <td>Sala de aula</td>
+                        <td>60</td>
+                        <!-- <td><span class="label label-danger">Reservada</span></td>
+                        <td><button type="button" class="btn btn-danger">Sala Reservada</button></td> -->
+                        <td><button type="button" class="btn btn-primary"><a href="pages/sala.html" style="color: white;">Solicitar</a></button></td>
+                      </tr>
+                      <tr>
+                        <td>133</td>
+                        <td>IM</td>
+                        <td>Laboratório</td>
+                        <td>30</td>
+                        <!-- <td><span class="label label-success">Disponível</span></td> -->
+                        <td><button type="button" class="btn btn-primary"><a href="pages/sala.html" style="color: white;">Solicitar</a></button></td>
+                      </tr>
+                      <tr>
+                        <td>259</td>
+                        <td>PAF 1</td>
+                        <td>Sala de aula</td>
+                        <td>50</td>
+                        <!-- <td><span class="label label-success">Disponível</span></td> -->
+                        <td><button type="button" class="btn btn-primary"><a href="pages/sala.html" style="color: white;">Solicitar</a></button></td>
+                      </tr>
+                    </table>
+                      </div>
+                </div>
+              <!-- /.box-body -->
+            </div>
+        
+
+
             <div class="row">
                 <div class="col-md-6">
                     <div class="panel panel-primary">
