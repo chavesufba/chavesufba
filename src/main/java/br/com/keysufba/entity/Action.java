@@ -8,17 +8,17 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "PAVILHAO", schema = "SCHEMAA")
-public class Pavilion {
+@Table(name = "ACAO", schema = "SCHEMAA")
+public class Action {
 
   private Integer id;
-  private String name;
+  private String description;
 
-  Pavilion() { // jpa only
+  Action() { // jpa only
 
   }
 
-  public Pavilion(Integer id) {
+  public Action(Integer id) {
     this.id = id;
   }
 
@@ -33,13 +33,13 @@ public class Pavilion {
     this.id = id;
   }
 
-  @Column(name = "NOME", length = 512, nullable = false)
-  public String getName() {
-    return name;
+  @Column(name = "DESCRICAO", length = 50, nullable = false)
+  public String getDescription() {
+    return description;
   }
 
-  public void setName(final String name) {
-    this.name = name;
+  public void setDescription(final String description) {
+    this.description = description;
   }
 
 }

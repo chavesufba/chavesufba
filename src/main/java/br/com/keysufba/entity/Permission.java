@@ -1,3 +1,4 @@
+
 package br.com.keysufba.entity;
 
 import javax.persistence.Column;
@@ -13,19 +14,18 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-@Table(name = "CURSO", schema = "SCHEMAA")
-public class Course {
+@Table(name = "PERMISSAO", schema = "SCHEMAA")
+public class Permission {
 
   private Integer id;
-  private String name;
-  private String level;
-  private Department department;
+  private UserType userType;
+  private Action action;
 
-  Course() { // jpa only
+  Permission() { // jpa only
 
   }
 
-  public Course(Integer id) {
+  public Permission(Integer id) {
     this.id = id;
   }
 
@@ -40,33 +40,26 @@ public class Course {
     this.id = id;
   }
 
-  @Column(name = "NOME", length = 100, nullable = false)
-  public String getName() {
-    return name;
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "TIPO_USUARIO_ID", nullable = false)
+  @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+  public UserType getUserType() {
+    return userType;
   }
 
-  public void setName(final String name) {
-    this.name = name;
-  }
-
-  @Column(name = "NIVEL", length = 50, nullable = false)
-  public String getLevel() {
-    return level;
-  }
-
-  public void setLevel(final String level) {
-    this.level = level;
+  public void setUserType(final UserType userType) {
+    this.userType = userType;
   }
 
   @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "DEPARTAMENTO_ID", nullable = false)
+  @JoinColumn(name = "ACAO_ID", nullable = false)
   @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-  public Department getDepartment() {
-    return department;
+  public Action getAction() {
+    return action;
   }
 
-  public void setDepartment(final Department department) {
-    this.department = department;
+  public void setAction(Action action) {
+    this.action = action;
   }
 
 }

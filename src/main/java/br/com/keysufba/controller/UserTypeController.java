@@ -2,8 +2,8 @@ package br.com.keysufba.controller;
 
 import java.util.List;
 
-import br.com.keysufba.entity.Room;
-import br.com.keysufba.service.RoomService;
+import br.com.keysufba.entity.UserType;
+import br.com.keysufba.service.UserTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
@@ -16,72 +16,58 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/v1/rooms")
-public class RoomController {
+@RequestMapping("/api/v1/user_types")
+public class UserTypeController {
 
   @Autowired
-  private RoomService roomService;
+  private UserTypeService userTypeService;
 
   @RequestMapping(method = RequestMethod.GET)
-  public HttpEntity<List<Room>> getRooms() {
-    final List<Room> rooms = roomService.findAll();
-    return new ResponseEntity<>(rooms, HttpStatus.OK);
+  public HttpEntity<List<UserType>> getUserTypes() {
+    final List<UserType> departments = userTypeService.findAll();
+    return new ResponseEntity<>(departments, HttpStatus.OK);
   }
 
   @RequestMapping(path = "/{id}", method = RequestMethod.GET)
-  public HttpEntity<Room> getRoom(@PathVariable("id") Integer id) {
+  public HttpEntity<UserType> getUserType(@PathVariable("id") Integer id) {
     if (id == null) {
       return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    final Room room = roomService.findById(id);
-    if (room == null) {
+    final UserType department = userTypeService.findById(id);
+    if (department == null) {
       return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
-    return new ResponseEntity<>(room, HttpStatus.OK);
+    return new ResponseEntity<>(department, HttpStatus.OK);
   }
 
   @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-  public HttpEntity<Room> createRoom(@RequestBody Room room) {
-    if (room == null) {
+  public HttpEntity<UserType> updateUserType(@PathVariable("id") Integer id, @RequestBody UserType department) {
+    if (id == null || department == null) {
       return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 
     try {
-      final Room createdRoom = roomService.create(room);
-      return new ResponseEntity<>(createdRoom, HttpStatus.OK);
-    } catch (Exception e) {
-      return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-    }
-  }
-
-  @RequestMapping(path = "/{id}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-  public HttpEntity<Room> updateRoom(@PathVariable("id") Integer id, @RequestBody Room room) {
-    if (id == null || room == null) {
-      return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-    }
-
-    try {
-      room.setId(id);
-      final Room updatedRoom = roomService.update(room);
-      if (updatedRoom == null) {
+      department.setId(id);
+      final UserType updatedUserType = userTypeService.update(department);
+      if (updatedUserType == null) {
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
       }
-      return new ResponseEntity<>(updatedRoom, HttpStatus.OK);
+      return new ResponseEntity<>(updatedUserType, HttpStatus.OK);
     } catch (Exception e) {
       return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
   }
 
   @RequestMapping(path = "/{id}", method = RequestMethod.DELETE, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-  public HttpEntity<Room> deleteRoom(@PathVariable("id") Integer id) {
+  public HttpEntity<UserType> deleteUserType(@PathVariable("id") Integer id) {
     if (id == null) {
       return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 
     try {
-      final Integer deletedId = roomService.delete(id);
-      return new ResponseEntity<>(new Room(deletedId), HttpStatus.OK);
+      final Integer deletedId = userTypeService.delete(id);
+      return new ResponseEntity<>(new UserType(deletedId), HttpStatus.OK);
     } catch (Exception e) {
       return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }

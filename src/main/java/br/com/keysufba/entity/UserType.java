@@ -6,21 +6,25 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 
-@Table(name = "TIPO_USUARIO", schema = "SCHEMAA")
 @Entity
+@Table(name = "TIPO_USUARIO", schema = "SCHEMAA")
 public class UserType {
+
+  private Integer id;
+  private String description;
+
+  UserType() { // jpa only
+
+  }
+
+  public UserType(Integer id) {
+    this.id = id;
+  }
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
-  @Column(name = "ID")
-  private Integer id;
-
-  @NotNull
-  @Column(name = "DESCRICAO")
-  private String description;
-
+  @Column(name = "ID", unique = true, nullable = false)
   public Integer getId() {
     return id;
   }
@@ -29,6 +33,7 @@ public class UserType {
     this.id = id;
   }
 
+  @Column(name = "DESCRICAO", length = 50, nullable = false)
   public String getDescription() {
     return description;
   }
@@ -36,4 +41,5 @@ public class UserType {
   public void setDescription(final String description) {
     this.description = description;
   }
+
 }
