@@ -1,3 +1,4 @@
+
 package br.com.keysufba.entity;
 
 import javax.persistence.Column;

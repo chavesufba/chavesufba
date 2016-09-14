@@ -1,3 +1,4 @@
+
 package br.com.keysufba.entity;
 
 import javax.persistence.Column;
@@ -19,7 +20,7 @@ public class Permission {
   private Integer id;
   private UserType userType;
   private Action action;
-  
+
   Permission() { // jpa only
 
   }

@@ -1,4 +1,3 @@
-
 INSERT INTO SCHEMAA.PAVILHAO (NOME) VALUES ('PAF I'), ('PAF II'), ('PAF III'), ('PAF IV'), ('PAF V'), ('Instituto de Matemática');
 
 INSERT INTO SCHEMAA.INSTITUTO (NOME) VALUES ('Instituto de Matemática');

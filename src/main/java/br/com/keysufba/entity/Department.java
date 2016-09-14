@@ -19,7 +19,7 @@ public class Department {
   private Integer id;
   private String name;
   private Institute institute;
-  
+
   Department() { // jpa only
 
   }
