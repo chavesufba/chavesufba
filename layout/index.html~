@@ -134,10 +134,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
          Dashboard
          <small>Painel administrativo</small>
        </h1>
-       <ol class="breadcrumb">
-        <li><a href="#">Level</a></li>
-        <li class="active">Here</li>
-      </ol>
     </section>
 
     <!-- Main content -->
