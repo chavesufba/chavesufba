@@ -23,13 +23,11 @@ public class CustomUserDetailsService implements UserDetailsService {
 
   @Transactional(readOnly = true)
   public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-    List<Person> people = personService.findAll();
-    for (Person person : people) {
-      if (person.getLogin().equals(username)) {
-        return new User(person.getLogin(), person.getPassword(), getGrantedAuthorities(person));
-      }
-    }
-    throw new UsernameNotFoundException("Username not found");
+    Person person = personService.findByLogin(username);
+
+    if (person == null)
+            throw new UsernameNotFoundException("Username not found");
+    return new User(person.getLogin(), person.getPassword(), getGrantedAuthorities(person));
   }
 
   private List<GrantedAuthority> getGrantedAuthorities(Person person) {
