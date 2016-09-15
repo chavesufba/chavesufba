@@ -21,6 +21,10 @@ public class PersonService implements GenericService<Person> {
     return personRepository.findAll();
   }
 
+  public Person findByLogin(String login) {
+    return personRepository.findByLogin(login);
+  }
+
   @Override
   public Person findById(final Integer id) {
     return personRepository.findOne(id);
