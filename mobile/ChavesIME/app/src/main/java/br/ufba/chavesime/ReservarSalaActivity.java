@@ -1,23 +1,25 @@
 package br.ufba.chavesime;
 
-import android.app.DatePickerDialog;
 import android.app.DialogFragment;
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.Spinner;
+import android.widget.TimePicker;
+import android.widget.Toast;
 
-import java.util.Calendar;
 
-import br.ufba.chavesime.controller.HomeActivity;
+public class ReservarSalaActivity extends DateAndTimeActivities {
 
-public class ReservarSalaActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
+    private EditText etHorEntrada;
+    private EditText etHorSaida;
+    boolean isEditTextEntrada = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,8 +27,9 @@ public class ReservarSalaActivity extends AppCompatActivity implements DatePicke
         setContentView(R.layout.activity_reservar_sala);
         setTitle(getResources().getText(R.string.titleReservarSala));
 
-        initDropDownHorarios();
-        initDateText();
+        Inicializacoes.dateText((EditText) findViewById(R.id.reservaETData));
+        Inicializacoes.timeText((EditText) findViewById(R.id.reservaETHorarioEntrada));
+        Inicializacoes.timeText((EditText) findViewById(R.id.reservaETHorarioSaida));
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.homeToolbar);
         setSupportActionBar(toolbar);
@@ -50,48 +53,39 @@ public class ReservarSalaActivity extends AppCompatActivity implements DatePicke
     }
 
     /**
-     * Inicializa e Seta as strings do dropDown de Horários
+     * Classe que chama o fragmento de data;
+     * @param v
      */
-    public void initDropDownHorarios() {
-        // Preenchimento do DropDown de Horários
-        Spinner spinner = (Spinner) findViewById(R.id.ddownHorario);
-
-        // Create an ArrayAdapter using the string array and a default spinner layout
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.horarios_array,R.layout.spinner);
-
-        // Apply the adapter to the spinner
-        spinner.setAdapter(adapter);
-    }
-
-
-    /**
-     * Inicializa o campo texto de data com a data do dia
-     */
-    public void initDateText() {
-        final Calendar c = Calendar.getInstance();
-        int year = c.get(Calendar.YEAR);
-        int month = c.get(Calendar.MONTH) + 1;
-        int day = c.get(Calendar.DAY_OF_MONTH);
-
-
-        String today;
-        today =  (day < 10)     ? "0" + day + "/"             : "" + day + "/";
-        today += (month < 10)   ? "0" + month + "/" + year    : "" + month + "/" + year ;
-
-        EditText textDate = (EditText) findViewById(R.id.editTextData);
-        textDate.setText(today);
-    }
-
-
     public void showDatePickerDialog(View v) {
-        DialogFragment newFragment = new DatePickerFragment();
         Bundle args = new Bundle();
+        DialogFragment newFragment = new DatePickerFragment();
         args.putString("Class", "ReservarSala");
         newFragment.setArguments(args);
         newFragment.show(getFragmentManager(), "datePicker");
     }
 
+
+    /**
+     * Classe que chama o fragmento de hora;
+     * @param v
+     */
+    public void showTimePickerDialog(View v) {Bundle args = new Bundle();
+        String x = "";
+        switch (v.getId()) {
+            case R.id.reservaETHorarioEntrada:
+                args.putString("EditText", "Entrada");
+                isEditTextEntrada = true;
+                break;
+            case R.id.reservaETHorarioSaida:
+                args.putString("EditText", "Saida");
+                isEditTextEntrada = false;
+                break;
+        }
+        DialogFragment newFragment = new TimePickerFragment();
+        args.putString("Class", "ReservarSala");
+        newFragment.setArguments(args);
+        newFragment.show(getFragmentManager(), "timePicker");
+    }
 
     /**
      * Função de retorno do Date Picker usado na seleção de data, retorna os valores
@@ -114,9 +108,37 @@ public class ReservarSalaActivity extends AppCompatActivity implements DatePicke
         today =  (day < 10)     ? "0" + day + "/"             : "" + day + "/";
         today += (month < 10)   ? "0" + month + "/" + year    : "" + month + "/" + year ;
 
-        EditText textDate = (EditText) findViewById(R.id.editTextData);
+        EditText textDate = (EditText) findViewById(R.id.reservaETData);
         textDate.setText(today);
+        textDate.setTypeface(null, Typeface.BOLD);
+        textDate.setTextColor(getResources().getColor(R.color.colorPrimary));
+        textDate.setTextSize(22);
     }
+
+    /**
+     * Função de retorno do Time Picker usado na seleção de hora, retorna os valores
+     * que são setados no campo de texto não editável
+     * @param view
+     * @param hourOfDay
+     * @param minute
+     */
+    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+        String hora;
+        hora = (hourOfDay < 10) ? "0"  + hourOfDay : "" + hourOfDay;
+        hora += (minute < 10)   ? ":0" + minute    : ":" + minute;
+
+        EditText textTime;
+        if (isEditTextEntrada)
+            textTime= (EditText) findViewById(R.id.reservaETHorarioEntrada);
+        else
+            textTime= (EditText) findViewById(R.id.reservaETHorarioSaida);
+
+        textTime.setText(hora);
+        textTime.setTypeface(null, Typeface.BOLD);
+        textTime.setTextColor(getResources().getColor(R.color.colorPrimary));
+        textTime.setTextSize(22);
+    }
+
 
     public void botaoConfirmarReserva(View botao) {
 
@@ -124,9 +146,37 @@ public class ReservarSalaActivity extends AppCompatActivity implements DatePicke
 
             //TODO: Pegar os dados necessários, e chamar a função de confirmar reserva da API
 
-            Intent intent = new Intent(this, HomeActivity.class);
-            intent.putExtra("user", "Teste");
-            startActivity(intent);
+            Boolean horaInvalida = false;
+            Boolean dataInvalida = false;
+
+            etHorEntrada = (EditText) findViewById(R.id.reservaETHorarioEntrada);
+            etHorSaida = (EditText) findViewById(R.id.reservaETHorarioSaida);
+
+            String horaEntrada = etHorEntrada.getText().toString();
+            String horaSaida = etHorSaida.getText().toString();
+            if (horaEntrada.equals(getString(R.string.selecioneHora)) ) {
+                etHorEntrada.setTextColor(Color.RED);
+                horaInvalida = true;
+            }
+            if (horaSaida.equals(getString(R.string.selecioneHora))) {
+                etHorSaida.setTextColor(Color.RED);
+                horaInvalida = true;
+            }
+
+
+            EditText etData = (EditText) findViewById(R.id.reservaETData);
+            if (etData.getText().toString().equals(getString(R.string.selecioneData))) {
+                etData.setTextColor(Color.RED);
+                dataInvalida = true;
+            }
+
+            if (dataInvalida) Toast.makeText(this, "Selecione uma data", Toast.LENGTH_SHORT).show();
+            if (horaInvalida) Toast.makeText(this, "Selecione uma hora", Toast.LENGTH_SHORT).show();
+
+            if (!horaInvalida && !dataInvalida) {
+                //TODO: API Code
+            }
+
         }
         else {
 

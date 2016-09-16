@@ -19,14 +19,27 @@ public class DatePickerFragment extends DialogFragment {
         // Use the current date as the default date in the picker
 
         String classFrom  = getArguments().getString("Class");
+        int day, month, year;
+        EditText dataText;
 
-        EditText text = (EditText) getActivity().findViewById(R.id.editTextData);
-        String teste = text.getText().toString();
-        String[] parts = teste.split("/");
+        if (classFrom.equals("Cronograma"))
+            dataText = (EditText) getActivity().findViewById(R.id.cronogramaETData);
+        else
+            dataText = (EditText) getActivity().findViewById(R.id.reservaETData);
+        String stDataText = dataText.getText().toString();
 
-        int day = Integer.parseInt(parts[0]);
-        int month = Integer.parseInt(parts[1]) - 1;
-        int year = Integer.parseInt(parts[2]);
+        if (!stDataText.equals(getString(R.string.selecioneData))) {
+            String[] parts = stDataText.split("/");
+            day = Integer.parseInt(parts[0]);
+            month = Integer.parseInt(parts[1]) - 1;
+            year = Integer.parseInt(parts[2]);
+        }
+        else {
+            final Calendar c = Calendar.getInstance();
+            year = c.get(Calendar.YEAR);
+            month = c.get(Calendar.MONTH);
+            day = c.get(Calendar.DAY_OF_MONTH);
+        }
 
         // Create a new instance of DatePickerDialog and return it
         DatePickerDialog pickerDialog;

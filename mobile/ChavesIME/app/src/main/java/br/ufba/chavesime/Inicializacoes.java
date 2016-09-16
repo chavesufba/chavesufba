@@ -1,6 +1,8 @@
 package br.ufba.chavesime;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -34,15 +36,16 @@ public class Inicializacoes {
     }
 
     public static void dateText(EditText textDate) {
-        final Calendar c = Calendar.getInstance();
-        int year = c.get(Calendar.YEAR);
-        int month = c.get(Calendar.MONTH) + 1;
-        int day = c.get(Calendar.DAY_OF_MONTH);
+        textDate.setText(R.string.selecioneData);
+        textDate.setTypeface(null, Typeface.NORMAL);
+        textDate.setTextSize(19);
+        textDate.setTextColor(Color.DKGRAY);
+    }
 
-        String today;
-        today =  (day < 10)     ? "0" + day + "/"             : "" + day + "/";
-        today += (month < 10)   ? "0" + month + "/" + year    : "" + month + "/" + year ;
-
-        textDate.setText(today);
+    public static void timeText(EditText textTime) {
+        textTime.setText(R.string.selecioneHora);
+        textTime.setTypeface(null, Typeface.NORMAL);
+        textTime.setTextSize(19);
+        textTime.setTextColor(Color.DKGRAY);
     }
 }

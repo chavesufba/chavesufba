@@ -5,7 +5,8 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="br.ufba.chavesime.ReservarSalaActivity"
-    android:textAlignment="center">
+    android:textAlignment="center"
+    android:background="#f8f8f8">
 
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
@@ -18,100 +19,161 @@
     </android.support.v7.widget.Toolbar>
 
 
-    <TextView
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Sala #"
-        android:id="@+id/textSala"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentEnd="false"
-        android:layout_alignParentStart="false"
-        android:autoText="false"
-        android:enabled="true"
-        android:focusable="false"
-        android:textSize="35dp"
-        android:layout_below="@+id/homeToolbar"
-        android:layout_marginTop="10dp" />
+        android:layout_below="@id/homeToolbar"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/background_relative"
+        android:id="@+id/layoutReserva"
+        android:elevation="7dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/data"
-        android:id="@+id/textData"
-        android:layout_below="@+id/textSala"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
-        android:textSize="25dp"
-        android:layout_alignParentEnd="false"
-        android:layout_alignParentStart="true"
-        android:clickable="true"
-        android:layout_marginLeft="20dp"
-        android:layout_alignBottom="@+id/editTextData"
-        android:gravity="center_vertical" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/horario"
-        android:id="@+id/textHorario"
-        android:layout_below="@+id/textData"
-        android:layout_alignParentStart="true"
-        android:textSize="25dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginLeft="20dp"
-        android:layout_alignBottom="@+id/ddownHorario"
-        android:gravity="center_vertical" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/infoReserva"
+            android:id="@+id/reservaTextInfo"
+            android:layout_alignParentEnd="false"
+            android:layout_alignParentStart="false"
+            android:autoText="false"
+            android:enabled="true"
+            android:focusable="false"
+            android:textSize="25dp"
+            android:layout_below="@+id/homeToolbar"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="15dp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:id="@+id/reservaETData"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentEnd="false"
+            android:inputType="none"
+            android:onClick="showDatePickerDialog"
+            android:autoText="false"
+            android:focusable="false"
+            android:clickable="true"
+            android:textColor="@color/colorPrimary"
+            android:textIsSelectable="false"
+            android:textSize="22dp"
+            android:layout_marginTop="30dp"
+            android:layout_below="@+id/reservaTextInfo"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:gravity="end"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/data"
+            android:id="@+id/reservaTextData"
+            android:layout_below="@+id/reservaTextInfo"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:textSize="20dp"
+            android:layout_alignParentEnd="false"
+            android:layout_alignParentStart="true"
+            android:clickable="true"
+            android:layout_alignBottom="@+id/reservaETData"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="25dp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:id="@+id/reservaETHorarioEntrada"
+            android:autoText="false"
+            android:editable="false"
+            android:focusable="false"
+            android:clickable="true"
+            android:textColor="@color/colorPrimary"
+            android:textIsSelectable="false"
+            android:textSize="22dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:gravity="end"
+            android:layout_below="@+id/reservaETData"
+            android:layout_marginTop="20dp"
+            android:inputType="none"
+            android:textStyle="bold"
+            android:onClick="showTimePickerDialog" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/horarioEntrada"
+            android:id="@+id/reservaTextHorarioEntrada"
+            android:layout_below="@+id/reservaETData"
+            android:layout_alignParentStart="true"
+            android:textSize="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="25dp"
+            android:gravity="center_vertical"
+            android:layout_alignBottom="@+id/reservaETHorarioEntrada" />
+
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:id="@+id/reservaETHorarioSaida"
+            android:inputType="none"
+            android:autoText="false"
+            android:editable="false"
+            android:focusable="false"
+            android:clickable="true"
+            android:textColor="@color/colorPrimary"
+            android:textIsSelectable="false"
+            android:textSize="22dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:gravity="end"
+            android:layout_below="@+id/reservaETHorarioEntrada"
+            android:layout_marginTop="20dp"
+            android:textStyle="bold"
+            android:onClick="showTimePickerDialog" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/horarioSaida"
+            android:id="@+id/reservaTextHorarioSaida"
+            android:textSize="20dp"
+            android:layout_marginLeft="25dp"
+            android:gravity="center_vertical"
+            android:layout_alignBottom="@+id/reservaETHorarioSaida"
+            android:layout_alignParentStart="false"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/reservaETHorarioEntrada" />
+
+    </RelativeLayout>
 
     <Button
-        android:layout_width="180dp"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/buttonConfirmarReserva"
         android:text="@string/confirmarReserva"
         android:textColor="@color/white"
         android:background="@drawable/botao_redondo"
         android:onClick="botaoConfirmarReserva"
-        android:layout_below="@+id/textHorario"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="60dp"
-        android:clickable="false" />
-
-    <Spinner
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/ddownHorario"
-        android:spinnerMode="dropdown"
-        android:textAlignment="textEnd"
-        android:touchscreenBlocksFocus="false"
-        android:transitionGroup="false"
-        android:layout_toEndOf="@+id/textHorario"
-        android:layout_marginLeft="40dp"
-        android:layout_alignParentStart="false"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="40dp"
-        android:layout_below="@+id/editTextData" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:id="@+id/editTextData"
-        android:layout_centerHorizontal="true"
-        android:layout_toEndOf="@id/textHorario"
-        android:layout_alignParentEnd="false"
-        android:inputType="none"
-        android:onClick="showDatePickerDialog"
-        android:autoText="false"
-        android:editable="false"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="20dp"
-        android:textColor="@color/colorPrimary"
-        android:gravity="center"
-        android:textIsSelectable="false"
-        android:textSize="20dp"
-        android:layout_marginTop="40dp"
-        android:layout_below="@+id/textSala" />
+        android:layout_marginTop="20dp"
+        android:clickable="false"
+        android:layout_below="@+id/layoutReserva"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp" />
 
 </RelativeLayout>
