@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<!--
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
+-->
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Chaves UFBA</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.6 -->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="dist/css/skins/skin-blue.min.css">
+
+
+</head>
+
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+
+    <!-- Main Header -->
+    <header class="main-header">
+
+        <!-- Logo -->
+        <a href="index.html" class="logo">
+            <!-- mini logo for sidebar mini 50x50 pixels -->
+            <span class="logo-mini"><b>UFBA</b></span>
+            <!-- logo for regular state and mobile devices -->
+            <span class="logo-lg"><b>Chaves</b>UFBA</span>
+        </a>
+
+        <!-- Header Navbar -->
+        <nav class="navbar navbar-static-top" role="navigation">
+            <!-- Sidebar toggle button-->
+            <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                <span class="sr-only">Toggle navigation</span>
+            </a>
+            <!-- Navbar Right Menu -->
+            <div class="navbar-custom-menu">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown user user-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                            <span class="hidden-xs">Alexander Pierce</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <!-- User image -->
+                            <li class="user-header">
+                                <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+
+                                <p>
+                                    Usuário
+                                </p>
+                            </li>
+                            <!-- Menu Footer-->
+                            <li class="user-footer">
+                                <div class="pull-right">
+                                    <a href="pages/login.html" class="btn btn-default btn-flat">Logout</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+        </nav>
+    </header>
+    <!-- Left side column. contains the logo and sidebar -->
+    <aside class="main-sidebar">
+
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+
+            <!-- Sidebar user panel (optional) -->
+            <div class="user-panel">
+                <div class="pull-left image">
+                    <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                </div>
+                <div class="pull-left info">
+                    <p>Usuário Logado</p>
+                    <!-- Status -->
+                    <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                </div>
+            </div>
+
+          
+            <!-- /.search form -->
+
+            <!-- Sidebar Menu -->
+            <ul class="sidebar-menu">
+                <li class="header">Menu</li>
+                <!-- Optionally, you can add icons to the links -->
+                <li class="active"><a href="index.html"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-mortar-board"></i> <span>Salas</span>
+                        <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li>
+                            <a href="pages/lista_salas.html"><i class="fa fa-circle-o"></i> Buscar salas</a></li>
+                       
+                </li>
+                <li>
+                            <a href="pages/cadastrar_sala.html"><i class="fa fa-pencil-square-o"></i> Cadastro</a>
+                        </li>
+            </ul>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-user"></i> <span>Usuário</span>
+                        <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="cadastrar_usuario.html"><i class="fa fa-pencil-square-o"></i> Cadastro</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            </ul>
+            <!-- /.sidebar-menu -->
+        </section>
+        <!-- /.sidebar -->
+    </aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+<<<<<<< HEAD
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <h1>
+                Dashboard
+                <small>Painel administrativo</small>
+            </h1>
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="row">
+                <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-aqua">
+                        <div class="inner">
+                            <h3>7</h3>
+
+                            <p>Salas disponíveis</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fa fa-fw fa-unlock"></i>
+                        </div>
+=======
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <h1>
+         Dashboard
+         <small>Painel administrativo</small>
+       </h1>
+       <ol class="breadcrumb">
+        <li><a href="#">Level</a></li>
+        <li class="active">Here</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+        <div class="col-lg-3 col-md-3 col-xs-6 col-sm-6">
+          <!-- small box -->
+          <div class="small-box bg-aqua">
+            <div class="inner">
+              <h3>7</h3>
+
+              <p>Salas disponíveis</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-key"></i>
+            </div>
+            <a href="pages/lista_salas.html" class="small-box-footer">Detalhes <i class="fa fa-share"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-md-3 col-xs-6 col-sm-6">
+          <!-- small box -->
+          <div class="small-box bg-green">
+            <div class="inner">
+              <h3>13</h3>
+              <p>Ocorrências semanais</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-fw fa-wrench"></i>
+            </div>
+            <a href="#listaOcorrencias" class="small-box-footer">Detalhes <i class="fa fa-share"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-md-3 col-xs-6 col-sm-6">
+          <!-- small box -->
+          <div class="small-box bg-yellow">
+            <div class="inner">
+              <h3>27</h3>
+              <p>Reservas pendentes</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-archive"></i>
+            </div>
+            <a href="#listaReservasParaAprovacao" class="small-box-footer">Detalhes <i class="fa fa-share"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-md-3 col-xs-6 col-sm-6">
+          <!-- small box -->
+          <div class="small-box bg-red">
+            <div class="inner">
+              <h3>9</h3>
+              <p>Reservas na semana</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-calendar"></i>
+            </div>
+            <a href="#calendario" class="small-box-footer">Detalhes <i class="fa fa-share"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+      </div>
+      <div class="row">
+        <div class="col-md-6 col-xs-12 col-sm-12 col-lg-6">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h4>Últimas solicitações de reservas</h4>
+            </div>
+            <div class="panel-body">
+              <table class="table table-bordered table-hover">
+                <tbody><tr>
+                  <th style="width: 10px">#</th>
+                  <th>Responsável</th>
+                  <th>Instituto</th>
+                  <th>Sala</th>
+                </tr>
+                <tr>
+                  <td>1.</td>
+                  <td>Ivan Machado</td>
+                  <td>Matemática</td>
+                  <td>143</td>
+                </tr>
+                <tr>
+                  <td>2.</td>
+                  <td>Flávio Assis</td>
+                  <td>Matemática</td>
+                  <td>103</td>
+                </tr>
+                <tr>
+                  <td>3.</td>
+                  <td>Frederico Durão</td>
+                  <td>PAF 1</td>
+                  <td>212</td>
+                </tr>
+                <tr>
+                  <td>4.</td>
+                  <td>Rita Suzana</td>
+                  <td>Matemática</td>
+                  <td>143</td>
+                </tr>
+                <tr>
+                  <td>5.</td>
+                  <td>Carlos Bahiano</td>
+                  <td>PAF 1</td>
+                  <td>101</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="pull-right">
+              <a href="#listaReservasParaAprovacao">Ver todas as solicitações...</a>
+            </div>
+          </div>
+          <!-- /.box-body -->
+        </div>
+      </div>
+      <div class="col-md-6 col-xs-12 col-sm-12 col-lg-6">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h4>Últimas ocorrências registradas</h4>
+          </div>
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
+                <div class="box box-default collapsed-box box-solid">
+                  <div class="box-header with-border">
+                    <h3 class="box-title">IME - Sala 143</h3>
+
+                    <div class="box-tools pull-right">
+                      <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
+                      </button>
+>>>>>>> 4c381551e3d64ae52558b582b3aa30774b603109
+                    </div>
+                </div>
+<<<<<<< HEAD
+                <!-- ./col -->
+                <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-green">
+                        <div class="inner">
+                            <h3>13</h3>
+                            <p>Ocorrências semanais</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fa fa-fw fa-wrench"></i>
+                        </div>
+                    </div>
+                </div>
+                <!-- ./col -->
+                <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-yellow">
+                        <div class="inner">
+                            <h3>27</h3>
+                            <p>Cadastros semanais</p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-person-add"></i>
+                        </div>
+=======
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
+                <div class="box box-default collapsed-box box-solid">
+                  <div class="box-header with-border">
+                    <h3 class="box-title">PAF 3 - Auditório</h3>
+
+                    <div class="box-tools pull-right">
+                      <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
+                      </button>
+>>>>>>> 4c381551e3d64ae52558b582b3aa30774b603109
+                    </div>
+                </div>
+                <!-- ./col -->
+                <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-red">
+                        <div class="inner">
+                            <h3>65%</h3>
+                            <p>Porcentagem de inadimplência</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fa fa-fw fa-thumbs-o-down"></i>
+                        </div>
+                    </div>
+                </div>
+                <!-- ./col -->
+            </div>
+<<<<<<< HEAD
+
+            <!-- Filtros -->
+            
+              <div class="panel panel-primary">
+                <div class="panel-heading">
+                  <h4>Salas</h4>
+                </div>
+                <div class="panel-body">
+                    <form method="POST" action="">
+                        <div class="box-tools">
+                      <div class="input-group input-group-sm" >
+                            <div class="form-group">
+
+                  <div class="col-md-3">
+                    <label>Pavilhão:</label>
+                    <select class="form-control">
+                      <option>-- Pavilhão --</option>
+                      <option value="1">Pavilhão 1</option>
+                      <option value="2">Pavilhão 3</option>
+                      <option value="3">Pavilhão 5</option>
+                      <option value="4">IME</option>
+                    </select>
+                  </div>
+
+                  <div class="col-md-3">
+                    <label>Capacidade Máxima:</label>
+                    <div class="input-group">
+                      <input type="text" class="form-control">
+                      <div class="input-group-addon">
+                      </div>
+=======
+            <div class="row">
+              <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
+                <div class="box box-default collapsed-box box-solid">
+                  <div class="box-header with-border">
+                    <h3 class="box-title">PAF 1 - Sala 212</h3>
+
+                    <div class="box-tools pull-right">
+                      <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
+                      </button>
+>>>>>>> 4c381551e3d64ae52558b582b3aa30774b603109
+                    </div>
+                    <!-- /.input group -->
+                  </div>
+
+                  <div class="col-md-3">
+                    <label>Tipo da Sala:</label>
+                    <select class="form-control">
+                      <option>-- Tipo --</option>
+                      <option value="1">Tipo 1</option>
+                      <option value="2">Tipo 2</option>
+                      <option value="3">Tipo 3</option>
+                    </select>
+                  </div>
+
+                  <div class="col-md-3">
+                    <button type="button" class="btn btn-primary pull-right" style="margin-top: 25px;">Pesquisar</button>
+                  </div>
+
+
+                </div>
+                          </div>
+                        </div><br>
+                    </form>
+                  <div class="box-body table-responsive no-padding">
+                    <table class="table table-bordered table-hover">
+                      <tr>
+                        <th>Número</th>
+                        <th>Local</th>
+                        <th>Tipo</th>
+                        <th>Cadeiras</th>
+                        <!-- <th>Status</th> -->
+                        <th>Reserva</th>
+                      </tr>
+                      <tr>
+                        <td>133</td>
+                        <td>IM</td>
+                        <td>Laboratório</td>
+                        <td>40</td>
+                        <!-- <td><span class="label label-success">Disponível</span></td> -->
+                        <td><button type="button" class="btn btn-primary"><a href="pages/sala.html" style="color: white;">Solicitar</a></button></td>
+                      </tr>
+                      <tr>
+                        <td>28</td>
+                        <td>PAF III</td>
+                        <td>Sala de aula</td>
+                        <td>60</td>
+                        <!-- <td><span class="label label-danger">Reservada</span></td>
+                        <td><button type="button" class="btn btn-danger">Sala Reservada</button></td> -->
+                        <td><button type="button" class="btn btn-primary"><a href="pages/sala.html" style="color: white;">Solicitar</a></button></td>
+                      </tr>
+                      <tr>
+                        <td>133</td>
+                        <td>IM</td>
+                        <td>Laboratório</td>
+                        <td>30</td>
+                        <!-- <td><span class="label label-success">Disponível</span></td> -->
+                        <td><button type="button" class="btn btn-primary"><a href="pages/sala.html" style="color: white;">Solicitar</a></button></td>
+                      </tr>
+                      <tr>
+                        <td>259</td>
+                        <td>PAF 1</td>
+                        <td>Sala de aula</td>
+                        <td>50</td>
+                        <!-- <td><span class="label label-success">Disponível</span></td> -->
+                        <td><button type="button" class="btn btn-primary"><a href="pages/sala.html" style="color: white;">Solicitar</a></button></td>
+                      </tr>
+                    </table>
+                      </div>
+                </div>
+              <!-- /.box-body -->
+            </div>
+        
+
+
+            <div class="row">
+<<<<<<< HEAD
+                <div class="col-md-6">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h4>Últimas solicitações de reservas</h4>
+                        </div>
+                        <div class="panel-body">
+                            <table class="table table-bordered table-hover">
+                                <tbody>
+                                <tr>
+                                    <th style="width: 10px">#</th>
+                                    <th>Responsável</th>
+                                    <th>Instituto</th>
+                                    <th>Sala</th>
+                                </tr>
+                                <tr>
+                                    <td>1.</td>
+                                    <td>Ivan Machado</td>
+                                    <td>Matemática</td>
+                                    <td>143</td>
+                                </tr>
+                                <tr>
+                                    <td>2.</td>
+                                    <td>Flávio Assis</td>
+                                    <td>Matemática</td>
+                                    <td>103</td>
+                                </tr>
+                                <tr>
+                                    <td>3.</td>
+                                    <td>Frederico Durão</td>
+                                    <td>PAF 1</td>
+                                    <td>212</td>
+                                </tr>
+                                <tr>
+                                    <td>4.</td>
+                                    <td>Rita Suzana</td>
+                                    <td>Matemática</td>
+                                    <td>143</td>
+                                </tr>
+                                <tr>
+                                    <td>5.</td>
+                                    <td>Carlos Bahiano</td>
+                                    <td>PAF 1</td>
+                                    <td>101</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <div class="pull-right">
+                                <a href="#">Ver todas as solicitações...</a>
+                            </div>
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h4>Últimas ocorrências registradas</h4>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="box box-default collapsed-box box-solid">
+                                        <div class="box-header with-border">
+                                            <h3 class="box-title">IME - Sala 143</h3>
+
+                                            <div class="box-tools pull-right">
+                                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i
+                                                        class="fa fa-plus"></i>
+                                                </button>
+                                            </div>
+                                            <!-- /.box-tools -->
+                                        </div>
+                                        <!-- /.box-header -->
+                                        <div class="box-body">
+                                            Projetor com defeito.
+                                        </div>
+                                        <!-- /.box-body -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="box box-default collapsed-box box-solid">
+                                        <div class="box-header with-border">
+                                            <h3 class="box-title">PAF 3 - Auditório</h3>
+
+                                            <div class="box-tools pull-right">
+                                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i
+                                                        class="fa fa-plus"></i>
+                                                </button>
+                                            </div>
+                                            <!-- /.box-tools -->
+                                        </div>
+                                        <!-- /.box-header -->
+                                        <div class="box-body">
+                                            Ar-condicionado com barulho.
+                                        </div>
+                                        <!-- /.box-body -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="box box-default collapsed-box box-solid">
+                                        <div class="box-header with-border">
+                                            <h3 class="box-title">PAF 1 - Sala 212</h3>
+
+                                            <div class="box-tools pull-right">
+                                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i
+                                                        class="fa fa-plus"></i>
+                                                </button>
+                                            </div>
+                                            <!-- /.box-tools -->
+                                        </div>
+                                        <!-- /.box-header -->
+                                        <div class="box-body">
+                                            Goteira próxima ao quadro.
+                                        </div>
+                                        <!-- /.box-body -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="box box-default collapsed-box box-solid">
+                                        <div class="box-header with-border">
+                                            <h3 class="box-title">PAF 1 - Sala 12</h3>
+
+                                            <div class="box-tools pull-right">
+                                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i
+                                                        class="fa fa-plus"></i>
+                                                </button>
+                                            </div>
+                                            <!-- /.box-tools -->
+                                        </div>
+                                        <!-- /.box-header -->
+                                        <div class="box-body">
+                                            A porta não está fechando.
+                                        </div>
+                                        <!-- /.box-body -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pull-right">
+                                <a href="#">Ver todas ocorrências...</a>
+                            </div>
+                        </div>
+=======
+              <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
+                <div class="box box-default collapsed-box box-solid">
+                  <div class="box-header with-border">
+                    <h3 class="box-title">PAF 1 - Sala 12</h3>
+
+                    <div class="box-tools pull-right">
+                      <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
+                      </button>
+>>>>>>> 4c381551e3d64ae52558b582b3aa30774b603109
+                    </div>
+                </div>
+<<<<<<< HEAD
+=======
+              </div>
+            </div>
+            <div class="pull-right">
+              <a href="#listaOcorrencias">Ver todas ocorrências...</a>
+>>>>>>> 4c381551e3d64ae52558b582b3aa30774b603109
+            </div>
+        </section>
+    </div>
+<<<<<<< HEAD
+    <!-- /.content-wrapper -->
+
+    <!-- Main Footer -->
+    <footer class="main-footer">
+        <!-- To the right -->
+        <div class="text-center hidden-xs">
+            <strong>&copy; 2016</strong> - Universidade Federal da Bahia - UFBA
+        </div>
+        <!-- Default to the left -->
+    </footer>
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Create the tabs -->
+        <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+            <li class="active"><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
+            <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <!-- Home tab content -->
+            <div class="tab-pane active" id="control-sidebar-home-tab">
+                <h3 class="control-sidebar-heading">Recent Activity</h3>
+                <ul class="control-sidebar-menu">
+                    <li>
+                        <a href="javascript::;">
+                            <i class="menu-icon fa fa-birthday-cake bg-red"></i>
+
+                            <div class="menu-info">
+                                <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
+
+                                <p>Will be 23 on April 24th</p>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+                <!-- /.control-sidebar-menu -->
+
+                <h3 class="control-sidebar-heading">Tasks Progress</h3>
+                <ul class="control-sidebar-menu">
+                    <li>
+                        <a href="javascript::;">
+                            <h4 class="control-sidebar-subheading">
+                                Custom Template Design
+                                <span class="pull-right-container">
+=======
+
+             <!-- Filtros -->
+             
+               <div class="panel panel-primary">
+                 <div class="panel-heading">
+                   <h4>Salas</h4>
+                 </div>
+                 <div class="panel-body">
+                     <form method="POST" action="">
+                         <div class="box-tools">
+                             <div class="form-group">
+                  <div class="row">
+                   <div class="col-md-3">
+                     <label>Pavilhão:</label>
+                     <select class="form-control">
+                       <option>-- Pavilhão --</option>
+                       <option value="1">Pavilhão 1</option>
+                       <option value="2">Pavilhão 3</option>
+                       <option value="3">Pavilhão 5</option>
+                       <option value="4">IME</option>
+                     </select>
+                   </div>
+ 
+                   <div class="col-md-3">
+                      <label>Capacidade Máxima:</label>
+                      <input type="text" class="form-control" placeholder="-- Capacidade --">
+                     <!-- /.input group -->
+                   </div>
+ 
+                   <div class="col-md-3">
+                     <label>Tipo da Sala:</label>
+                     <select class="form-control">
+                       <option>-- Tipo --</option>
+                       <option value="1">Tipo 1</option>
+                       <option value="2">Tipo 2</option>
+                      <option value="3">Tipo 3</option>
+                     </select>
+                   </div>
+ 
+                   <div class="col-md-3">
+                     <div class="pull-right">
+                      <button type="button" class="btn btn-primary pull-right" style="margin-top: 25px;">Pesquisar</button>
+                     </div>
+                   </div>
+ 
+                 </div>
+                           </div>
+                         </div><br>
+                     </form>
+                   <div class="box-body table-responsive no-padding">
+                     <table class="table table-bordered table-hover">
+                       <thead>
+                       <tr>
+                          <th>Número</th>
+                         <th>Local</th>
+                         <th>Tipo</th>
+                         <th>Cadeiras</th>
+                         <!-- <th>Status</th> -->
+                         <th>Reserva</th>
+                         </tr>
+                       </thead>
+                       <tbody>
+                       <tr>
+                         <td>133</td>
+                        <td>IM</td>
+                         <td>Laboratório</td>
+                         <td>40</td>
+                         <!-- <td><span class="label label-success">Disponível</span></td> -->
+                         <td><button type="button" class="btn btn-primary"><a href="pages/sala.html" style="color: white;">Solicitar</a></button></td>
+                       </tr>
+                       <tr>
+                         <td>28</td>
+                         <td>PAF III</td>
+                         <td>Sala de aula</td>
+                         <td>60</td>
+                         <!-- <td><span class="label label-danger">Reservada</span></td>
+                         <td><button type="button" class="btn btn-danger">Sala Reservada</button></td> -->
+                         <td><button type="button" class="btn btn-primary"><a href="pages/sala.html" style="color: white;">Solicitar</a></button></td>
+                       </tr>
+                       <tr>
+                        <td>133</td>
+                         <td>IM</td>
+                         <td>Laboratório</td>
+                         <td>30</td>
+                         <!-- <td><span class="label label-success">Disponível</span></td> -->
+                         <td><button type="button" class="btn btn-primary"><a href="pages/sala.html" style="color: white;">Solicitar</a></button></td>
+                       </tr>
+                       <tr>
+                         <td>259</td>
+                         <td>PAF 1</td>
+                         <td>Sala de aula</td>
+                         <td>50</td>
+                         <!-- <td><span class="label label-success">Disponível</span></td> -->
+                         <td><button type="button" class="btn btn-primary"><a href="pages/sala.html" style="color: white;">Solicitar</a></button></td>
+                       </tr>
+                       </tbody>
+                     </table>
+                       </div>
+                 </div>
+               <!-- /.box-body -->
+             </div>
+ </section>
+</div>
+<!-- /.content-wrapper -->
+
+<!-- Main Footer -->
+<footer class="main-footer">
+  <!-- To the right -->
+  <div class="text-center hidden-xs">
+    <strong>&copy; 2016</strong> - Universidade Federal da Bahia - UFBA
+  </div>
+  <!-- Default to the left -->
+</footer>
+
+<!-- Control Sidebar -->
+<aside class="control-sidebar control-sidebar-dark">
+  <!-- Create the tabs -->
+  <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+    <li class="active"><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
+    <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
+  </ul>
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <!-- Home tab content -->
+    <div class="tab-pane active" id="control-sidebar-home-tab">
+      <h3 class="control-sidebar-heading">Recent Activity</h3>
+      <ul class="control-sidebar-menu">
+        <li>
+          <a href="javascript::;">
+            <i class="menu-icon fa fa-birthday-cake bg-red"></i>
+
+            <div class="menu-info">
+              <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
+
+              <p>Will be 23 on April 24th</p>
+            </div>
+          </a>
+        </li>
+      </ul>
+      <!-- /.control-sidebar-menu -->
+
+      <h3 class="control-sidebar-heading">Tasks Progress</h3>
+      <ul class="control-sidebar-menu">
+        <li>
+          <a href="javascript::;">
+            <h4 class="control-sidebar-subheading">
+              Custom Template Design
+              <span class="pull-right-container">
+>>>>>>> 4c381551e3d64ae52558b582b3aa30774b603109
+                <span class="label label-danger pull-right">70%</span>
+              </span>
+                            </h4>
+
+                            <div class="progress progress-xxs">
+                                <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+                <!-- /.control-sidebar-menu -->
+
+            </div>
+            <!-- /.tab-pane -->
+            <!-- Stats tab content -->
+            <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
+            <!-- /.tab-pane -->
+            <!-- Settings tab content -->
+            <div class="tab-pane" id="control-sidebar-settings-tab">
+                <form method="post">
+                    <h3 class="control-sidebar-heading">General Settings</h3>
+
+                    <div class="form-group">
+                        <label class="control-sidebar-subheading">
+                            Report panel usage
+                            <input type="checkbox" class="pull-right" checked>
+                        </label>
+
+                        <p>
+                            Some information about this general settings option
+                        </p>
+                    </div>
+                    <!-- /.form-group -->
+                </form>
+            </div>
+            <!-- /.tab-pane -->
+        </div>
+    </aside>
+    <!-- /.control-sidebar -->
+    <!-- Add the sidebar's background. This div must be placed
+    immediately after the control sidebar -->
+    <div class="control-sidebar-bg"></div>
+</div>
+<!-- ./wrapper -->
+
+<!-- REQUIRED JS SCRIPTS -->
+
+<!-- jQuery 2.2.3 -->
+<script src="plugins/jQuery/jquery-2.2.3.min.js"></script>
+<!-- Bootstrap 3.3.6 -->
+<script src="bootstrap/js/bootstrap.min.js"></script>
+<!-- AdminLTE App -->
+<script src="dist/js/app.min.js"></script>
+
+<!-- Optionally, you can add Slimscroll and FastClick plugins.
+     Both of these plugins are recommended to enhance the
+     user experience. Slimscroll is required when using the
+     fixed layout. -->
+</body>
+</html>
