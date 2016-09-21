@@ -1,0 +1,47 @@
+<!-- sidebar menu: : style can be found in sidebar.less -->
+
+<ul class="sidebar-menu" ng-init="menuCtrl.init()">
+    <li class="header">MAIN NAVIGATION</li>
+
+    <li ng-repeat="menu1 in menuCtrl.menuTree" class="treeview" ng-class="{true:'active'}[menu1.$expanded]">
+        <a href="javascript:void(0)" ng-click="menuCtrl.selectMenu(menu1)">
+            <i class="fa" ng-class="menu1.icon"></i>
+            <span>{{menu1.name}}</span>
+            <i ng-show="menu1.children" class="fa fa-angle-left pull-right"></i>
+        </a>
+        <ul class="treeview-menu">
+            <li ng-repeat="menu2 in menu1.children" ng-class="{true:'active'}[menu2.$expanded]">
+                <a href="javascript:void(0)" ng-click="menuCtrl.selectMenu(menu2)">
+                    <i class="fa" ng-class="menu2.icon"></i>
+                    <span>{{menu2.name}}</span>
+                    <i ng-show="menu2.children" class="fa fa-angle-left pull-right"></i>
+                </a>
+
+                <ul class="treeview-menu" ng-show="menu2.children">
+                    <li ng-repeat="menu3 in menu2.children" ng-class="{true:'active'}[menu3.$expanded]">
+                        <a href="javascript:void(0)" ng-click="menuCtrl.selectMenu(menu3)">
+                            <i class="fa fa-circle-o"></i>
+                            <span>{{menu3.name}}</span>
+                            <i ng-show="menu3.children" class="fa fa-angle-left pull-right"></i>
+                        </a>
+
+                        <ul class="treeview-menu" ng-show="menu3.children">
+                            <li ng-repeat="menu4 in menu3.children" ng-class="{true:'active'}[menu4.$expanded]">
+                                <a ui-sref="{{menu4.state}}">
+                                    <i class="fa fa-circle-o"></i>
+                                    <span>{{menu4.name}}</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+
+
+    <li class="header">LABELS</li>
+    <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
+    <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>
+    <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>
+</ul>
