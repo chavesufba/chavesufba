@@ -1,11 +1,9 @@
 package br.ufba.chavesime.controller;
 
-import android.content.Context;
+import android.app.DialogFragment;
 import android.content.Intent;
-import android.graphics.ColorFilter;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
-import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -14,36 +12,36 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import br.ufba.chavesime.CronogramaActivity;
+import br.ufba.chavesime.DatePickerFragment;
 import br.ufba.chavesime.R;
-import br.ufba.chavesime.ReservarSalaActivity;
 import br.ufba.chavesime.model.Sala;
 
-public class HomeActivity extends AppCompatActivity {
+public class ReservarPorDataActivity extends AppCompatActivity {
 
     private DrawerLayout drawerLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_reservar_por_data);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.cadastroPorDataToolbar);
+        setSupportActionBar(toolbar);
+        setTitle("Reservar Sala");
 
         addMenu();
+
         mostrarSalas();
 
     }
@@ -53,7 +51,7 @@ public class HomeActivity extends AppCompatActivity {
      */
     private void addMenu() {
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.homeToolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.cadastroPorDataToolbar);
         setSupportActionBar(toolbar);
 
         if (getSupportActionBar() != null) {
@@ -62,7 +60,7 @@ public class HomeActivity extends AppCompatActivity {
             getSupportActionBar().setHomeButtonEnabled(true);
             getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu);
 
-            drawerLayout = (DrawerLayout) findViewById(R.id.menuDrawerLayout);
+            drawerLayout = (DrawerLayout) findViewById(R.id.reservarPorData_menuDrawerLayout);
 
         }
 
@@ -79,28 +77,10 @@ public class HomeActivity extends AppCompatActivity {
 
             }
 
-            MenuAdapter menuAdapter = new MenuAdapter(menuItemsList, menuDrawablesList);
+            ReservarPorDataActivity.MenuAdapter menuAdapter = new ReservarPorDataActivity.MenuAdapter(menuItemsList, menuDrawablesList);
 
             recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
             recyclerView.setAdapter(menuAdapter);
-        }
-
-
-    }
-
-    private void mostrarSalas() {
-
-        ArrayList<Sala> salaArrayList = getSalas();
-
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.homeRecyclerView);
-
-        if (recyclerView != null) {
-
-            SalaAdapter salaAdapter = new SalaAdapter(salaArrayList);
-
-            recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-            recyclerView.setAdapter(salaAdapter);
-
         }
 
 
@@ -127,6 +107,24 @@ public class HomeActivity extends AppCompatActivity {
 
     }
 
+    private void mostrarSalas() {
+
+        ArrayList<Sala> salaArrayList = getSalas();
+
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.cadastroPorDataRecyclerView);
+
+        if (recyclerView != null) {
+
+            SalaAdapter salaAdapter = new SalaAdapter(salaArrayList);
+
+            recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+            recyclerView.setAdapter(salaAdapter);
+
+        }
+
+
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
@@ -138,7 +136,7 @@ public class HomeActivity extends AppCompatActivity {
     /**
      * Classe do adaptador do menu
      */
-    private class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.MenuItemViewHolder> {
+    private class MenuAdapter extends RecyclerView.Adapter<ReservarPorDataActivity.MenuAdapter.MenuItemViewHolder> {
 
         String[] menuItemsList;
         List<Drawable> menuDrawablesList;
@@ -151,16 +149,16 @@ public class HomeActivity extends AppCompatActivity {
         }
 
         @Override
-        public MenuItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        public ReservarPorDataActivity.MenuAdapter.MenuItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
             View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.menu_item, parent, false);
 
-            return new MenuItemViewHolder(itemView);
+            return new ReservarPorDataActivity.MenuAdapter.MenuItemViewHolder(itemView);
 
         }
 
         @Override
-        public void onBindViewHolder(MenuItemViewHolder holder, int position) {
+        public void onBindViewHolder(ReservarPorDataActivity.MenuAdapter.MenuItemViewHolder holder, int position) {
 
             holder.menuItemImageView.setImageDrawable(menuDrawablesList.get(position));
 
@@ -198,13 +196,13 @@ public class HomeActivity extends AppCompatActivity {
                             case "Home":
 
                                 drawerLayout.closeDrawer(GravityCompat.START);
+                                intent = new Intent(getApplicationContext(), HomeActivity.class);
+                                startActivity(intent);
 
                                 break;
                             case "Reservar":
 
                                 drawerLayout.closeDrawer(GravityCompat.START);
-                                intent = new Intent(getApplicationContext(), ReservarPorDataActivity.class);
-                                startActivity(intent);
 
                                 break;
                             case "Cronograma":
@@ -238,6 +236,15 @@ public class HomeActivity extends AppCompatActivity {
 
     }
 
+    public void botaoMostrarDatePicker(View botao) {
+
+//        DialogFragment newFragment = new DatePickerFragment();
+//        Bundle args = new Bundle();
+//        args.putString("Class", "ReservarSala");
+//        newFragment.setArguments(args);
+//        newFragment.show(getFragmentManager(), "datePicker");
+
+    }
 
     private class SalaAdapter extends RecyclerView.Adapter<SalaAdapter.SalaViewHolder> {
 
@@ -260,7 +267,6 @@ public class HomeActivity extends AppCompatActivity {
         @Override
         public void onBindViewHolder(SalaViewHolder holder, int position) {
 
-            // TODO: Popular card
             holder.tipoImageView.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), position % 2 == 0 ? R.drawable.lab_icon : R.drawable.sala_de_aula_icon));
             holder.statusImageView.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), position % 2 == 0 ? R.drawable.circulo_verde : R.drawable.circulo_vermelho));
             holder.statusTextView.setText(position % 2 == 0 ? R.string.disponivel : R.string.ocupada);
@@ -288,21 +294,10 @@ public class HomeActivity extends AppCompatActivity {
                 capacidadeTextView = (TextView) itemView.findViewById(R.id.cardCapacidadeTextView);
                 statusTextView = (TextView) itemView.findViewById(R.id.card_statusTextView);
                 statusImageView = (ImageView) itemView.findViewById(R.id.card_statusImageView);
-                itemView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
 
-                        Intent intent = new Intent(getApplicationContext(), ReservarSalaActivity.class);
-                        startActivity(intent);
-
-                    }
-                });
             }
         }
 
     }
 
-
 }
-
-

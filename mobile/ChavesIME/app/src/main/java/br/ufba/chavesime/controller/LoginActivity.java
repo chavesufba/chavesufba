@@ -3,7 +3,9 @@ package br.ufba.chavesime.controller;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Toast;
 
 import br.ufba.chavesime.CronogramaActivity;
@@ -15,6 +17,8 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
 
 
     }
@@ -52,9 +56,8 @@ public class LoginActivity extends AppCompatActivity {
      */
     public void botaoCadastro(View botao) {
 
-        Intent intent = new Intent(/*LoginActivity.this, CadastroActivity.class,*/); // TODO: Descomentar linha e criar 'CadastroActivity
-        //startActivity(intent); // TODO: Descomentar linha
-        Toast.makeText(LoginActivity.this, "Tela em desenvolvimento.", Toast.LENGTH_SHORT).show(); // TODO: Apagar linha
+        Intent intent = new Intent(LoginActivity.this, CadastroActivity.class);
+        startActivity(intent);
 
     }
 

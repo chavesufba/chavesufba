@@ -8,7 +8,9 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".controller.LoginActivity">
+        <activity
+            android:name=".controller.LoginActivity"
+            android:windowSoftInputMode="stateHidden|stateAlwaysHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -16,9 +18,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".controller.HomeActivity" />
-        <activity android:name=".controller.CadastroPorDataActivity"></activity>
+        <activity android:name=".controller.ReservarPorDataActivity"
+            android:windowSoftInputMode="stateHidden|stateAlwaysHidden"/>
         <activity android:name=".ReservarSalaActivity" />
-        <activity android:name=".CronogramaActivity"></activity>
+        <activity android:name=".CronogramaActivity" />
+        <activity android:name=".controller.CadastroActivity"></activity>
     </application>
 
 </manifest>
