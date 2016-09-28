@@ -13,6 +13,8 @@
     <string name="buscarCronograma">Buscar Cronograma</string>
     <string name="titleReservarSala">Reservar Sala</string>
     <string name="titleCronograma">Cronograma</string>
+    <string name="disponivel">Disponível</string>
+    <string name="ocupada">Ocupada</string>
 
 
     <string-array name="horarios_array">

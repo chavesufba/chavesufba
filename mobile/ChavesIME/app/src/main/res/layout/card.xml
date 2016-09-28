@@ -6,33 +6,45 @@
     android:background="@drawable/card">
 
     <ImageView
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:id="@+id/cardSalaImageView"
-        android:layout_margin="10dp"
-        android:src="@android:drawable/ic_menu_mapmode"/>
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:id="@+id/cardTipoSalaImageView"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/lab_icon"
+        android:gravity="center"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="30dp"
         android:id="@+id/cardSalaTextView"
-        android:layout_toEndOf="@id/cardSalaImageView"
+        android:layout_toEndOf="@id/cardTipoSalaImageView"
+        android:layout_marginTop="6dp"
+        android:layout_marginStart="10dp"
         android:gravity="center"
-        android:layout_alignBottom="@id/cardSalaImageView"
         android:text="Sala 148"
         android:textSize="20sp"
         android:textStyle="bold"/>
 
+    <ImageView
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:id="@+id/card_statusImageView"
+        android:background="@drawable/circulo_vermelho"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="10dp"
+        android:layout_alignParentEnd="true"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/cardTipoSalaTextView"
-        android:layout_margin="10dp"
-        android:text="Laboratório"
-        android:textSize="17sp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignBaseline="@id/cardSalaTextView"
-        android:gravity="center"/>
+        android:id="@+id/card_statusTextView"
+        android:text="Ocupada"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="5dp"
+        android:layout_toStartOf="@id/card_statusImageView"/>
 
     <TextView
         android:layout_width="wrap_content"
