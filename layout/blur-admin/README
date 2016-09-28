@@ -1,0 +1,24 @@
+### Documentação ChavesUFBA ###
+
+1) Requisitos:
+
+git (https://git-scm.com/)
+nodejs (https://nodejs.org)
+
+2) Clonar repositório:
+
+`git clone https://github.com/akveo/blur-admin.git`
+
+3) Instalar dependências:
+
+`cd blur-admin
+npm install`
+
+4) Rodar localmente: (automaticamente irá abrir o template no browser, na porta 3000)
+
+`gulp serve`
+
+5) Rodar em modo produção:
+
+`gulp serve:dist`
+

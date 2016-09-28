@@ -1,0 +1,111 @@
+<div ba-panel ba-panel-class="profile-page">
+  <div class="panel-content">
+    <h3 class="with-line">Informações gerais</h3>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group row clearfix">
+          <label for="inputFirstName" class="col-sm-3 control-label">Foto</label>
+
+          <div class="col-sm-9">
+            <div class="userpic">
+              <div class="userpic-wrapper">
+                <img ng-src="{{ picture }}" ng-click="uploadPicture()">
+              </div>
+              <i class="ion-ios-close-outline" ng-click="removePicture()" ng-if="!noPicture"></i>
+              <a href class="change-userpic" ng-click="uploadPicture()">Modifique sua foto</a>
+              <input type="file" ng-show="false" id="uploadFile" ng-file-select="onFileSelect($files)">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6"></div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group row clearfix">
+          <label for="inputFirstName" class="col-sm-3 control-label">Primeiro nome</label>
+
+          <div class="col-sm-9">
+            <input type="text" class="form-control" id="inputFirstName" placeholder="" value="Anastasiya">
+          </div>
+        </div>
+        <div class="form-group row clearfix">
+          <label for="inputLastName" class="col-sm-3 control-label">Último nome</label>
+
+          <div class="col-sm-9">
+            <input type="text" class="form-control" id="inputLastName" placeholder="" value="">
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group row clearfix">
+          <label class="col-sm-3 control-label">Departamento</label>
+
+          <div class="col-sm-9">
+            <select class="form-control" selectpicker>
+              <option>Web Development</option>
+              <option>System Development</option>
+              <option>Sales</option>
+              <option>Human Resources</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group row clearfix">
+          <label for="inputOccupation" class="col-sm-3 control-label">Cargo</label>
+
+          <div class="col-sm-9">
+            <input type="text" class="form-control" id="inputOccupation" placeholder="" value="Front End Web Developer">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="with-line">Alterar senha</h3>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group row clearfix">
+          <label for="inputPassword" class="col-sm-3 control-label">Senha</label>
+
+          <div class="col-sm-9">
+            <input type="password" class="form-control" id="inputPassword" placeholder="" value="12345678">
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group row clearfix">
+          <label for="inputConfirmPassword" class="col-sm-3 control-label">Confirmar senha</label>
+
+          <div class="col-sm-9">
+            <input type="password" class="form-control" id="inputConfirmPassword" placeholder="">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="with-line">Informações de contato</h3>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group row clearfix">
+          <label for="inputEmail3" class="col-sm-3 control-label">E-mail</label>
+
+          <div class="col-sm-9">
+            <input type="email" class="form-control" id="inputEmail3" placeholder="" value="contact@akveo.com">
+          </div>
+        </div>
+        <div class="form-group row clearfix">
+          <label for="inputPhone" class="col-sm-3 control-label">Telefone</label>
+
+          <div class="col-sm-9">
+            <input type="text" class="form-control" id="inputPhone" placeholder="" value="+1 (23) 456 7890">
+          </div>
+        </div>
+      </div>
+    <button type="button" class="btn btn-primary btn-with-icon save-profile">
+      <i class="ion-android-checkmark-circle"></i>Atualizar perfil
+    </button>
+  </div>
+</div>
