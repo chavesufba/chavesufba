@@ -1,4 +1,4 @@
-package br.ufba.chavesime;
+package br.ufba.chavesime.fragments;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
@@ -8,11 +8,15 @@ import android.widget.EditText;
 
 import java.util.Calendar;
 
+import br.ufba.chavesime.CronogramaActivity;
+import br.ufba.chavesime.R;
+import br.ufba.chavesime.ReservarSalaActivity;
+
 /**
  * Created by Mauricio on 01/09/2016.
  */
 
-public class DatePickerFragment extends DialogFragment {
+public class DatePicker extends DialogFragment {
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {

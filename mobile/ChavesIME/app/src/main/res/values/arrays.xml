@@ -4,6 +4,7 @@
         <item>Salas</item>
         <item>Datas</item>
         <item>Cronograma</item>
+        <item>Passar Chave</item>
         <item>Sair</item>
     </string-array>
     <string-array name="menuDrawablesArray">

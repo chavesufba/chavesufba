@@ -5,14 +5,15 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.TimePicker;
 import android.widget.Toast;
+
+import br.ufba.chavesime.abstrato.DateAndTimeActivities;
+import br.ufba.chavesime.fragments.DatePicker;
+import br.ufba.chavesime.fragments.TimePicker;
+import br.ufba.chavesime.model.Init;
 
 
 public class ReservarSalaActivity extends DateAndTimeActivities {
@@ -27,9 +28,9 @@ public class ReservarSalaActivity extends DateAndTimeActivities {
         setContentView(R.layout.activity_reservar_sala);
         setTitle(getResources().getText(R.string.titleReservarSala));
 
-        Inicializacoes.dateText((EditText) findViewById(R.id.reservaETData));
-        Inicializacoes.timeText((EditText) findViewById(R.id.reservaETHorarioEntrada));
-        Inicializacoes.timeText((EditText) findViewById(R.id.reservaETHorarioSaida));
+        Init.dateText((EditText) findViewById(R.id.reservaETData));
+        Init.timeText((EditText) findViewById(R.id.reservaETHorarioEntrada));
+        Init.timeText((EditText) findViewById(R.id.reservaETHorarioSaida));
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.homeToolbar);
         setSupportActionBar(toolbar);
@@ -58,7 +59,7 @@ public class ReservarSalaActivity extends DateAndTimeActivities {
      */
     public void showDatePickerDialog(View v) {
         Bundle args = new Bundle();
-        DialogFragment newFragment = new DatePickerFragment();
+        DialogFragment newFragment = new DatePicker();
         args.putString("Class", "ReservarSala");
         newFragment.setArguments(args);
         newFragment.show(getFragmentManager(), "datePicker");
@@ -81,7 +82,7 @@ public class ReservarSalaActivity extends DateAndTimeActivities {
                 isEditTextEntrada = false;
                 break;
         }
-        DialogFragment newFragment = new TimePickerFragment();
+        DialogFragment newFragment = new TimePicker();
         args.putString("Class", "ReservarSala");
         newFragment.setArguments(args);
         newFragment.show(getFragmentManager(), "timePicker");
@@ -95,7 +96,7 @@ public class ReservarSalaActivity extends DateAndTimeActivities {
      * @param month
      * @param day
      */
-    public void onDateSet(DatePicker view, int year, int month, int day) {
+    public void onDateSet(android.widget.DatePicker view, int year, int month, int day) {
         // Do something with the date chosen by the user
 
         month++;
@@ -122,7 +123,7 @@ public class ReservarSalaActivity extends DateAndTimeActivities {
      * @param hourOfDay
      * @param minute
      */
-    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+    public void onTimeSet(android.widget.TimePicker view, int hourOfDay, int minute) {
         String hora;
         hora = (hourOfDay < 10) ? "0"  + hourOfDay : "" + hourOfDay;
         hora += (minute < 10)   ? ":0" + minute    : ":" + minute;

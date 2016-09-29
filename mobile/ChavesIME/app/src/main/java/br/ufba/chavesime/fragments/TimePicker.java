@@ -1,4 +1,4 @@
-package br.ufba.chavesime;
+package br.ufba.chavesime.fragments;
 
 import android.app.Dialog;
 import android.app.DialogFragment;
@@ -8,10 +8,14 @@ import android.widget.EditText;
 
 import java.util.Calendar;
 
+import br.ufba.chavesime.CronogramaActivity;
+import br.ufba.chavesime.R;
+import br.ufba.chavesime.ReservarSalaActivity;
+
 /**
  * Created by Mauricio on 16/09/2016.
  */
-public class TimePickerFragment extends DialogFragment {
+public class TimePicker extends DialogFragment {
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         // Use the current time as the default values for the picker

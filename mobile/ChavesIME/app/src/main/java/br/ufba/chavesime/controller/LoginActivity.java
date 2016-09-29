@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import br.ufba.chavesime.CronogramaActivity;
+import br.ufba.chavesime.PassarChaveActivity;
 import br.ufba.chavesime.R;
 
 public class LoginActivity extends AppCompatActivity {

@@ -1,4 +1,4 @@
-package br.ufba.chavesime;
+package br.ufba.chavesime.abstrato;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;

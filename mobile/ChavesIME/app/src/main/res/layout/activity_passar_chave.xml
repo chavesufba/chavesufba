@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="br.ufba.chavesime.PassarChaveActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        app:titleTextColor="@color/white"
+        app:theme="@style/ThemeOverlay.AppCompat"
+        android:id="@+id/homeToolbar"
+        android:textAlignment="center">
+    </android.support.v7.widget.Toolbar>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/homeToolbar"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/background_relative"
+        android:id="@+id/layout_cronogama"
+        android:elevation="7dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:paddingBottom="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Você está portando a chave da sala #"
+            android:id="@+id/etInfoChave"
+            android:layout_below="@+id/homeToolbar"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:textColor="@color/black"
+            android:textSize="22dp"
+            android:gravity="center"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/passarChaveETUsuario"
+            android:inputType="none"
+            android:autoText="false"
+            android:editable="false"
+            android:onClick="onShowGetUserDialog"
+            android:focusable="false"
+            android:clickable="true"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:hint="@string/buscarUsuario"
+            android:gravity="center"
+            android:layout_below="@+id/etInfoChave"
+            android:layout_marginTop="50dp" />
+
+
+    </RelativeLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonConfirmarReserva"
+        android:text="@string/confirmaEnvioChave"
+        android:textColor="@color/white"
+        android:background="@drawable/botao_redondo"
+        android:onClick="botaoPassarChave"
+        android:clickable="false"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:layout_below="@+id/layout_cronogama"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp" />
+
+
+</RelativeLayout>

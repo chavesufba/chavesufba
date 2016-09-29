@@ -1,4 +1,4 @@
-package br.ufba.chavesime;
+package br.ufba.chavesime.model;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -10,20 +10,12 @@ import android.widget.Spinner;
 
 import java.util.Calendar;
 
+import br.ufba.chavesime.R;
+
 /**
  * Created by Mauricio on 08/09/2016.
  */
-public class Inicializacoes {
-
-    public static void dropDownHorarios(Context context, Spinner spinner) {
-        // Preenchimento do DropDown de Horários
-        // Create an ArrayAdapter using the string array and a default spinner layout
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(context,
-                R.array.horarios_array, R.layout.spinner);
-
-        // Apply the adapter to the spinner
-        spinner.setAdapter(adapter);
-    }
+public class Init {
 
     public static void dropDownSalas(Context context, Spinner spinner) {
         // Preenchimento do DropDown de Horários

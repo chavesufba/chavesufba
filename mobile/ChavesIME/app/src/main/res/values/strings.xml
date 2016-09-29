@@ -15,16 +15,14 @@
     <string name="buscarCronograma">Buscar Cronograma</string>
     <string name="titleReservarSala">Reservar Sala</string>
     <string name="titleCronograma">Cronograma</string>
+    <string name="titlePassarChave">Passar Chave</string>
     <string name="infoReserva">Informações da Reserva:</string>
     <string name="selecioneData">selecione a data</string>
     <string name="selecioneHora">selecione a hora</string>
-
-
-    <string-array name="horarios_array">
-        <item>07h00-08h50</item>
-        <item>08h50-10h40</item>
-        <item>10h40-12h30</item>
-    </string-array>
+    <string name="confirmaEnvioChave">Confirmar Envio de Chave</string>
+    <string name="buscarUsuario">Buscar Usuário</string>
+    <string name="confirmar">Confirmar</string>
+    <string name="cancelar">Cancelar</string>
 
     <string-array name="salas_array">
         <item>147</item>

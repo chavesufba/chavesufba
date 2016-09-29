@@ -28,7 +28,8 @@
         android:id="@+id/layoutReserva"
         android:elevation="7dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp">
+        android:layout_marginRight="10dp"
+        android:paddingBottom="10dp">
 
 
 
@@ -162,7 +163,7 @@
     </RelativeLayout>
 
     <Button
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/buttonConfirmarReserva"
         android:text="@string/confirmarReserva"
@@ -170,10 +171,10 @@
         android:background="@drawable/botao_redondo"
         android:onClick="botaoConfirmarReserva"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="25dp"
         android:clickable="false"
         android:layout_below="@+id/layoutReserva"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp" />
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp" />
 
 </RelativeLayout>

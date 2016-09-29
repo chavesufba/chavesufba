@@ -6,11 +6,14 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TimePicker;
 import android.widget.Toast;
+
+import br.ufba.chavesime.abstrato.DateAndTimeActivities;
+import br.ufba.chavesime.fragments.DatePicker;
+import br.ufba.chavesime.fragments.TimePicker;
+import br.ufba.chavesime.model.Init;
 
 public class CronogramaActivity extends DateAndTimeActivities {
 
@@ -21,9 +24,9 @@ public class CronogramaActivity extends DateAndTimeActivities {
         setContentView(R.layout.activity_cronograma);
         setTitle(getResources().getText(R.string.titleCronograma));
 
-        Inicializacoes.dropDownSalas(this, (Spinner) findViewById(R.id.ddownSala));
-        Inicializacoes.dateText((EditText) findViewById(R.id.cronogramaETData));
-        Inicializacoes.timeText((EditText) findViewById(R.id.cronogramaETHorario));
+        Init.dropDownSalas(this, (Spinner) findViewById(R.id.ddownSala));
+        Init.dateText((EditText) findViewById(R.id.cronogramaETData));
+        Init.timeText((EditText) findViewById(R.id.cronogramaETHorario));
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.homeToolbar);
         setSupportActionBar(toolbar);
@@ -40,7 +43,7 @@ public class CronogramaActivity extends DateAndTimeActivities {
      * @param v
      */
     public void showDatePickerDialog(View v) {
-        DialogFragment newFragment = new DatePickerFragment();
+        DialogFragment newFragment = new DatePicker();
         Bundle args = new Bundle();
         args.putString("Class", "Cronograma");
         newFragment.setArguments(args);
@@ -52,7 +55,7 @@ public class CronogramaActivity extends DateAndTimeActivities {
      * @param v
      */
     public void showTimePickerDialog(View v) {
-        DialogFragment newFragment = new TimePickerFragment();
+        DialogFragment newFragment = new TimePicker();
         Bundle args = new Bundle();
         args.putString("Class", "Cronograma");
         newFragment.setArguments(args);
@@ -68,7 +71,7 @@ public class CronogramaActivity extends DateAndTimeActivities {
      * @param month
      * @param day
      */
-    public void onDateSet(DatePicker view, int year, int month, int day) {
+    public void onDateSet(android.widget.DatePicker view, int year, int month, int day) {
         // Do something with the date chosen by the user
 
         month++;
@@ -95,7 +98,7 @@ public class CronogramaActivity extends DateAndTimeActivities {
      * @param hourOfDay
      * @param minute
      */
-    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+    public void onTimeSet(android.widget.TimePicker view, int hourOfDay, int minute) {
         // Do something with the time chosen by the user
 
 
