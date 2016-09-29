@@ -9,11 +9,12 @@
     'ui.router',
 
     'BlurAdmin.pages.dashboard',
-    'BlurAdmin.pages.ui',
-    'BlurAdmin.pages.form',
-    'BlurAdmin.pages.tables',
-    'BlurAdmin.pages.charts',
-    'BlurAdmin.pages.profile'
+    //'BlurAdmin.pages.ui',
+    //'BlurAdmin.pages.form',
+    //'BlurAdmin.pages.tables',
+    //'BlurAdmin.pages.charts',
+    'BlurAdmin.pages.profile',
+    'BlurAdmin.pages.salas'
   ])
       .config(routeConfig);
 

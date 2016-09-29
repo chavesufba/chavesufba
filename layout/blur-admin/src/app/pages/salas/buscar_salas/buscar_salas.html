@@ -1,0 +1,66 @@
+<div class="widgets">
+	<div class="row">
+		<div class="col-md-12">
+			<div ba-panel ba-panel-title="Salas" ba-panel-class="with-scroll">
+				<div class="horizontal-scroll">
+					<form class="ng-pristine ng-valid ng-scope">
+						<div class="form-group col-sm-3">
+							<label>Pavilhão</label>
+							<select class="form-control" selectpicker>
+								<option value="">Selecione...</option>
+								<option>option1</option>
+								<option>option2</option>
+								<option>option3</option>
+							</select>
+						</div>
+						<div class="form-group col-sm-3">
+							<label>Capacidade Máxima</label>
+							<input class="form-control" id="input01" placeholder="Capacidade Máxima" type="text">
+						</div>
+						<div class="form-group col-sm-3">
+							<label>Tipo da Sala</label>
+							<select class="form-control" selectpicker>
+								<option value="">Selecione...</option>
+								<option>option1</option>
+								<option>option2</option>
+								<option>option3</option>
+							</select>
+						</div>
+					</form>
+					<table class="table table-hover" st-table="editableTableData">
+						<thead>
+							<tr class="sortable">
+								<th st-sort="numero" st-sort-default="true">Número</th>
+								<th st-sort="local">Local</th>
+								<th st-sort="tipo">Tipo</th>
+								<th st-sort="cadeiras">Cadeiras</th>
+								<th st-sort="reserva">Reserva</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="item in salas" class="editable-tr-wrap">
+								<td>{{item.numero}}</td>
+								<td><span>{{item.local}}</span></td>
+								<td><span>{{item.tipo}}</span></td>
+								<td><span>{{item.cadeiras}}</span></td>
+								<td>
+									<div class="buttons">
+										<button class="btn btn-primary btn-xs editable-table-button" ng-click="redirect_relatorio(item.numero)">Visualizar</button>
+										<button class="btn btn-success btn-xs editable-table-button">Solicitar</button>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+						<tfoot>
+							<tr>
+								<td colspan="6" class="text-center">
+									<div st-pagination="" st-items-by-page="12" st-displayed-pages="5"></div>
+								</td>
+							</tr>
+						</tfoot>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
