@@ -1,4 +1,4 @@
-package br.ufba.chavesime;
+package br.ufba.chavesime.controller;
 
 import android.app.DialogFragment;
 import android.graphics.Color;
@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import br.ufba.chavesime.R;
 import br.ufba.chavesime.abstrato.DateAndTimeActivities;
 import br.ufba.chavesime.fragments.DatePicker;
 import br.ufba.chavesime.fragments.TimePicker;
@@ -175,7 +176,7 @@ public class ReservarSalaActivity extends DateAndTimeActivities {
             if (horaInvalida) Toast.makeText(this, "Selecione uma hora", Toast.LENGTH_SHORT).show();
 
             if (!horaInvalida && !dataInvalida) {
-                //TODO: API Code
+                //TODO: API código para reservar sala
             }
 
         }

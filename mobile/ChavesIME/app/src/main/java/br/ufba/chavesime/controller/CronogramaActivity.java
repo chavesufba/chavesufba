@@ -1,4 +1,4 @@
-package br.ufba.chavesime;
+package br.ufba.chavesime.controller;
 
 import android.app.DialogFragment;
 import android.graphics.Color;
@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import br.ufba.chavesime.R;
 import br.ufba.chavesime.abstrato.DateAndTimeActivities;
 import br.ufba.chavesime.fragments.DatePicker;
 import br.ufba.chavesime.fragments.TimePicker;
@@ -132,7 +133,7 @@ public class CronogramaActivity extends DateAndTimeActivities {
             }
 
             if (!invalido) {
-                //TODO: API Code
+                //TODO: API Código para buscar cronogramas
             }
         }
         else {

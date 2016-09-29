@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="menuItemsArray">
-        <item>Salas</item>
-        <item>Datas</item>
+        <item>Home</item>
+        <item>Reservar</item>
         <item>Cronograma</item>
         <item>Passar Chave</item>
         <item>Sair</item>
     </string-array>
     <string-array name="menuDrawablesArray">
-        <item>logo_ufba</item>
-        <item>logo_ufba</item>
-        <item>logo_ufba</item>
-        <item>logo_ufba</item>
+        <item>home_icon</item>
+        <item>calendar_icon</item>
+        <item>calendar_icon</item>
+        <item>exit_icon</item>
     </string-array>
 
 </resources>

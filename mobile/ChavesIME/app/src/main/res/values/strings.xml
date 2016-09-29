@@ -23,6 +23,15 @@
     <string name="buscarUsuario">Buscar Usuário</string>
     <string name="confirmar">Confirmar</string>
     <string name="cancelar">Cancelar</string>
+    <string name="disponivel">Disponível</string>
+    <string name="ocupada">Ocupada</string>
+
+
+    <string-array name="horarios_array">
+        <item>07h00-08h50</item>
+        <item>08h50-10h40</item>
+        <item>10h40-12h30</item>
+    </string-array>
 
     <string-array name="salas_array">
         <item>147</item>

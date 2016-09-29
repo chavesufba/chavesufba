@@ -8,9 +8,9 @@ import android.widget.EditText;
 
 import java.util.Calendar;
 
-import br.ufba.chavesime.CronogramaActivity;
+import br.ufba.chavesime.controller.CronogramaActivity;
 import br.ufba.chavesime.R;
-import br.ufba.chavesime.ReservarSalaActivity;
+import br.ufba.chavesime.controller.ReservarSalaActivity;
 
 /**
  * Created by Mauricio on 01/09/2016.

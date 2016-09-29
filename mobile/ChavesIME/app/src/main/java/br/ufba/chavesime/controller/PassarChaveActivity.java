@@ -1,9 +1,11 @@
-package br.ufba.chavesime;
+package br.ufba.chavesime.controller;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+
+import br.ufba.chavesime.R;
 
 public class PassarChaveActivity extends AppCompatActivity {
 

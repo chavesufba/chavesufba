@@ -1,7 +1,9 @@
-package br.ufba.chavesime;
+package br.ufba.chavesime.controller;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import br.ufba.chavesime.R;
 
 public class ReceberChaveActivity extends AppCompatActivity {
 
@@ -18,6 +20,9 @@ public class ReceberChaveActivity extends AppCompatActivity {
             Usuário confirmará ou não a se quer receber a chave.
 
             Seta os valores nos campos de texto.
+            Botões de confirmação
+
+            TODO: API para troca de chave
 
          */
     }
