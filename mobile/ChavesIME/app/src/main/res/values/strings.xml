@@ -13,9 +13,12 @@
     <string name="data">Data</string>
     <string name="sala">Sala:</string>
     <string name="buscarCronograma">Buscar Cronograma</string>
+
     <string name="titleReservarSala">Reservar Sala</string>
     <string name="titleCronograma">Cronograma</string>
     <string name="titlePassarChave">Passar Chave</string>
+    <string name="titleReceberChave">Receber Chave</string>
+
     <string name="infoReserva">Informações da Reserva:</string>
     <string name="selecioneData">selecione a data</string>
     <string name="selecioneHora">selecione a hora</string>

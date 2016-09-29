@@ -2,6 +2,8 @@ package br.ufba.chavesime.controller;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 
@@ -13,6 +15,26 @@ public class PassarChaveActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_passar_chave);
+        setTitle(getResources().getText(R.string.titlePassarChave));
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.homeToolbar);
+        setSupportActionBar(toolbar);
+
+        if (getSupportActionBar() != null) {
+            //TODO: Seta de voltar estar escura, corrigir!
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setHomeButtonEnabled(true);
+
+        }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // handle arrow click here
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     void onShowGetUserDialog(View v) {

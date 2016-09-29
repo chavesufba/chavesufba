@@ -202,6 +202,14 @@ public class HomeActivity extends AppCompatActivity {
                                 drawerLayout.closeDrawer(GravityCompat.START);
                                 intent = new Intent(getApplicationContext(), CronogramaActivity.class);
                                 startActivity(intent);
+                                break;
+
+                            case "Passar Chave":
+
+                                drawerLayout.closeDrawer(GravityCompat.START);
+                                intent = new Intent(getApplicationContext(), PassarChaveActivity.class);
+                                startActivity(intent);
+                                break;
 
                             case "Sair":
 
