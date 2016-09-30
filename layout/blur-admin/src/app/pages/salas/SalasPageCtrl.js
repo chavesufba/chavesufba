@@ -61,12 +61,34 @@
     editableOptions.theme = 'bs3';
   }
 
-  function VisualizarSalaPageCtrl($scope, $filter, $location, editableOptions, editableThemes) {
+  function VisualizarSalaPageCtrl($scope, $filter, $location, editableOptions, editableThemes, toastr) {
+
+
 
     $scope.get_sala = function(){
         $scope.id = $location.hash()
     }
 
+    $scope.get_status_form = function(){
+      $scope.disabledField = true; // desabilitar campo para edição
+      $scope.nameButton = "Alterar Reserva"
+    }
+
+    $scope.update_reserva = function(){
+      if ($scope.disabledField) {
+        $scope.disabledField = false;
+        $scope.nameButton = "Salvar Reserva"
+      } else {
+        $scope.disabledField = true;
+        toastr.success('As informações foram salvas com sucesso!');
+        $scope.nameButton = "Alterar Reserva"
+      }
+    }
+
+    $scope.isDisabledDate = function(currentDate, mode) {
+      return mode === 'day' && (currentDate.getDay() === 0 || currentDate.getDay() === 6);
+    };
+    
   }
 
 })();
