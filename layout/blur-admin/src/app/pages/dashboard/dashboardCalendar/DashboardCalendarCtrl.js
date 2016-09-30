@@ -22,7 +22,7 @@
       selectable: true,
       selectHelper: true,
       select: function (start, end) {
-        var title = prompt('Event Title:');
+        var title = prompt('Digite a sala:');
         var eventData;
         if (title) {
           eventData = {
@@ -38,23 +38,23 @@
       eventLimit: true, // allow "more" link when too many events
       events: [
         {
-          title: 'All Day Event',
+          title: 'Sala 155 - IM',
           start: '2016-03-01',
           color: dashboardColors.silverTree
         },
         {
-          title: 'Long Event',
+          title: 'Sala 10 - PAF I',
           start: '2016-03-07',
           end: '2016-03-10',
           color: dashboardColors.blueStone
         },
         {
-          title: 'Dinner',
+          title: 'Sala 205 - IM',
           start: '2016-03-14T20:00:00',
           color: dashboardColors.surfieGreen
         },
         {
-          title: 'Birthday Party',
+          title: 'Sala 25 - PAF III',
           start: '2016-04-01T07:00:00',
           color: dashboardColors.gossipDark
         }
