@@ -3,6 +3,7 @@
 var gulp = require('gulp');
 var wrench = require('wrench');
 
+require('es6-promise').polyfill();
 /**
  *  This will load all js or coffee files in the gulp directory
  *  in order to load all gulp tasks
