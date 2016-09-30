@@ -1,0 +1,9 @@
+<uib-accordion>
+    <uib-accordion-group panel-class="bootstrap-panel accordion-panel panel-default" ng-repeat="item in accordionData">
+        <uib-accordion-heading>
+            {{ ::item.titulo}} <i class="fa pull-right ion-plus-round"></i>
+        </uib-accordion-heading>
+        {{ ::item.descricao}}
+    </uib-accordion-group>
+</uib-accordion>
+

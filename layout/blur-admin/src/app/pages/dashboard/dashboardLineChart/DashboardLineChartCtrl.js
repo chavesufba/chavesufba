@@ -9,7 +9,7 @@
       .controller('DashboardLineChartCtrl', DashboardLineChartCtrl);
 
   /** @ngInject */
-  function DashboardLineChartCtrl(baConfig, layoutPaths, baUtil) {
+  function DashboardLineChartCtrl($scope, baConfig, layoutPaths, baUtil) {
     var layoutColors = baConfig.colors;
     var graphColor = baConfig.theme.blur ? '#000000' : layoutColors.primary;
     var chartData = [
@@ -122,5 +122,38 @@
     if (chart.zoomChart) {
       chart.zoomChart();
     }
+    
+    $scope.peopleTableData = [
+      {
+        id: 1,
+        responsavel: 'Mark',
+        instituto: 'Matemática',
+        sala: '007',
+      },
+      {
+        id: 2,
+        responsavel: 'Jacob',
+        instituto: 'Matemática',
+        sala: '202',
+      },
+      {
+        id: 3,
+        responsavel: 'Larry',
+        instituto: 'PAF 1',
+        sala: '107',
+      },
+      {
+        id: 4,
+        responsavel: 'John',
+        instituto: 'Matemática',
+        sala: '001',
+      },
+      {
+        id: 5,
+        responsavel: 'Jack',
+        instituto: 'PAF 3',
+        sala: '201',
+      }
+    ];
   }
 })();
