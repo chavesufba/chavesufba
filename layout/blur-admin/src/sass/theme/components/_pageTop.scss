@@ -167,6 +167,24 @@ a.collapse-menu-link {
   }
 }
 
+@media (max-width: 452px) {
+    .al-user-profile {
+        margin-top: -53px;
+    }
+}
+
+@media (max-width: 435px) {
+    .al-user-profile {
+        margin-top: 0px;
+    }
+}
+
+@media (max-width: 343px) {
+    .al-user-profile {
+        margin-top: -53px;
+    }
+}
+
 .profile-toggle-link{
   cursor: pointer;
 }
