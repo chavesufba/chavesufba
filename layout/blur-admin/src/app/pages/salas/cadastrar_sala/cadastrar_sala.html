@@ -4,78 +4,87 @@
             <div ba-panel ba-panel-title="Cadastro" ba-panel-class="panel-primary">
                 <div>
                     <div class="form-horizontal ng-pristine ng-valid ng-scope">
-                        <div class="form-group">
+                        <form>
                             <div class="form-group">
-                                <div class="col-md-4">
-                                    <label class="col-sm-4 control-label">
-                                        <i class="ion-pound" aria-hidden="true"></i> Número da sala </label>
-                                    <div class="col-sm-8">
-                                        <input type="text" class="form-control" id="numero_sala" placeholder="Número"
-                                               required>
+                                <div class="form-group">
+                                    <div class="col-md-4">
+                                        <label class="col-sm-4 control-label">
+                                            <i class="ion-pound" aria-hidden="true"></i> Número da sala </label>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control" ng-model="numero_sala"
+                                                   placeholder="Número"
+                                                   required>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <label class="col-sm-4 control-label">
-                                        <i class="fa fa-users" aria-hidden="true"></i> Capacidade </label>
-                                    <div class="col-sm-8">
-                                        <input type="text" class="form-control" id="capacidade" placeholder="Capacidade"
-                                               required>
+                                    <div class="col-md-4">
+                                        <label class="col-sm-4 control-label">
+                                            <i class="fa fa-users" aria-hidden="true"></i> Capacidade </label>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control" id="capacidade"
+                                                   placeholder="Capacidade"
+                                                   required>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <label class="col-sm-4 control-label">
-                                        <i class="fa fa-map-marker" aria-hidden="true"></i> Pavilhão </label>
-                                    <div class="col-sm-8">
-                                        <input type="text" class="form-control" placeholder="Pavilhão" required>
+                                    <div class="col-md-4">
+                                        <label class="col-sm-4 control-label">
+                                            <i class="fa fa-map-marker" aria-hidden="true"></i> Pavilhão </label>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control" placeholder="Pavilhão" required>
+                                        </div>
                                     </div>
-                                </div>
 
-                            </div>
-                            <!-- Select radio -->
-                            <div class="form-group">
-                                <div class="col-md-4">
-                                    <label class="col-sm-4 control-label">
-                                        <i class="ion-help" aria-hidden="true"></i> Tipo da sala</label>
-                                    <div class="col-md-8">
-                                        <div class="radio">
-                                            <label>
-                                                <input type="radio" name="optionsRadios" id="optionsRadios1"
-                                                       value="option1"
-                                                       checked>
-                                                Sala de aula
-                                            </label>
-                                        </div>
-                                        <div class="radio">
-                                            <label>
-                                                <input type="radio" name="optionsRadios" id="optionsRadios2"
-                                                       value="option2">
-                                                Laboratório
-                                            </label>
-                                        </div>
-                                        <div class="radio">
-                                            <label>
-                                                <input type="radio" name="optionsRadios" id="optionsRadios3"
-                                                       value="option3">
-                                                Auditório
-                                            </label>
-                                        </div>
-                                        <div class="radio">
-                                            <label>
-                                                <input type="radio" name="optionsRadios" id="optionsRadios3"
-                                                       value="option4">
-                                                Sala de reunião
-                                                <p></p>
-                                            </label>
+                                </div>
+                                <!-- Select radio -->
+                                <div class="form-group">
+                                    <div class="col-md-4">
+                                        <label class="col-sm-4 control-label">
+                                            <i class="ion-help" aria-hidden="true"></i> Tipo da sala</label>
+                                        <div class="col-md-8">
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="optionsRadios" id="optionsRadios1"
+                                                           value="option1"
+                                                           checked>
+                                                    Sala de aula
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="optionsRadios" id="optionsRadios2"
+                                                           value="option2">
+                                                    Laboratório
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="optionsRadios" id="optionsRadios3"
+                                                           value="option3">
+                                                    Auditório
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="optionsRadios" id="optionsRadios3"
+                                                           value="option4">
+                                                    Sala de reunião
+                                                    <p></p>
+                                                </label>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-md-8">
-                                    <label class="col-sm-2 control-label">
-                                        <i class="ion-images" aria-hidden="true"></i> Imagem da sala</label>
-                                    <input class="col-md-8" type="file" id="exampleInputFile">
+                                    <div class="col-md-8">
+                                        <label class="col-sm-2 control-label">
+                                            <i class="ion-images" aria-hidden="true"></i> Imagem da sala</label>
+                                        <input class="col-md-8" type="file" id="exampleInputFile">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                            <button type="button" onsubmit="return" class="btn btn-primary btn-with-icon save-profile">
+                                <i class="ion-android-checkmark-circle"></i>Salvar
+                            </button>
+                            <button type="button" class="btn btn-danger btn-with-icon save-profile">
+                                <i class="ion-android-checkmark-circle"></i>Cancelar
+                            </button>
                         </form>
 
                     </div>
