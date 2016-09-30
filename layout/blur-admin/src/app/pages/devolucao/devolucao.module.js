@@ -13,7 +13,7 @@
           templateUrl: 'app/pages/devolucao/devolucao.html',
           controller: 'DevolucaoPageCtrl',
           sidebarMeta: {
-            icon: 'ion-android-home',
+            icon: 'ion-reply',
             order: 0,
           },
         });
