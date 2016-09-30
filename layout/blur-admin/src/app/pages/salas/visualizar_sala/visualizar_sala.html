@@ -69,7 +69,7 @@
 			<div class="form-group row clearfix">
 				<label class="col-sm-3 control-label">Repetir Dia:</label>
 				<div class="col-sm-9">
-					<select class="form-control" ng-disabled = "disabledField" value= "Quinta" multiple selectpicker>
+					<select class="form-control" ng-disabled = "disabledField" multiple selectpicker>
 			      <option>Segunda</option>
 			      <option>Terça</option>
 			      <option>Quarta</option>
@@ -89,7 +89,7 @@
 			<button type="button" ng-click="update_reserva()" class="btn btn-primary btn-with-icon save-profile">
 				<i class="ion-android-checkmark-circle" ></i>{{nameButton}}
 			</button>
-			<button type="button" class="btn btn-danger btn-with-icon save-profile">
+			<button type="button" ng-click="cancel_reserva()" class="btn btn-danger btn-with-icon save-profile">
 				<i class="ion-android-checkmark-circle"></i>Cancelar Reserva
 			</button>
 		</div>

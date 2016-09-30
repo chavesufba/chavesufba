@@ -16,37 +16,37 @@
         cadeiras: 40,
       },
       {
-        numero: 133,
+        numero: 143,
         local: 'IM',
         tipo: 'Laboratório',
         cadeiras: 40,
       },
       {
-        numero: 133,
+        numero: 123,
         local: 'IM',
         tipo: 'Laboratório',
         cadeiras: 40,
       },
       {
-        numero: 133,
+        numero: 144,
         local: 'IM',
         tipo: 'Laboratório',
         cadeiras: 40,
       },
       {
-        numero: 133,
+        numero: 145,
         local: 'IM',
         tipo: 'Laboratório',
         cadeiras: 40,
       },
       {
-        numero: 133,
+        numero: 146,
         local: 'IM',
         tipo: 'Laboratório',
         cadeiras: 40,
       },
       {
-        numero: 133,
+        numero: 147,
         local: 'IM',
         tipo: 'Laboratório',
         cadeiras: 40,
@@ -81,14 +81,17 @@
       } else {
         $scope.disabledField = true;
         toastr.success('As informações foram salvas com sucesso!');
-        $scope.nameButton = "Alterar Reserva"
+        $scope.nameButton = "Alterar Reserva";
+        window.location.href = '#/salas/buscar_salas';
       }
     }
 
-    $scope.isDisabledDate = function(currentDate, mode) {
-      return mode === 'day' && (currentDate.getDay() === 0 || currentDate.getDay() === 6);
-    };
-    
-  }
+    $scope.cancel_reserva = function(){
+        toastr.success('Reserva cancelada com sucesso!');
+        window.location.href = '#/salas/buscar_salas'
+    }
+
+}
+
 
 })();
