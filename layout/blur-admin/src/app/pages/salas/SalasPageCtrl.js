@@ -4,7 +4,8 @@
     angular.module('BlurAdmin.pages.salas')
         .controller('BuscarSalasPageCtrl', BuscarSalasPageCtrl)
         .controller('VisualizarSalaPageCtrl', VisualizarSalaPageCtrl)
-        .controller('CadastrarSalaPageCtrl', CadastrarSalaPageCtrl);
+        .controller('CadastrarSalaPageCtrl', CadastrarSalaPageCtrl)
+        .controller('ReservarSalaPageCtrl', CadastrarSalaPageCtrl);
 
     /** @ngInject */
     function BuscarSalasPageCtrl($scope, $filter, $location, editableOptions, editableThemes) {
@@ -93,6 +94,10 @@
 
     function CadastrarSalaPageCtrl($scope, $filter, $location, editableOptions, editableThemes, toastr) {
         return true;
+    }
+
+    function ReservarSalaPageCtrl($scope, $filter, $location, editableOptions, editableThemes, toastr) {
+        
     }
 
 })();

@@ -41,6 +41,14 @@
                 templateUrl: 'app/pages/salas/visualizar_sala/visualizar_sala.html',
                 title: 'Visualizar Sala',
                 controller: 'VisualizarSalaPageCtrl'
+            }).state('salas.reservar_sala', {
+                url: '/reservar_sala',
+                templateUrl: 'app/pages/salas/reservar_sala/reservar_sala.html',
+                title: 'Reservar Sala',
+                controller: 'ReservarSalaPageCtrl',
+                sidebarMeta: {
+                    order: 300,
+                }
             });
         $urlRouterProvider.when('/salas', '/salas/buscar_salas');
     }
