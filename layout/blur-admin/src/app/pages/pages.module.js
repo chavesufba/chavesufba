@@ -13,9 +13,14 @@
     //'BlurAdmin.pages.form',
     //'BlurAdmin.pages.tables',
     //'BlurAdmin.pages.charts',
+    //'BlurAdmin.pages.profile',
+    'BlurAdmin.pages.cadastrar',
     'BlurAdmin.pages.profile',
     'BlurAdmin.pages.salas',
-    'BlurAdmin.pages.devolucao'
+    'BlurAdmin.pages.devolucao',
+    'BlurAdmin.pages.sugestoes'
+    
+
   ])
       .config(routeConfig);
 
