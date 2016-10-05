@@ -1,0 +1,20 @@
+<div class="horizontal-scroll">
+  <table class="table table-condensed">
+    <thead>
+    <tr>
+      <th class="table-id">#</th>
+      <th><strong>Responsável</strong></th>
+      <th><strong>Instituto</strong></th>
+      <th><strong>Sala</strong></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="item in peopleTableData">
+      <td class="table-id">{{item.id}}</td>
+      <td>{{item.responsavel}}</td>
+      <td>{{item.instituto}}</td>
+      <td>{{item.sala}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
