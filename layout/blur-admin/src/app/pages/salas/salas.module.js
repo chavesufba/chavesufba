@@ -49,6 +49,14 @@
                 sidebarMeta: {
                     order: 300,
                 }
+            }).state('salas.chave', {
+                url: '/chave',
+                templateUrl: 'app/pages/salas/chave/chave.html',
+                title: 'Chave',
+                controller: 'ChavePageCtrl',
+                sidebarMeta: {
+                    order: 300,
+                }
             });
         $urlRouterProvider.when('/salas', '/salas/buscar_salas');
     }

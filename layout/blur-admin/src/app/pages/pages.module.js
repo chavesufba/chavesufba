@@ -15,7 +15,8 @@
     //'BlurAdmin.pages.charts',
     'BlurAdmin.pages.profile',
     'BlurAdmin.pages.salas',
-    'BlurAdmin.pages.devolucao'
+    'BlurAdmin.pages.devolucao',
+    'BlurAdmin.pages.components'
   ])
       .config(routeConfig);
 

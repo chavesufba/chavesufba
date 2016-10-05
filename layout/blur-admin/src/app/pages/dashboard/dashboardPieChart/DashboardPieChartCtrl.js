@@ -15,22 +15,22 @@
       color: pieColor,
       description: 'Salas Disponíveis',
       stats: '7',
-      icon: 'person',
+      icon: 'key',
     }, {
       color: pieColor,
       description: 'Ocorrências Semanais',
       stats: '13',
-      icon: 'money',
+      icon: 'wrench',
     }, {
       color: pieColor,
-      description: 'Cadastros Semanais',
+      description: 'Reservas Pendentes',
       stats: '27',
-      icon: 'face',
+      icon: 'archive',
     }, {
       color: pieColor,
-      description: 'Porcent. de inadimplência',
+      description: 'Reservas na semana',
       stats: '65%',
-      icon: 'refresh',
+      icon: 'calendar',
     }
     ];
 
