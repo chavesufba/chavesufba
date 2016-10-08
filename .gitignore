@@ -8,3 +8,7 @@ mobile/ChavesIME/.idea/misc.xml
 mobile/ChavesIME/build.gradle
 
 mobile/ChavesIME/gradle/wrapper/gradle-wrapper.properties
+
+*.apk
+
+mobile/ChavesIME/projectFilesBackup/.idea/workspace.xml
