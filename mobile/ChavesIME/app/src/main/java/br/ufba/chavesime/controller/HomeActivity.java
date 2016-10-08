@@ -22,6 +22,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.ufba.chavesime.R;
+import br.ufba.chavesime.ReservarSalaActivity;
+import br.ufba.chavesime.model.MainActivity;
 import br.ufba.chavesime.model.Sala;
 
 public class HomeActivity extends AppCompatActivity {
@@ -210,6 +212,11 @@ public class HomeActivity extends AppCompatActivity {
                                 intent = new Intent(getApplicationContext(), PassarChaveActivity.class);
                                 startActivity(intent);
                                 break;
+
+                            case "Exemplo de Requisição":
+
+                                intent = new Intent(getApplicationContext(), MainActivity.class);
+                                startActivity(intent);
 
                             case "Sair":
 

@@ -5,12 +5,14 @@
         <item>Reservar</item>
         <item>Cronograma</item>
         <item>Passar Chave</item>
+        <item>Exemplo de Requisição</item>
         <item>Sair</item>
     </string-array>
     <string-array name="menuDrawablesArray">
         <item>home_icon</item>
         <item>calendar_icon</item>
         <item>calendar_icon</item>
+        <item>keys_icon</item>
         <item>keys_icon</item>
         <item>exit_icon</item>
     </string-array>
