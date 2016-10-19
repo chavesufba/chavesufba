@@ -52,4 +52,4 @@ build
 /src/release
 /release
 /bower_components
-.tmp/
+blur-admin/.tmp/
