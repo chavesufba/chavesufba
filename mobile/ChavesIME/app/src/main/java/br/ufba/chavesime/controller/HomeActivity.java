@@ -17,12 +17,21 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import br.ufba.chavesime.R;
-import br.ufba.chavesime.ReservarSalaActivity;
+import br.ufba.chavesime.model.AppSingleton;
 import br.ufba.chavesime.model.MainActivity;
 import br.ufba.chavesime.model.Sala;
 
@@ -36,7 +45,7 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         addMenu();
-        mostrarSalas();
+        getSalas();
 
     }
 
@@ -80,9 +89,7 @@ public class HomeActivity extends AppCompatActivity {
 
     }
 
-    private void mostrarSalas() {
-
-        ArrayList<Sala> salaArrayList = getSalas();
+    private void mostrarSalas(ArrayList<Sala> salaArrayList) {
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.homeRecyclerView);
 
@@ -98,24 +105,50 @@ public class HomeActivity extends AppCompatActivity {
 
     }
 
-    private ArrayList<Sala> getSalas() {
+    private void getSalas() {
 
-        ArrayList<Sala> salaArrayList = new ArrayList<>();
+        String url = getString(R.string.apiUrl) + getString(R.string.jsonRoomsAPI);
 
-        //TODO: Pegar todas as salas via web
-        salaArrayList.add(new Sala());
-        salaArrayList.add(new Sala());
-        salaArrayList.add(new Sala());
-        salaArrayList.add(new Sala());
-        salaArrayList.add(new Sala());
-        salaArrayList.add(new Sala());
-        salaArrayList.add(new Sala());
-        salaArrayList.add(new Sala());
-        salaArrayList.add(new Sala());
-        salaArrayList.add(new Sala());
-        salaArrayList.add(new Sala());
+        JsonArrayRequest jsonArrayReq = new JsonArrayRequest(url, new Response.Listener<JSONArray>() {
+            @Override
+            public void onResponse(JSONArray response) {
 
-        return salaArrayList;
+                try {
+
+                    //Get the instance of JSONArray that contains JSONObjects
+                    JSONArray jsonArray = new JSONArray(response.toString());
+
+                    ArrayList<Sala> arrayList = new ArrayList<>();
+
+                    //Iterate the jsonArray and print the info of JSONObjects
+                    for (int i = 0; i < jsonArray.length(); i++) {
+                        JSONObject jsonObject = jsonArray.getJSONObject(i);
+
+                        int id = jsonObject.optInt("id");
+                        String number = jsonObject.optString("number");
+                        int capacity = jsonObject.optInt("capacity");
+                        String roomType = jsonObject.optString("roomType");
+
+                        Sala sala = new Sala(id, number, capacity, roomType);
+                        arrayList.add(sala);
+
+                    }
+
+                    mostrarSalas(arrayList);
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+            }
+        });
+
+        // Adding JsonObject request to request queue
+        AppSingleton.getInstance(getApplicationContext()).addToRequestQueue(jsonArrayReq, "whatever");
 
     }
 
@@ -265,7 +298,13 @@ public class HomeActivity extends AppCompatActivity {
         @Override
         public void onBindViewHolder(SalaViewHolder holder, int position) {
 
-            // TODO: Popular card
+            Sala sala = salaArrayList.get(position);
+
+            String capacityString = getString(R.string.capacity) + " " + sala.getCapacity();
+            String numberString = getString(R.string.room) + " " + sala.getNumber();
+
+            holder.capacidadeTextView.setText(capacityString);
+            holder.numeroTextView.setText(numberString);
             holder.tipoImageView.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), position % 2 == 0 ? R.drawable.lab_icon : R.drawable.sala_de_aula_icon));
             holder.statusImageView.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), position % 2 == 0 ? R.drawable.circulo_verde : R.drawable.circulo_vermelho));
             holder.statusTextView.setText(position % 2 == 0 ? R.string.disponivel : R.string.ocupada);
@@ -298,6 +337,7 @@ public class HomeActivity extends AppCompatActivity {
                     public void onClick(View v) {
 
                         Intent intent = new Intent(getApplicationContext(), ReservarSalaActivity.class);
+                        intent.putExtra("sala", salaArrayList.get(getAdapterPosition()));
                         startActivity(intent);
 
                     }

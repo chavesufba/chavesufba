@@ -88,17 +88,17 @@ public class ReservarPorDataActivity extends AppCompatActivity {
         ArrayList<Sala> salaArrayList = new ArrayList<>();
 
         //TODO: Pegar todas as salas via web
-        salaArrayList.add(new Sala());
-        salaArrayList.add(new Sala());
-        salaArrayList.add(new Sala());
-        salaArrayList.add(new Sala());
-        salaArrayList.add(new Sala());
-        salaArrayList.add(new Sala());
-        salaArrayList.add(new Sala());
-        salaArrayList.add(new Sala());
-        salaArrayList.add(new Sala());
-        salaArrayList.add(new Sala());
-        salaArrayList.add(new Sala());
+//        salaArrayList.add(new Sala());
+//        salaArrayList.add(new Sala());
+//        salaArrayList.add(new Sala());
+//        salaArrayList.add(new Sala());
+//        salaArrayList.add(new Sala());
+//        salaArrayList.add(new Sala());
+//        salaArrayList.add(new Sala());
+//        salaArrayList.add(new Sala());
+//        salaArrayList.add(new Sala());
+//        salaArrayList.add(new Sala());
+//        salaArrayList.add(new Sala());
 
         return salaArrayList;
 

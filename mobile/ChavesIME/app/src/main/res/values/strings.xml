@@ -42,5 +42,9 @@
         <item>154</item>
         <item>Todas</item>
     </string-array>
+    <string name="jsonRoomsAPI">rooms</string>
+    <string name="apiUrl">http://chavesufba.herokuapp.com/api/v1/</string>
+    <string name="capacity">Capacidade</string>
+    <string name="room">Sala</string>
 
 </resources>
