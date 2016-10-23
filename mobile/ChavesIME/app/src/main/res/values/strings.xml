@@ -7,27 +7,12 @@
     <string name="preenchaCorretamente">Por favor, preencha os campos Matrícula e Senha corretamente.</string>
     <string name="usuarioNaoCadastrado">Usuário não cadastrado.</string>
     <string name="confirmarReserva">Confirmar Reserva</string>
-    <string name="horario">Horário</string>
-    <string name="horarioEntrada">Entrada</string>
-    <string name="horarioSaida">Saída</string>
-    <string name="data">Data</string>
+    <string name="horario">Horário:</string>
+    <string name="data">Data:</string>
     <string name="sala">Sala:</string>
     <string name="buscarCronograma">Buscar Cronograma</string>
-
     <string name="titleReservarSala">Reservar Sala</string>
     <string name="titleCronograma">Cronograma</string>
-    <string name="titlePassarChave">Passar Chave</string>
-    <string name="titleReceberChave">Receber Chave</string>
-
-    <string name="infoReserva">Informações da Reserva:</string>
-    <string name="selecioneData">selecione a data</string>
-    <string name="selecioneHora">selecione a hora</string>
-    <string name="confirmaEnvioChave">Confirmar Envio de Chave</string>
-    <string name="buscarUsuario">Buscar Usuário</string>
-    <string name="confirmar">Confirmar</string>
-    <string name="cancelar">Cancelar</string>
-    <string name="disponivel">Disponível</string>
-    <string name="ocupada">Ocupada</string>
 
 
     <string-array name="horarios_array">
@@ -42,9 +27,5 @@
         <item>154</item>
         <item>Todas</item>
     </string-array>
-    <string name="jsonRoomsAPI">rooms</string>
-    <string name="apiUrl">http://chavesufba.herokuapp.com/api/v1/</string>
-    <string name="capacity">Capacidade</string>
-    <string name="room">Sala</string>
 
 </resources>

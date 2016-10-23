@@ -1,7 +1,6 @@
 package br.ufba.chavesime.controller;
 
 import android.content.Intent;
-import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
@@ -17,22 +16,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.List;
 
+import br.ufba.chavesime.CronogramaActivity;
 import br.ufba.chavesime.R;
-import br.ufba.chavesime.model.AppSingleton;
-import br.ufba.chavesime.model.MainActivity;
+import br.ufba.chavesime.ReservarSalaActivity;
 import br.ufba.chavesime.model.Sala;
 
 public class HomeActivity extends AppCompatActivity {
@@ -45,7 +34,7 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         addMenu();
-        getSalas();
+        mostrarSalas();
 
     }
 
@@ -89,7 +78,9 @@ public class HomeActivity extends AppCompatActivity {
 
     }
 
-    private void mostrarSalas(ArrayList<Sala> salaArrayList) {
+    private void mostrarSalas() {
+
+        ArrayList<Sala> salaArrayList = getSalas();
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.homeRecyclerView);
 
@@ -105,50 +96,24 @@ public class HomeActivity extends AppCompatActivity {
 
     }
 
-    private void getSalas() {
+    private ArrayList<Sala> getSalas() {
 
-        String url = getString(R.string.apiUrl) + getString(R.string.jsonRoomsAPI);
+        ArrayList<Sala> salaArrayList = new ArrayList<>();
 
-        JsonArrayRequest jsonArrayReq = new JsonArrayRequest(url, new Response.Listener<JSONArray>() {
-            @Override
-            public void onResponse(JSONArray response) {
+        //TODO: Pegar todas as salas via web
+        salaArrayList.add(new Sala());
+        salaArrayList.add(new Sala());
+        salaArrayList.add(new Sala());
+        salaArrayList.add(new Sala());
+        salaArrayList.add(new Sala());
+        salaArrayList.add(new Sala());
+        salaArrayList.add(new Sala());
+        salaArrayList.add(new Sala());
+        salaArrayList.add(new Sala());
+        salaArrayList.add(new Sala());
+        salaArrayList.add(new Sala());
 
-                try {
-
-                    //Get the instance of JSONArray that contains JSONObjects
-                    JSONArray jsonArray = new JSONArray(response.toString());
-
-                    ArrayList<Sala> arrayList = new ArrayList<>();
-
-                    //Iterate the jsonArray and print the info of JSONObjects
-                    for (int i = 0; i < jsonArray.length(); i++) {
-                        JSONObject jsonObject = jsonArray.getJSONObject(i);
-
-                        int id = jsonObject.optInt("id");
-                        String number = jsonObject.optString("number");
-                        int capacity = jsonObject.optInt("capacity");
-                        String roomType = jsonObject.optString("roomType");
-
-                        Sala sala = new Sala(id, number, capacity, roomType);
-                        arrayList.add(sala);
-
-                    }
-
-                    mostrarSalas(arrayList);
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                error.printStackTrace();
-            }
-        });
-
-        // Adding JsonObject request to request queue
-        AppSingleton.getInstance(getApplicationContext()).addToRequestQueue(jsonArrayReq, "whatever");
+        return salaArrayList;
 
     }
 
@@ -168,7 +133,7 @@ public class HomeActivity extends AppCompatActivity {
         String[] menuItemsList;
         List<Drawable> menuDrawablesList;
 
-        private MenuAdapter(String[] menuItemsList, List<Drawable> menuDrawablesList) {
+        public MenuAdapter(String[] menuItemsList, List<Drawable> menuDrawablesList) {
 
             this.menuItemsList = menuItemsList;
             this.menuDrawablesList = menuDrawablesList;
@@ -188,10 +153,6 @@ public class HomeActivity extends AppCompatActivity {
         public void onBindViewHolder(MenuItemViewHolder holder, int position) {
 
             holder.menuItemImageView.setImageDrawable(menuDrawablesList.get(position));
-
-            int color = ContextCompat.getColor(getApplicationContext(), R.color.colorPrimary);
-            holder.menuItemImageView.setColorFilter(color, PorterDuff.Mode.SRC_ATOP);
-
             holder.menuItemTextView.setText(menuItemsList[position]);
 
         }
@@ -201,12 +162,12 @@ public class HomeActivity extends AppCompatActivity {
             return menuItemsList.length;
         }
 
-        class MenuItemViewHolder extends RecyclerView.ViewHolder {
+        protected class MenuItemViewHolder extends RecyclerView.ViewHolder {
 
             private ImageView menuItemImageView;
             private TextView menuItemTextView;
 
-            private MenuItemViewHolder(View itemView) {
+            public MenuItemViewHolder(View itemView) {
                 super(itemView);
 
                 menuItemImageView = (ImageView) itemView.findViewById(R.id.menuItemImageView);
@@ -215,45 +176,29 @@ public class HomeActivity extends AppCompatActivity {
                 itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-
+                        
                         String item = menuItemsList[getAdapterPosition()];
                         Intent intent;
 
                         switch (item) {
-                            case "Home":
+                            case "Salas":
 
                                 drawerLayout.closeDrawer(GravityCompat.START);
 
                                 break;
-                            case "Reservar":
+                            case "Datas":
 
-                                drawerLayout.closeDrawer(GravityCompat.START);
-                                intent = new Intent(getApplicationContext(), ReservarPorDataActivity.class);
+                                intent = new Intent(getApplicationContext(), CadastroPorDataActivity.class);
                                 startActivity(intent);
 
                                 break;
                             case "Cronograma":
 
-                                drawerLayout.closeDrawer(GravityCompat.START);
                                 intent = new Intent(getApplicationContext(), CronogramaActivity.class);
-                                startActivity(intent);
-                                break;
-
-                            case "Passar Chave":
-
-                                drawerLayout.closeDrawer(GravityCompat.START);
-                                intent = new Intent(getApplicationContext(), PassarChaveActivity.class);
-                                startActivity(intent);
-                                break;
-
-                            case "Exemplo de Requisição":
-
-                                intent = new Intent(getApplicationContext(), MainActivity.class);
                                 startActivity(intent);
 
                             case "Sair":
 
-                                drawerLayout.closeDrawer(GravityCompat.START);
                                 logoutUser();
 
                                 break;
@@ -281,7 +226,7 @@ public class HomeActivity extends AppCompatActivity {
 
         private ArrayList<Sala> salaArrayList;
 
-        SalaAdapter(ArrayList<Sala> salaArrayList) {
+        public SalaAdapter(ArrayList<Sala> salaArrayList) {
 
             this.salaArrayList = salaArrayList;
 
@@ -298,16 +243,7 @@ public class HomeActivity extends AppCompatActivity {
         @Override
         public void onBindViewHolder(SalaViewHolder holder, int position) {
 
-            Sala sala = salaArrayList.get(position);
-
-            String capacityString = getString(R.string.capacity) + " " + sala.getCapacity();
-            String numberString = getString(R.string.room) + " " + sala.getNumber();
-
-            holder.capacidadeTextView.setText(capacityString);
-            holder.numeroTextView.setText(numberString);
-            holder.tipoImageView.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), position % 2 == 0 ? R.drawable.lab_icon : R.drawable.sala_de_aula_icon));
-            holder.statusImageView.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), position % 2 == 0 ? R.drawable.circulo_verde : R.drawable.circulo_vermelho));
-            holder.statusTextView.setText(position % 2 == 0 ? R.string.disponivel : R.string.ocupada);
+            // TODO: Popular card
 
         }
 
@@ -316,28 +252,23 @@ public class HomeActivity extends AppCompatActivity {
             return salaArrayList.size();
         }
 
-        class SalaViewHolder extends RecyclerView.ViewHolder {
+        protected class SalaViewHolder extends RecyclerView.ViewHolder {
 
             private TextView numeroTextView;
-            private ImageView tipoImageView;
+            private TextView tipoTextView;
             private TextView capacidadeTextView;
-            private ImageView statusImageView;
-            private TextView statusTextView;
 
-            SalaViewHolder(View itemView) {
+            public SalaViewHolder(View itemView) {
                 super(itemView);
 
                 numeroTextView = (TextView) itemView.findViewById(R.id.cardSalaTextView);
-                tipoImageView = (ImageView) itemView.findViewById(R.id.cardTipoSalaImageView);
+                tipoTextView = (TextView) itemView.findViewById(R.id.cardTipoSalaTextView);
                 capacidadeTextView = (TextView) itemView.findViewById(R.id.cardCapacidadeTextView);
-                statusTextView = (TextView) itemView.findViewById(R.id.card_statusTextView);
-                statusImageView = (ImageView) itemView.findViewById(R.id.card_statusImageView);
                 itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
 
                         Intent intent = new Intent(getApplicationContext(), ReservarSalaActivity.class);
-                        intent.putExtra("sala", salaArrayList.get(getAdapterPosition()));
                         startActivity(intent);
 
                     }

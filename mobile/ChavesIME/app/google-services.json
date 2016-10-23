@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "50238607757",
+    "firebase_url": "https://chavesime-11575.firebaseio.com",
+    "project_id": "chavesime-11575",
+    "storage_bucket": "chavesime-11575.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:50238607757:android:ffc7b5b05280cb6e",
+        "android_client_info": {
+          "package_name": "br.ufba.chavesime"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "50238607757-td5v11pe1v9pqvvjqk0ht5peba5cquet.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQr5Aw8-9BJrkC0tQXj74L08NGrmPQlj4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
